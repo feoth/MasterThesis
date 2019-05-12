@@ -71,7 +71,8 @@
 % Absolute value declaration
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
 \DeclarePairedDelimiter{\norm}{\|}{\|}
-\DeclareMathOperator\erf{erf}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\trace}{tr}
 
 % Page breaking in multi-line formulae
 \allowdisplaybreaks[1]
@@ -417,7 +418,7 @@ U(x,r,t) = U(x,t), \qquad V(x,r,t) = -\nu r \pdiff U x.
 \begin{equation}\label{2_murnaghan_pot}
 \Pi = \frac{\lambda + 2\mu}{2}I_1(\tens{E})^2 - 2\mu I_2(\tens{E}) + \frac{l+2m}{3}I_1(\tens{E})^3 - 2m I_1(\tens{E}) I_2(\tens{E}) + n I_3(\tens{E}),
 \end{equation}
-где $I_1(\tens{E}) = {\rm tr}\ \tens{E},\  I_2(\tens{E}) = \lsq({\rm tr}\ \tens{E})^2 - {\rm tr}\ \tens{E}^2\rsq/\,2,\ I_3(\tens{E}) = {\rm det}\ \tens{E}$ являются инвариантами тензора деформации Грина
+где $I_1(\tens{E}) = \trace \tens{E},\  I_2(\tens{E}) = \lsq(\trace \tens{E})^2 - \trace \tens{E}^2\rsq/\,2,\ I_3(\tens{E}) = \trace \tens{E}$ являются инвариантами тензора деформации Грина
 $\tens{E} = \lb (\nabla\vect{U})^T + \nabla\vect{U} + (\nabla\vect{U})^T\cdot\nabla\vect{U} \rb / \, 2$, 
 $\lambda$,~$\mu$ -- коэффициенты Ламе, $l$,~$m$,~$n$ -- модули Мурнагана. Здесь и далее в тексте работы все частные производные берутся по координатам в отсчётной конфигурации. Отметим, что модель Мурнагана используется здесь потому, что она является общей моделью слабо нелинейных упругих деформаций.
 %Here, and in the following, all spatial derivatives are taken with respect to the natural (underformed) coordinates {\color{red} in the reference configuration. It is worth noting that the Murnaghan model is used here in the sense of the general weakly-nonlinear theory of elasticity, assuming small values of strain (see the discussion in \cite{DSS}).}
@@ -438,7 +439,6 @@ $\lambda$,~$\mu$ -- коэффициенты Ламе, $l$,~$m$,~$n$ -- моду
 \begin{equation}\label{2_assumptions}
 U = U(x,r,t), \quad V = V(x,r,t), \quad W = 0.
 \end{equation}
-
 Уравнения движения, в условиях \eqref{2_assumptions} и отсутствия массовых сил, принимают вид
 \begin{align}
 \label{2_eq1_0}
@@ -449,13 +449,13 @@ U = U(x,r,t), \quad V = V(x,r,t), \quad W = 0.
 а третье уравнение представляется в виде тождества $0\equiv 0$. Здесь $P_{\alpha \beta}$ обозначает компоненту первого тензора Пиолы-Кирхгофа, а $\rho$ -- плотность материала.
 %while the third equation is identically satisfied. Here, $P_{\alpha \beta}$ denote components of the first Piola-Kirchhoff stress tensor, {\color{red} and we do not use different fonts for the coordinates in the current and reference configurations in these notations.}
 
-На поверхности стержня задано осесимметричное напряжение:
+Зададим на поверхности стержня осесимметричное напряжение $\vect{P_b} = (P(x,t), T(x,t), 0)$. Тогда граничные условия имеют вид:
 %Уравнения движения дополнены граничными условиями на поверхности стержня:
 %The equations of motion are complemented by the surface boundary conditions
-\begin{equation} \label{2_bc}
-\tens{P}\cdot \vect{n} = \vect{P_b} = (P(x,t), T(x,t), 0),
-\end{equation}
-где $\vect{n}$ -- нормаль к поверхности. Следовательно, граничные условия представляются в виде
+%\begin{equation} \label{2_bc}
+%\tens{P}\cdot \vect{n} = \vect{P_b} = (P(x,t), T(x,t), 0),
+%\end{equation}
+%где $\vect{n}$ -- нормаль к поверхности. Следовательно, граничные условия представляются в виде
 %where $\vect{n}$ is the normal vector to the lateral surface, and $\vect{P_b} = (P(x,t), T(x,t), 0)$, i.e. we consider the rotationally symmetric case, and $P(x,t)$ and $T(x,t)$ are the known tractions.
 %Thus, the boundary conditions are given by
 \begin{align}
@@ -514,32 +514,18 @@ E = \frac{\mu(3\lambda + 2\mu)}{\lambda + \mu}, \quad \nu = \frac{\lambda}{2 (\l
 \begin{equation} 
 \label{eq1_1}
 \begin{split}
-	\rho& c^2 U_{0tt} - (\lambda + 2\mu) U_{0xx} - 2(\lambda + \mu) V_{1x} - 4\mu U_2 + \Phi_1(U_0, V_1, U_2) \varepsilon\\
-	&+ \left[\rho c^2 U_{2tt} - (\lambda + 2\mu)U_{2xx} - 4(\lambda + \mu)V_{3x} - 16\mu U_4\right] r^2 + O(\varepsilon^2, \varepsilon r^2, r^4) = 0,
+	&\rho c^2 U_{0tt} - (\lambda + 2\mu) U_{0xx} - 2(\lambda + \mu) V_{1x} - 4\mu U_2 + \Phi_1(U_0, V_1, U_2) \varepsilon\\
+	&\qquad+ \left[\rho c^2 U_{2tt} - (\lambda + 2\mu)U_{2xx} - 4(\lambda + \mu)V_{3x} - 16\mu U_4\right] r^2 + O(\varepsilon^2, \varepsilon r^2, r^4) = 0,
 \end{split}
 \end{equation}
 \begin{equation} \label{eq2_1}
 \begin{split}
-	r &\big( \rho c^2 V_{1tt} - \mu V_{1xx} - 2(\lambda + \mu)U_{2x} - 8(\lambda + 2\mu)V_3 - \Phi_2(U_0, V_1, U_2, V_3)\varepsilon \\
-	&- \left[\rho c^2 V_{3tt} - \mu V_{3xx} - 4(\lambda + \mu)U_{4x} - 24(\lambda + 2\mu)V_5 \right] r^2  + O(\varepsilon^2, \varepsilon r^2, r^4)\big) = 0,
+	&r \big( \rho c^2 V_{1tt} - \mu V_{1xx} - 2(\lambda + \mu)U_{2x} - 8(\lambda + 2\mu)V_3 - \Phi_2(U_0, V_1, U_2, V_3)\varepsilon \\
+	&\qquad- \left[\rho c^2 V_{3tt} - \mu V_{3xx} - 4(\lambda + \mu)U_{4x} - 24(\lambda + 2\mu)V_5 \right] r^2  + O(\varepsilon^2, \varepsilon r^2, r^4)\big) = 0,
 \end{split}
 \end{equation}
-где индексы $x$ и $t$ обозначают частные производные по соответствующим переменным, а нелинейные члены выражаются следующим образом:
-\begin{equation} \nonumber
-\begin{split}
-&\begin{split}
-\Phi_1 =& \, 2\left[(-4\lambda - 4\mu + n - 4m) V_1 - 2(\lambda + 2\mu + m) U_{0x}\right] U_2 \\
-&- \left[ 2(2l + \lambda) V_1 + (3\lambda + 6\mu + 2l + 4m) U_{0x} \right] U_{0xx} \\
-& - \left[ (2\lambda + 2\mu + 8l + n) V_1 + 2(\lambda + \mu + 2l + m) U_{0x} \right] V_{1x},
-\end{split} \\
-&\begin{split}
-\Phi_2 =& \, \frac12 \left[2 (2\lambda + 2\mu + 8l + n) U_{2x} + (4\lambda + 4\mu + 4m - n) V_{1xx} + 32(2\lambda + 3\mu + 2l + 2m) V_3 \right] V_1 \\
-& + 2(\lambda + \mu + 2l + m) U_{0x} U_{2x} + 2(\mu + m)\left[ U_{0xx} + 4 V_{1x} \right] U_2 + (\lambda + 2\mu + m)(U_{0x} V_{1x})_x\\
-& + \frac14(12\lambda + 20\mu + 12m - n) V_{1x}^2 + 8(\lambda + 2l) V_3 U_{0x} + (4\lambda + 12\mu + 4m + n) U_2^2.
-\end{split}
-\end{split}
-\end{equation}
-Функции $ U_2 $, $ V_3 $, $ U_4 $ могут быть получены из \eqref{eq1_1} и \eqref{eq2_1}, приравнивая к нулю коэффициенты при различных степенях $r$:
+где индексы $x$ и $t$ обозначают частные производные по соответствующим переменным, а выражения для нелинейных функций $\Phi_1$ и $\Phi_2$ приведены в Приложении~1.
+Функции $ U_2 $, $ V_3 $, $ U_4 $ могут быть получены из \eqref{eq1_1} и \eqref{eq2_1}, приравнивая к нулю коэффициенты при различных степенях~$r$:
 %The functions $ U_2 $, $ V_3 $, $ U_4 $ can be obtained from \eqref{eq1_1} and \eqref{eq2_1} by equating to zero the coefficients at different powers of $\delta$, and they have the following form:
 \begin{align}
 \label{U2}
@@ -585,10 +571,9 @@ V_1(x, t) = \frac{ \mu(3\lambda + 2\mu) P - \lambda(\lambda + \mu) U_{0x}}{2(\la
 где неизвестные функции $f$ и $g$ могут быть найдены из условия равенства нулю коэффициентов при $\varepsilon$ и $\delta^2$ в \eqref{2_bc_rr_subst}. Затем, подстановка $V_1$ в \eqref{2_bc_rx_subst} приводит к следующему уравнению типа Буссинеска относительно $U_0$:
 \begin{equation} \label{eq_u0_asympt}
 \begin{split}
-\rho c^2 U_{0tt} - \frac{\mu(3\lambda + 2\mu)}{\lambda + \mu}\left(U_{0xx} + \frac{\lambda}{\lambda + \mu} P_x + 2T\right)
-- \varepsilon \left(\gamma_1 U_{0x}^2 + \gamma_2 U_x P + \gamma_3 P^2 \right)_x \\
-+ \delta^2 \bigg[\frac{\rho ^2 c^4 U_{0tttt}}{8\mu} + \frac{\mu (3\lambda + 2\mu)^2 U_{0xxxx}}{8(\lambda + \mu)^2} - \frac{\rho c^2 \left(7\lambda^2 + 10\lambda\mu + 4\mu^2\right) U_{0xxtt}}{8(\lambda + \mu)^2} + F \bigg]\\
-+ O(\varepsilon^2, \varepsilon\delta^2, \delta^4) = 0.
+\rho c^2 U_{0tt} &- \frac{\mu(3\lambda + 2\mu)}{\lambda + \mu}\left(U_{0xx} + \frac{\lambda}{\lambda + \mu} P_x + 2T\right) - \varepsilon \left(\gamma_1 U_{0x}^2 + \gamma_2 U_x P + \gamma_3 P^2 \right)_x \\
+&+ \delta^2 \bigg[\frac{\rho ^2 c^4 U_{0tttt}}{8\mu} + \frac{\mu (3\lambda + 2\mu)^2 U_{0xxxx}}{8(\lambda + \mu)^2} - \frac{\rho c^2 \left(7\lambda^2 + 10\lambda\mu + 4\mu^2\right) U_{0xxtt}}{8(\lambda + \mu)^2} + F \bigg]\\
+&\hspace{100mm}+ O(\varepsilon^2, \varepsilon\delta^2, \delta^4) = 0.
 \end{split}
 \end{equation}
 Здесь нелинейные коэффициенты $\gamma_i$ и функция $F$ представляются в виде:
@@ -616,19 +601,17 @@ L_{2} V_1 + \varepsilon N_2(U_0, V_1, \dots) &= M_2(U_0, T, \dots) + O(\varepsil
 \end{split}
 \end{equation}
 Здесь $V_1$ исключена из линейной части уравнений точно, а не асимптотически. Чтобы исключить её из нелинейной части, воспользуемся выражением \eqref{v1_asympt} и получим следующее уравнение:
-\begin{equation} \label{eq_u0_bostr}
+\begin{gather} \label{eq_u0_bostr}
 \begin{split}
 %\nonumber
-\rho c^2 U_{0tt} - \frac{\mu(3\lambda + 2\mu)}{\lambda + \mu} \left(U_{0xx} + \frac{\lambda}{\lambda + \mu} P_x + 2T\right)
+\rho c^2 U_{0tt} &- \frac{\mu(3\lambda + 2\mu)}{\lambda + \mu} \left(U_{0xx} + \frac{\lambda}{\lambda + \mu} P_x + 2T\right)
 - \varepsilon \left(\gamma_1 U_{0x}^2 + \gamma_2 U_x P + \gamma_3 P^2 \right)_x \\
-+ \delta^2 \bigg[\frac{\rho ^2 c^4 (\lambda^2 + 5\lambda\mu + 5\mu^2) U_{0tttt}}{8\mu(\lambda+2\mu)(\lambda+\mu)} - \frac{\rho c^2 \left(6\lambda^2 + 21\lambda \mu + 14\mu^2\right) U_{0xxtt}}{8(\lambda + 2\mu)(\lambda + \mu)} \\
-+ \frac{\mu(3\lambda + 2\mu) U_{0xxxx}}{4(\lambda + \mu)} + G\bigg] + O(\varepsilon^2, \varepsilon\delta^2, \delta^4) = 0,
-\end{split} 
-\end{equation}
-где
-\begin{equation} \nonumber
+&\hspace{15mm}+ \delta^2 \bigg[\frac{\rho ^2 c^4 (\lambda^2 + 5\lambda\mu + 5\mu^2) U_{0tttt}}{8\mu(\lambda+2\mu)(\lambda+\mu)} - \frac{\rho c^2 \left(6\lambda^2 + 21\lambda \mu + 14\mu^2\right) U_{0xxtt}}{8(\lambda + 2\mu)(\lambda + \mu)} \\
+&\hspace{55mm} + \frac{\mu(3\lambda + 2\mu) U_{0xxxx}}{4(\lambda + \mu)} + G\bigg] + O(\varepsilon^2, \varepsilon\delta^2, \delta^4) = 0,
+\end{split}\\
+\nonumber
 G  = \frac{\mu(3\lambda + 2\mu)}{8(\lambda + \mu)^2} \left[(3\lambda + 2\mu) P_{xxx} - \frac{\rho c^2(\lambda^2 + 4\lambda\mu + 2\mu^2)}{\mu(\lambda + 2\mu)} P_{xtt} - \frac{2\rho c^2 (2\lambda + 3\mu)}{\lambda + 2\mu} T_{tt} - 2\lambda T_{xx}\right]. 
-\end{equation}
+\end{gather}
 Отметим, что в линейном приближении при $\varepsilon = 0$ уравнение \eqref{eq_u0_bostr} совпадает с уравнениями, выведенными для линейной задачи в~\cite{bostrm2000}.
 Из \eqref{eq_u0_asympt} и \eqref{eq_u0_bostr}, задавая $\varepsilon = 0$, $\delta = 0$ и $P = T = 0$, получаем скорость линейной продольной волны в бесконечно тонком стержне:
 \begin{equation}
@@ -691,41 +674,41 @@ U_{0tt} &- U_{0xx} - 2\left(\nu P_{x} + T\right) - \frac{\varepsilon}{2 E} \left
 %	F^{(2)} = \frac{1}{4} \bigg[ (1 + \nu) P_{xxx} - \frac{1 + \nu - 2\nu^2 - 2\nu^3}{1 - \nu} P_{xtt} - \frac{3 - 5\nu - 4\nu^2 + 4\nu^3}{2(1 - \nu)} T_{tt} - 2\nu T_{xx}\bigg]. &&
 %\end{flalign}
 %}
-Дифференцируя \eqref{eq_u0_fin} по $x$, получаем два уравнения для продольного <<напряжения>> $e = U_{0x}$:
+Дифференцируя \eqref{eq_u0_fin} по $x$, получаем два уравнения для продольной <<деформации>> $u = U_{0x}$:
 \begin{equation}\label{eq_u0_def_fin}
 \begin{split}
-e_{tt} - e_{xx} &- 2\left(\nu P_{xx} + T_x\right) - \frac{\varepsilon}{2 E} \left(\beta_1 e^2 + 2 \beta_2 e P + \beta_3 P^2\right)_{xx}\\
-& + \delta^2 \left(\alpha_1^{(i)} e_{tttt} + \alpha_2^{(i)} e_{xxtt} + \alpha_3^{(i)} e_{xxxx} + F^{(i)}_x \right) + O(\varepsilon^2, \varepsilon\delta^2, \delta^4) = 0, \quad i = 1,2.
+u_{tt} - u_{xx} &- 2\left(\nu P_{xx} + T_x\right) - \frac{\varepsilon}{2 E} \left(\beta_1 u^2 + 2 \beta_2 u P + \beta_3 P^2\right)_{xx}\\
+& + \delta^2 \left(\alpha_1^{(i)} u_{tttt} + \alpha_2^{(i)} u_{xxtt} + \alpha_3^{(i)} u_{xxxx} + F^{(i)}_x \right) + O(\varepsilon^2, \varepsilon\delta^2, \delta^4) = 0, \quad i = 1,2.
 \end{split}
 \end{equation}
 
 Три различных асимптотических модели следует из уравнений \eqref{eq_u0_def_fin} в зависимости от соотношения между двумя малыми параметрами $\varepsilon$ и $\delta$. Во-первых, если нелинейность сильно слабее дисперсии, т.е. $ \varepsilon\ll\delta^2\ll1 $, мы можем асимптотически свести \eqref{eq_u0_def_fin} к линейным уравнениям:
 \begin{equation}\label{eq_u0_def_3}
 \begin{split}
-e_{tt} - e_{xx} - 2\left(\nu P_{xx} + T_x\right) + \delta^2 \left(\alpha_1^{(i)} e_{tttt} + \alpha_2^{(i)} e_{xxtt} + \alpha_3^{(i)} e_{xxxx} + F^{(i)}_x \right) + O(\delta^4) = 0, \\
+u_{tt} - u_{xx} - 2\left(\nu P_{xx} + T_x\right) + \delta^2 \left(\alpha_1^{(i)} u_{tttt} + \alpha_2^{(i)} u_{xxtt} + \alpha_3^{(i)} u_{xxxx} + F^{(i)}_x \right) + O(\delta^4) = 0, \\
 \quad i = 1,2,
 \end{split}
 \end{equation}
 из которых следует, что эволюция волн будет происходить главным образом под влиянием дисперсии.
 Во-вторых, если нелинейность намного сильнее дисперсии, т.е. $ \delta^2\ll\varepsilon\ll1 $, мы получаем уравнение
 \begin{equation}\label{eq_u0_def_2}
-e_{tt} - e_{xx} - 2\left(\nu P_{xx} + T_x\right) - \frac{\varepsilon}{2 E} \left(\beta_1 e^2 + 2 \beta_2 e P + \beta_3 P^2\right)_{xx} + O(\varepsilon^2) = 0,
+u_{tt} - u_{xx} - 2\left(\nu P_{xx} + T_x\right) - \frac{\varepsilon}{2 E} \left(\beta_1 u^2 + 2 \beta_2 u P + \beta_3 P^2\right)_{xx} + O(\varepsilon^2) = 0,
 \end{equation}
 означающее, что эволюция волн определяется нелинейностью.
 Наконец, если нелинейное и дисперсионные слагаемые уравновешивают друг друга, т.е. $ \varepsilon \sim \delta^2 $, мы получаем <<модель максимального баланса>> (''maximal balance model'' согласно терминологии, используемой в~\cite{Ablowitz2011}):
 \begin{equation}\label{eq_u0_def_1}
 \begin{split}
-e_{tt} - e_{xx} - 2&\left(\nu P_{xx} + T_x\right) - \varepsilon \bigg[\frac{1}{2E} \left(\beta_1 e^2 + 2 \beta_2 e P + \beta_3 P^2\right)_{xx}\\
-& - \frac{\delta^2}{\varepsilon} \left(\alpha_1^{(i)} e_{tttt} + \alpha_2^{(i)} e_{xxtt} + \alpha_3^{(i)} e_{xxxx} + F^{(i)}_x \right)\bigg] + O(\varepsilon^2) = 0, \quad i = 1,2.
+u_{tt} - u_{xx} - 2&\left(\nu P_{xx} + T_x\right) - \varepsilon \bigg[\frac{1}{2E} \left(\beta_1 u^2 + 2 \beta_2 u P + \beta_3 P^2\right)_{xx}\\
+& - \frac{\delta^2}{\varepsilon} \left(\alpha_1^{(i)} u_{tttt} + \alpha_2^{(i)} u_{xxtt} + \alpha_3^{(i)} u_{xxxx} + F^{(i)}_x \right)\bigg] + O(\varepsilon^2) = 0, \quad i = 1,2.
 \end{split}
 \end{equation}
-Последняя асимптотическая модель \eqref{eq_u0_def_1} (обе её версии $i = 1,2$) является уравнением типа Буссинеска. Хорошо известно, что такие уравнения имеют решения в виде солитонов сжатия~\cite{Ablowitz2011,S_book}.
+Последняя асимптотическая модель \eqref{eq_u0_def_1} (обе её версии $i = 1,2$) является уравнением типа Буссинеска. Хорошо известно, что такие уравнения имеют решения в виде солитонов сжатия~\cite{S_book}.
 
 Отбросим члены порядка $O(\varepsilon^2)$ в уравнениях \eqref{eq_u0_def_1} и запишем их в размерном виде, не меняя обозначения для размерных переменных:
 \begin{equation}\label{eq_dim}
 \begin{split}
-e_{tt} - c^2 e_{xx} - \frac{2}{\rho}\bigg(\nu&P_{xx} + \frac1R T_x\bigg) - \left(\frac{\beta_1}{2\rho} e^2 + \frac{\beta_2}{\rho E} e P + \frac{\beta_3}{2\rho E^2} P^2\right)_{xx}\\
-& + R^2 \bigg(\frac{\alpha_1^{(i)}}{c^2} e_{tttt} + \alpha_2^{(i)} e_{xxtt} + c^2\alpha_3^{(i)} e_{xxxx} + G^{(i)} \bigg) = 0, \quad i = 1,2,
+u_{tt} - c^2 u_{xx} - \frac{2}{\rho}\bigg(\nu&P_{xx} + \frac1R T_x\bigg) - \left(\frac{\beta_1}{2\rho} u^2 + \frac{\beta_2}{\rho E} u P + \frac{\beta_3}{2\rho E^2} P^2\right)_{xx}\\
+& + R^2 \bigg(\frac{\alpha_1^{(i)}}{c^2} u_{tttt} + \alpha_2^{(i)} u_{xxtt} + c^2\alpha_3^{(i)} u_{xxxx} + G^{(i)} \bigg) = 0, \quad i = 1,2,
 \end{split}
 \end{equation}
 где $c^2 = E/\rho$, а размерные функции $G^{(i)}$ представляются в виде:
@@ -741,29 +724,29 @@ $$
 тогда уравнения (\ref{eq_u0_def_1}) асимптотически сводятся к
 \begin{equation}\label{eq_u0_def_1a}
 \begin{split}
-e_{tt} - e_{xx}  - \varepsilon \bigg[2&\left(\nu \hat P_{xx} + \hat T_x\right) + \frac{1}{2E} \left(\beta_1 e^2  \right)_{xx} \\
-& + \frac{\delta^2}{\varepsilon} \left(\alpha_1^{(i)} e_{tttt} + \alpha_2^{(i)} e_{xxtt} + \alpha_3^{(i)} e_{xxxx}  \right)\bigg] + O(\varepsilon^2) = 0, \quad i = 1,2,
+u_{tt} - u_{xx}  - \varepsilon \bigg[2&\left(\nu \hat P_{xx} + \hat T_x\right) + \frac{1}{2E} \left(\beta_1 u^2  \right)_{xx} \\
+& + \frac{\delta^2}{\varepsilon} \left(\alpha_1^{(i)} u_{tttt} + \alpha_2^{(i)} u_{xxtt} + \alpha_3^{(i)} u_{xxxx}  \right)\bigg] + O(\varepsilon^2) = 0, \quad i = 1,2,
 \end{split}
 \end{equation}
 а в размерном виде эти уравнения записываются следующим образом:
 \begin{equation}\label{eq_dim_weak_trac}
 \begin{split}
-e_{tt} - c^2 e_{xx} - \frac{2}{\rho}\left(\nu P_{xx} + \frac1R T_x\right)  &- \left(\frac{\beta_1}{2\rho} e^2 \right)_{xx} \\
-+ R^2& \bigg(\frac{\alpha_1^{(i)}}{c^2} e_{tttt} + \alpha_2^{(i)} e_{xxtt} + c^2\alpha_3^{(i)} e_{xxxx}  \bigg) = 0, \quad i = 1,2.
+u_{tt} - c^2 u_{xx} - \frac{2}{\rho}\left(\nu P_{xx} + \frac1R T_x\right)  &- \left(\frac{\beta_1}{2\rho} u^2 \right)_{xx} \\
++ R^2& \bigg(\frac{\alpha_1^{(i)}}{c^2} u_{tttt} + \alpha_2^{(i)} u_{xxtt} + c^2\alpha_3^{(i)} u_{xxxx}  \bigg) = 0, \quad i = 1,2.
 \end{split}
 \end{equation}
 Отметим, что в случае условия свободной поверхности, т.е. $P = T = 0$, уравнения \eqref{eq_dim} и~\eqref{eq_dim_weak_trac} сводятся к
 \begin{equation}\label{eq_dim_free_surf}
-e_{tt} - c^2 e_{xx} = \frac{\beta_1}{2\rho}\left(e^2\right)_{xx} -  R^2 \bigg(\frac{\alpha_1^{(i)}}{c^2} e_{tttt} + \alpha_2^{(i)} e_{xxtt} + c^2\alpha_3^{(i)} e_{xxxx}\bigg), \quad i = 1,2.
+u_{tt} - c^2 u_{xx} = \frac{\beta_1}{2\rho}\left(u^2\right)_{xx} -  R^2 \bigg(\frac{\alpha_1^{(i)}}{c^2} u_{tttt} + \alpha_2^{(i)} u_{xxtt} + c^2\alpha_3^{(i)} u_{xxxx}\bigg), \quad i = 1,2.
 \end{equation}
 
 Сравним оба уравнения \eqref{eq_dim_free_surf} с <<уравнением с двумя дисперсиями>>, полученным Самсоновым и Порубовым~\cite{SP}:
 \begin{equation}\label{eq_dim_SP}
-e_{tt} - c^2 e_{xx} =  \frac{\beta_1}{2 \rho} (e^2)_{xx} - \frac{\nu (1-\nu) R^2}{2} e_{xxtt} + \frac{\nu c^2 R^2}{2} e_{xxxx},
+u_{tt} - c^2 u_{xx} =  \frac{\beta_1}{2 \rho} (u^2)_{xx} - \frac{\nu (1-\nu) R^2}{2} u_{xxtt} + \frac{\nu c^2 R^2}{2} u_{xxxx},
 \end{equation}
 и уравнением, выведенным Островским и Сутиным~\cite{OS}:
 \begin{equation}\label{eq_dim_OS}
-e_{tt} - c^2 e_{xx} =  \frac{\beta_1}{2 \rho} (e^2)_{xx} + \frac{\nu^2 R^2}{2} e_{xxtt}.
+u_{tt} - c^2 u_{xx} =  \frac{\beta_1}{2 \rho} (u^2)_{xx} + \frac{\nu^2 R^2}{2} u_{xxtt}.
 \end{equation}
 Все четыре модели имеют одинаковое нелинейное слагаемое, однако дисперсионные слагаемые отличаются. Уравнения \eqref{eq_dim_SP} и \eqref{eq_dim_OS} могут быть записаны в форме уравнений \eqref{eq_dim_free_surf} с помощью следующих дисперсионных коэффициентов:
 %\begin{flalign} \nonumber
@@ -778,9 +761,9 @@ e_{tt} - c^2 e_{xx} =  \frac{\beta_1}{2 \rho} (e^2)_{xx} + \frac{\nu^2 R^2}{2} e
 &\alpha_1^{(4)} = 0,&\quad &\alpha_2^{(4)} = -\frac{\nu^2}{2},& \quad &\alpha_3^{(4)} = 0.&
 \end{align}
 
-%Moreover, we note that all four Boussinesq-type models shown above are not asymptotically exact equations, i.e. in non-dimensional form they include both $O(1)$ and $O(\varepsilon)$ terms, and if we regularise both equations (\ref{eq_dim_free_surf}) and (\ref{eq_dim_SP}) using the leading order relation $ e_{tt} = c^2 e_{xx} + \dots$, all three equations will reduce to the asymptotically equivalent equation (\ref{eq_dim_OS}). However, the models have different dispersive properties, and, similarly to the linear studies (see \cite{bostrm2000} and references to the classical linear results therein), it would be interesting to compare the performance of these four nonlinear models with the exact (numerical) solution of the problem.  We also note that the three dispersive terms present in the equation (\ref{eq_dim_free_surf}) are similar to the dispersive terms in the Boussinesq-type equation derived from a nonlinear lattice model for a waveguide in \cite{KSZ}. 
-Отметим, что все четыре приведённые выше модели не являются асимптотически точными уравнениями, т.е. в безразмерной форме они содержат как члены $ O(1) $, так и $ O(\varepsilon) $. Следовательно, все эти уравнения могут быть <<регуляризованы>> (сведены) к одному уравнению, в котором есть только одно дисперсионное слагаемое, используя отношение в главном порядке $ e_{tt} = c^2 e_{xx} + \mbox{<\,малые члены\,>} $. Коэффициент при этом дисперсионном слагаемом является суммой всех дисперсионных коэффициентов и одинаков для всех четырех уравнений:
-%We note that all four Boussinesq-type models shown above are not asymptotically exact equations, i.e. in non-dimensional form they include both $O(1)$ and $O(\varepsilon)$ terms. Hence all these equations can be ``regularised'' to the form where there is just one dispersive term, using the leading order relation $ e_{tt} = c^2 e_{xx} + \dots \;$. Coefficient of that dispersive term is a sum of all dispersive coefficients and it is the same for all four equations:
+%Moreover, we note that all four Boussinesq-type models shown above are not asymptotically exact equations, i.e. in non-dimensional form they include both $O(1)$ and $O(\varepsilon)$ terms, and if we regularise both equations (\ref{eq_dim_free_surf}) and (\ref{eq_dim_SP}) using the leading order relation $ u_{tt} = c^2 u_{xx} + \dots$, all three equations will reduce to the asymptotically equivalent equation (\ref{eq_dim_OS}). However, the models have different dispersive properties, and, similarly to the linear studies (see \cite{bostrm2000} and references to the classical linear results therein), it would be interesting to compare the performance of these four nonlinear models with the exact (numerical) solution of the problem.  We also note that the three dispersive terms present in the equation (\ref{eq_dim_free_surf}) are similar to the dispersive terms in the Boussinesq-type equation derived from a nonlinear lattice model for a waveguide in \cite{KSZ}. 
+Отметим, что все четыре приведённые выше модели не являются асимптотически точными уравнениями, т.е. в безразмерной форме они содержат как члены $ O(1) $, так и $ O(\varepsilon) $. Следовательно, все эти уравнения могут быть <<регуляризованы>> (сведены) к одному уравнению, в котором есть только одно дисперсионное слагаемое, используя отношение в главном порядке $ u_{tt} = c^2 u_{xx} + \mbox{<\,малые члены\,>} $. Коэффициент при этом дисперсионном слагаемом является суммой всех дисперсионных коэффициентов и одинаков для всех четырех уравнений:
+%We note that all four Boussinesq-type models shown above are not asymptotically exact equations, i.e. in non-dimensional form they include both $O(1)$ and $O(\varepsilon)$ terms. Hence all these equations can be ``regularised'' to the form where there is just one dispersive term, using the leading order relation $ u_{tt} = c^2 u_{xx} + \dots \;$. Coefficient of that dispersive term is a sum of all dispersive coefficients and it is the same for all four equations:
 \begin{equation} \label{alpha_sum}
 \alpha_1^{(i)} + \alpha_2^{(i)} + \alpha_3^{(i)} = -\frac{\nu^2}{2}, \quad i = \overline{1,4},
 \end{equation}
@@ -792,13 +775,13 @@ e_{tt} - c^2 e_{xx} =  \frac{\beta_1}{2 \rho} (e^2)_{xx} + \frac{\nu^2 R^2}{2} e
 
 Поскольку модель с одним дисперсионным членом проще, чем модель с тремя дисперсионными членами, представляется целесообразным получить регуляризованную модель с внешним воздействием. Из уравнения \eqref{eq_u0_def_1} следует асимптотическое соотношение 
 \begin{equation}\label{key}
-e_{tt} = e_{xx} + 2(\nu P_{xx} + T_{x}) + \mathcal{O}(\varepsilon),
+u_{tt} = u_{xx} + 2(\nu P_{xx} + T_{x}) + \mathcal{O}(\varepsilon),
 \end{equation}
-с помощью которого можно выразить $e_{tttt}$ и $e_{xxxx}$ через $e_{xxtt}$. Получаемая таким образом из (\ref{eq_u0_def_1}, $i=1$) модель в размерной форме имеет вид:
+с помощью которого можно выразить $u_{tttt}$ и $u_{xxxx}$ через $u_{xxtt}$. Получаемая таким образом из (\ref{eq_u0_def_1}, $i=1$) модель в размерной форме имеет вид:
 \begin{equation}\label{2_eq_fin_reg}
 \begin{split}
-&e_{tt} - c^2 e_{xx} - \frac{2}{\rho}\bigg(\nu P_{xx} + \frac1R T_x\bigg) - \left(\frac{\beta_1}{2\rho} e^2 + \frac{\beta_2}{\rho E} e P + \frac{\beta_3}{2\rho E^2} P^2\right)_{xx} - \frac{\nu^2 R^2}{2} e_{xxtt}\\
-& + \frac{R^2}{4} \lb\frac{1-\nu}{\rho}P_{xxxx} - \frac{1-3\nu+4\nu^3}{E}P_{xxtt}\rb + \frac{(1+\nu)R}{2}\lb \frac{1}{E}T_{xtt} - \frac{1}{\rho}T_{xxx} \rb = 0, \quad i = 1,2,
+&u_{tt} - c^2 u_{xx} - \frac{2}{\rho}\bigg(\nu P_{xx} + \frac1R T_x\bigg) - \left(\frac{\beta_1}{2\rho} u^2 + \frac{\beta_2}{\rho E} u P + \frac{\beta_3}{2\rho E^2} P^2\right)_{xx} - \frac{\nu^2 R^2}{2} u_{xxtt}\\
+& + \frac{R^2}{4} \lb\frac{1-\nu}{\rho}P_{xxxx} - \frac{1-3\nu+4\nu^3}{E}P_{xxtt}\rb + \frac{(1+\nu)R}{2}\lb \frac{1}{E}T_{xtt} - \frac{1}{\rho}T_{xxx} \rb = 0, \quad i = 1,2.
 \end{split}
 \end{equation}
 
@@ -867,42 +850,40 @@ V(x, r, t) &= V_1(x, r, t)\delta + V_3(x, r, t) \delta^3 + V_5(x, r, t) \delta^5
 \begin{equation} \label{2_bc_rx_2}
 \mu \left(U_{2r} + V_{1x}\right) + \varepsilon\widetilde{\Psi}_2(U_0, V_1, U_2, V_3) + \delta^2 \mu \left(U_{4r}+V_{3x}\right) + O(\varepsilon^2, \varepsilon\delta^2, \delta^4) = \frac{\mu(3\lambda + 2\mu)}{\lambda + \mu} T(x,t).
 \end{equation}
-Собирая коэффициенты при одинаковых степенях $\delta$ в уравнениях \eqref{eq1_2} и \eqref{eq2_2}, получаем систему нелинейных обыкновенных дифференциальных уравнений относительно переменной $r$, где все нелинейные слагаемые умножены на $\varepsilon$. Мы решаем эти уравнения с граничными условиями, следующими из \eqref{2_bc_rr_2} и \eqref{2_bc_rx_2}, используя асимптотические разложения функций по $\varepsilon$. Покажем эту процедуру на примере функции $V_1$, которую представим в следующем виде:
+Собирая коэффициенты при одинаковых степенях $\delta$ в уравнениях \eqref{eq1_2} и \eqref{eq2_2}, получаем систему нелинейных обыкновенных дифференциальных уравнений по переменной $r$, где все нелинейные слагаемые порядка $n$ умножены на $\varepsilon^{n-1}$. Мы решаем эти уравнения с граничными условиями, следующими из \eqref{2_bc_rr_2} и \eqref{2_bc_rx_2}, используя асимптотические разложения функций по $\varepsilon$. Покажем эту процедуру на примере функции $V_1$, которую представим в следующем виде:
 %Collecting the coefficients in front of the equal powers of $\delta$ in the equations \eqref{eq1_2} and \eqref{eq2_2} we obtain a set of {\color{red}nonlinear} ordinary differential equations for the functions of variable $r$, where all nonlinear terms are multiplied by $\varepsilon$. We solve these equations with the boundary conditions following from  \eqref{2_bc_rr_2} and \eqref{2_bc_rx_2} using asymptotic expansions of functions in $\varepsilon$. For example, we write the function $V_1$ as
 \begin{equation}\label{v1_eps_expantion}
 V_1(x,r,t) = f(x,r,t) + \varepsilon g(x,r,t) + \O{\varepsilon^2},
 \end{equation}
-где $f$ и $g$ неизвестные функции. Подставляя \eqref{v1_eps_expantion} в \eqref{eq2_2} получаем ОДУ относительно $f$ в главном порядке по $\varepsilon$:
+где $f$ и $g$ неизвестные функции. Подставляя разложение \eqref{v1_eps_expantion} в уравнение \eqref{eq2_2}, получаем ОДУ относительно $f$ в главном порядке по $\varepsilon$:
 \begin{equation}\label{v1_f_ode}
-f_{rr} + \frac{f_r}{r} - \frac{f}{r^2} = 0.
+f_{rr} + \frac{f_r}{r} - \frac{f}{r^2} = 0,
 \end{equation}
-Граничные условия, следующие из \eqref{2_bc_rr_2}, принимают вид:
-\begin{equation}\label{v1_f_bc1}
-(\lambda + 2\mu)f_r + \lambda f = -\lambda U_{0x} + \frac{\mu(3\lambda + 2\mu)}{\lambda + \mu} P(x,t) \quad\text{at } r = 1.
-\end{equation}
-Задача \eqref{v1_f_ode}, \eqref{v1_f_bc1} дополняется условием симметрии, требующим, чтобы поперечное перемещение было равно нулю в центре стержня:
-\begin{equation}\label{v1_f_bc2}
-f = 0 \quad\text{при}\quad r = 0.
-\end{equation}
-Общее решение уравнения \eqref{v1_f_ode} имеет вид:
+общее решение которого имеет вид:
 \begin{equation}\label{v1_f_gen_sln}
 f(x,r,t) = C_1(x,t)r + \frac{C_2(x,t)}{r} .
 \end{equation}
+Неизвестные функции $C_1$ и $C_2$ находятся из граничного условия, следующего из \eqref{2_bc_rr_2}, а также из условия симметрии, согласно которому поперечное перемещение равно нулю в центре стержня:
+\begin{align}
+\label{v1_f_bc1}
+(\lambda + 2\mu)f_r + \lambda f = -\lambda U_{0x} + \frac{\mu(3\lambda + 2\mu)}{\lambda + \mu} P(x,t) \quad\text{при}\quad r = 1,\\
+\label{v1_f_bc2}
+f = 0 \quad\text{при}\quad r = 0.
+\end{align}
 Из \eqref{v1_f_bc2} следует, что $C_2 \equiv 0$, а $C_1$ находится из \eqref{v1_f_bc1}, что даёт итоговое выражение для~$f$:
 \begin{equation}\label{v1_f_sln}
 f(x,r,t) = \frac{r}{2(\lambda + \mu)} \left(\frac{ \mu(3\lambda + 2\mu)}{\lambda + \mu} P - \lambda U_{0x}\right).
 \end{equation}
-Используя \eqref{v1_f_sln}, получаем уравнение относительно функции~$g$ в следующем порядке по~$\varepsilon$:
-\begin{equation}\label{v1_g_ode}
-g_{rr} + \frac{g_r}{r} - \frac{g}{r^2} = 0,
-\end{equation}
-с граничными условиями:
-\begin{align}\label{v1_g_bc1}
+Используя \eqref{v1_f_sln}, получаем уравнение относительно функции~$g$ в следующем порядке по~$\varepsilon$ с граничными условиями в виде:
+\begin{align}
+\label{v1_g_ode}
+\quad g_{rr} + \frac{g_r}{r} - \frac{g}{r^2} &= 0,\\
+\label{v1_g_bc1}
 (\lambda + 2\mu)g_r + \lambda g &= a_1 U_{0x}^2 + a_2 U_{0x} P + a_3 P^2 \hspace{-2cm}&\text{при}\quad r = 1,\\
 \label{v1_g_bc2}
 g &= 0 \hspace{-2cm}&\text{при}\quad r = 0.
 \end{align}
-Решение уравнений \eqref{v1_g_ode}, \eqref{v1_g_bc1}, \eqref{v1_g_bc2} имеет вид:
+Решение задачи \eqref{v1_g_ode} -- \eqref{v1_g_bc2} имеет форму:
 \begin{equation}\label{v1_g_sln}
 g(x,t) = \frac{r (a_1 U_{0x}^2 + a_2 U_{0x} P + a_3 P^2)}{2(\lambda + \mu)}.
 \end{equation}
@@ -939,7 +920,7 @@ U^*(x) = \kappa x,
 %We non-dimensionalise the pre-stretch using the same scaling factor as $U$ in \eqref{scales1} which yields 
 %that $\kappa$ is of order $\varepsilon$:
 \begin{equation} \label{scales_pre_stretch}
-\tilde U^* = \frac{U^*}{\varepsilon L} = \tilde\kappa \tilde x, \quad \mbox{where} \quad  \tilde \kappa = \frac{\kappa}{\varepsilon}.
+\tilde U^* = \frac{U^*}{\varepsilon L} = \tilde\kappa \tilde x, \quad \mbox{где} \quad  \tilde \kappa = \frac{\kappa}{\varepsilon}.
 \end{equation}
 Более того, будем предполагать, что в предварительно растянутом состоянии на стержень не действуют внешние напряжения, приложенные к его поверхности. Решая уравнения движения \eqref{2_eq1_0} и \eqref{2_eq2_0} с граничными условиями \eqref{2_bc_rr} и \eqref{2_bc_rx} при $P = T = 0$, записанными в безразмерном виде с помощью \eqref{scales1} и \eqref{scales_pre_stretch}, получаем поперечное перемещение $\tilde V^*$ в растянутом стержне:
 %Moreover, we assume that in the initial pre-stretched state there are zero tractions on the rod's lateral surface. Solving the equations of motion \eqref{2_eq1_0} and \eqref{2_eq2_0} with the free surface (i.e. $P = T = 0$)  boundary conditions \eqref{2_bc_rr} and \eqref{2_bc_rx} written in dimensionless form using \eqref{scales1} and \eqref{scales_pre_stretch}, we obtain the radial displacement $\tilde V^*$ in the pre-stretched rod: 
@@ -961,31 +942,31 @@ V(x,r,t) &= V^*(r) + r V_1 + r^3 V_3 + r^5 V_5 + O(r^7).
 %Following the steps of the derivation of the equations \eqref{eq_u0_def_fin} using the power series \eqref{pre_stretch_u_series_scaled}, \eqref{pre_stretch_v_series_scaled} instead of \eqref{u_series_scaled}, \eqref{v_series_scaled} we obtain the equations
 \begin{equation}\label{pre_stretch_eq_u0_def_fin}
 \begin{split}
-e_{tt} - \left(1 + \varepsilon\kappa\frac{\beta_1}{E}\right)e_{xx} - 2 \left[\left(\nu + \varepsilon\kappa \frac{\beta_2}{2E} \right) P_{xx} + T_x\right] - \varepsilon \left(\frac{\beta_1}{2 E} e^2 + \frac{\beta_2}{E} e P + \frac{\beta_3}{2E} P^2\right)_{xx}\\
-+ \delta^2 \left(\alpha_1^{(i)} e_{tttt} + \alpha_2^{(i)} e_{xxtt} + \alpha_3^{(i)} e_{xxxx} + F^{(i)}_x \right) + O(\varepsilon^2, \varepsilon\delta^2, \delta^4) = 0, \quad i = 1,2,
+u_{tt} - \left(1 + \varepsilon\kappa\frac{\beta_1}{E}\right)u_{xx} - 2 \left[\left(\nu + \varepsilon\kappa \frac{\beta_2}{2E} \right) P_{xx} + T_x\right] - \varepsilon \left(\frac{\beta_1}{2 E} u^2 + \frac{\beta_2}{E} u P + \frac{\beta_3}{2E} P^2\right)_{xx}\\
++ \delta^2 \left(\alpha_1^{(i)} u_{tttt} + \alpha_2^{(i)} u_{xxtt} + \alpha_3^{(i)} u_{xxxx} + F^{(i)}_x \right) + O(\varepsilon^2, \varepsilon\delta^2, \delta^4) = 0, \quad i = 1,2,
 \end{split}
 \end{equation}
-где использованы обозначения, введённые в предыдущих разделах. Отметим, что здесь $e = U_{0x}$ является возмущением относительно растянутого состояния, в то время как в уравнениях \eqref{eq_u0_def_fin} оно обозначает возмущение относительно недеформированного состояния.
+где использованы обозначения, введённые в предыдущих разделах. Отметим, что здесь $u = U_{0x}$ является возмущением относительно растянутого состояния, в то время как в уравнениях \eqref{eq_u0_def_fin} оно обозначает возмущение относительно недеформированного состояния.
 %where we used notations introduced in the previous sections.
 %We note that here $e = U_{0x}$ is the deviation from the pre-stretched state, while in the equations \eqref{eq_u0_def_fin} it represents the deviation from the undeformed state.
 
 Предполагая, что нелинейные и дисперсионные слагаемые одного порядка ($\varepsilon \sim \delta^2$) и отбрасывая малые члены в \eqref{pre_stretch_eq_u0_def_fin}, получаем уравнение, которое в размерном виде представляется следующим образом:
 \begin{equation}\label{pre_stretch_eq_dim}
 \begin{split}
-e_{tt} - \left(c^2 + \kappa\frac{\beta_1}{\rho}\right) e_{xx} - \frac{2}{\rho}\left[\left(\nu + \kappa \frac{\beta_2}{2E} \right) P_{xx} + \frac1R T_x\right] - \left(\frac{\beta_1}{2\rho} e^2 + \frac{\beta_2}{\rho E} e P + \frac{\beta_3}{2\rho E^2} P^2\right)_{xx}\\
-+ R^2 \left(\frac{\alpha_1^{(i)}}{c^2} e_{tttt} + \alpha_2^{(i)} e_{xxtt} + c^2\alpha_3^{(i)} e_{xxxx} + G^{(i)} \right) = 0, \quad i = 1,2.
+u_{tt} - \left(c^2 + \kappa\frac{\beta_1}{\rho}\right) u_{xx} - \frac{2}{\rho}\left[\left(\nu + \kappa \frac{\beta_2}{2E} \right) P_{xx} + \frac1R T_x\right] - \left(\frac{\beta_1}{2\rho} u^2 + \frac{\beta_2}{\rho E} u P + \frac{\beta_3}{2\rho E^2} P^2\right)_{xx}\\
++ R^2 \left(\frac{\alpha_1^{(i)}}{c^2} u_{tttt} + \alpha_2^{(i)} u_{xxtt} + c^2\alpha_3^{(i)} u_{xxxx} + G^{(i)} \right) = 0, \quad i = 1,2.
 \end{split}
 \end{equation}
 Здесь коэффициенты $\alpha_j^{(i)}$, $\beta_j$ и функции $G^{(i)}$ Задаются формулами \eqref{alpha_1} -- \eqref{beta_3} и (\ref{G1}) -- (\ref{G2}) соответственно.
-В случае слабых граничных напряжений, описанных в разделе \ref{sec:derivation}, это уравнение асимптотически сводится к
-\begin{equation}\label{pre_stretch_weak_trac_eq_dim}
-\begin{split}
-e_{tt} - \left(c^2 + \kappa\frac{\beta_1}{\rho}\right) e_{xx} &- \frac{2}{\rho}\left[\left(\nu + \kappa \frac{\beta_2}{2E} \right) P_{xx} + \frac1R T_x\right] - \left(\frac{\beta_1}{2\rho} e^2 \right)_{xx}\\
-&\quad+ R^2 \left(\frac{\alpha_1^{(i)}}{c^2} e_{tttt} + \alpha_2^{(i)} e_{xxtt} + c^2\alpha_3^{(i)} e_{xxxx} \right) = 0, \quad i = 1,2.
-\end{split}
-\end{equation}
+%В случае слабых граничных напряжений, описанных в разделе \ref{sec:derivation}, это уравнение асимптотически сводится к
+%\begin{equation}\label{pre_stretch_weak_trac_eq_dim}
+%\begin{split}
+%u_{tt} - \left(c^2 + \kappa\frac{\beta_1}{\rho}\right) u_{xx} &- \frac{2}{\rho}\left[\left(\nu + \kappa \frac{\beta_2}{2E} \right) P_{xx} + \frac1R T_x\right] - \left(\frac{\beta_1}{2\rho} u^2 \right)_{xx}\\
+%&\quad+ R^2 \left(\frac{\alpha_1^{(i)}}{c^2} u_{tttt} + \alpha_2^{(i)} u_{xxtt} + c^2\alpha_3^{(i)} u_{xxxx} \right) = 0, \quad i = 1,2.
+%\end{split}
+%\end{equation}
 
-Отметим, что акустоэластический эффект (изменение скорости линейной волны в растянутой среде) изучался в~\cite{HughesKelly, ADO}. Насколько известно автору, обе модели, описываемые уравнениями (\ref{pre_stretch_eq_dim}) (а также их упрощённые версии (\ref{eq_dim}) и (\ref{eq_dim_free_surf})) получены впервые.
+Отметим, что акустоэластический эффект (изменение скорости линейной волны в растянутой среде) изучался в~\cite{HughesKelly, ADO}. Насколько известно автору, обе модели, описываемые уравнениями (\ref{pre_stretch_eq_dim}), а также их упрощённые версии (\ref{eq_dim}) и (\ref{eq_dim_free_surf}), получены впервые.
 %We note that the acoustoelastic effect (modification of the linear wave speed in a pre-stressed media) has been studied in \cite{HughesKelly, ADO, P} (see also references therein). To the best of our knowledge, both models derrived in our paper and described by the equations (\ref{pre_stretch_eq_dim}) (as well as their reduced versions (\ref{eq_dim}) and (\ref{eq_dim_free_surf})) have not been obtained before.
 
 
@@ -1022,7 +1003,7 @@ p^2 = \frac{\rho \omega^2}{\lambda + 2\mu} - k^2, \quad q^2 = \frac{\rho \omega^
 
 Все четыре уравнения (\ref{eq_dim_free_surf}, $i=1,2$), \eqref{eq_dim_SP} и \eqref{eq_dim_OS} имеют семейство солитонных решений:
 \begin{equation}\label{soliton}
-e_i(x,t) = A\ {\rm sech}^2\ \left[B_{i} \left(x\pm t \sqrt{c^2+\frac{A \beta_1}{3 \rho}}\right) \right], \quad i = \overline {1,4},
+u_i(x,t) = A\ {\rm sech}^2\ \left[B_{i} \left(x\pm t \sqrt{c^2+\frac{A \beta_1}{3 \rho}}\right) \right], \quad i = \overline {1,4},
 \end{equation}
 где амплитуда $A$ является свободным параметром. Для заданной амплитуды $A$, соответствующие солитонные решения имеют одинаковую скорость, но разные параметры ширины $B_i$:
 \begin{align}
@@ -1035,9 +1016,9 @@ B_3 &= \sqrt{\frac{A\beta_1}{\left[6\nu E + 2 A \beta_1 (\nu - 1)\right] \nu R^2
 \label{B4}
 B_4 &= \sqrt{\frac{A\beta_1}{(6E + 2A\beta_1)\nu^2 R^2}},
 \end{align}
-для уравнений \eqref{eq_dim_free_surf}, \eqref{eq_dim_SP} и \eqref{eq_dim_OS} соответственно. Получению солитонных решений посвящено Приложение 1.
+для уравнений \eqref{eq_dim_free_surf}, \eqref{eq_dim_SP} и \eqref{eq_dim_OS} соответственно. Получению солитонных решений посвящено Приложение 2.
 
-На рисунке \ref{fig:soliton} в левой части изображены четыре солитона, задаваемых формулами (\ref{soliton}) -- (\ref{B4}) и имеющих амплитудный параметр $A = -0.07$. Видно, что все четыре солитона имеют разную длину, причём <<регуляризованный>> солитон (\ref{B4}) самый длинный. Однако такая амплитуда солитона деформации превышает предел текучести для полистирола и, следовательно, на практике недостижима {\color{red} [проверить]}. В экспериментах с полистироловым стержнем, описанных в~\cite{Garbuzov}, амплитуда очень мала: $A \sim 10^{-3} - 10^{-4}$. Следовательно, в главном порядке по $A$ во всех четырёх формулах параметр длины примерно равен
+На рисунке \ref{fig:soliton} в левой части изображены четыре солитона, задаваемых формулами (\ref{soliton}) -- (\ref{B4}) и имеющих амплитудный параметр $A = -0.07$. Видно, что все четыре солитона имеют разную длину, причём <<регуляризованный>> солитон (\ref{B4}) самый длинный. Однако солитоны такой амплитуды вызывают напряжения близкие к пределу упругости для полистирола. В экспериментах с полистироловым стержнем, описанных в~\cite{Garbuzov}, амплитуда очень мала: $A \sim 10^{-3} - 10^{-4}$. Следовательно, в главном порядке по $A$ во всех четырёх формулах параметр длины примерно равен
 %In the left part of the Figure \ref{fig:soliton} we plot the four solitons given by the formulae (\ref{soliton}) - (\ref{B4}) for one and the same value of the amplitude parameter $A = -0.05$ and the same elastic moduli shown in Table \ref{tab:ps} (typical for a polystyrene \cite{HughesKelly}). We can see that the four solitons have a different width, with the regularised soliton (\ref{B4}) being the widest. However, this figure is plotted for the value of $A$ which exceeds the yield point for the polystyrene, and therefore in practice this difference would not be important for that particular material (but could be important for some other materials). Indeed, in experiments with polystyrene discussed in the next section the value of $A$ is very small, $A \sim 10^{-3} - 10^{-4}$. Therefore, to leading order in $A$, all four formulae will give the width parameter approximately equal to 
 \begin{equation}\label{}
 B = \sqrt{\frac{A\beta_1}{6\nu^2 E R^2}},
@@ -1070,7 +1051,7 @@ B = \sqrt{\frac{A\beta_1}{6\nu^2 E R^2}},
 Репараметризуем солитонное решение \eqref{soliton} через скорость $v$ вместо амплитуды $A$:
 \begin{align}
 \label{soliton_v}
-e_i(x, t) &= \frac{3 \rho \left(v^2 - c^2\right)}{\beta_1} {\rm sech}^{2}\left[\tilde{B_i}(x\pm v t)\right], \qquad v = \sqrt{c^2+\frac{A\beta_1}{3 \rho}} \, ,\\
+u_i(x, t) &= \frac{3 \rho \left(v^2 - c^2\right)}{\beta_1} {\rm sech}^{2}\left[\tilde{B_i}(x\pm v t)\right], \qquad v = \sqrt{c^2+\frac{A\beta_1}{3 \rho}} \, ,\\
 \label{Bimod}
 %\tilde{B}_1 &=& \sqrt{\frac{c^2(v^2- c^2)}{(2(\nu^2+\nu+1) c^2 v^2 - (\nu+1)(c^4+v^4))R^2}} \, ,\\
 \tilde{B}_i &= \sqrt{\frac{c^2(v^2- c^2)}{-4\left(\alpha_1^{(i)} v^4 + \alpha_2^{(i)} c^2 v^2 + \alpha_3^{(i)}c^4\right)R^2}} \, , \quad i =1,2,\\
@@ -1117,28 +1098,70 @@ e_i(x, t) &= \frac{3 \rho \left(v^2 - c^2\right)}{\beta_1} {\rm sech}^{2}\left[\
 
 \section{Численная схема}
 \subsection{Одномерное уравнение типа Буссинеска}
-Сформулируем задачу Коши для одномерного уравнения типа Буссинеска:
-\begin{equation}\label{3_boussinesq4}
+Сформулируем задачу Коши для одномерного регуляризованного уравнения Буссинеска с внешним воздействием:
+\begin{align}
+\label{3_bq_reg}
 \begin{split}
-e_{tt} - c^2 e_{xx} - \frac{2}{\rho}\left[\nu P_{xx} + \frac1R T_x\right] - \left(\frac{\beta_1}{2\rho} e^2 + \frac{\beta_2}{\rho E} e P + \frac{\beta_3}{2\rho E^2} P^2\right)_{xx}\\
-+ R^2 \left(\alpha e_{xxtt} + \gamma_1 P_{xxxx} + \gamma_2 P_{xxtt} +\gamma_3 T_{xtt} + \gamma_4 T_{xxx} \right) = 0.
+&u_{tt} - c^2 u_{xx} - g_1 P_{xx} - g_2 T_x - \left(\tilde{\beta}_1 u^2 + \tilde{\beta}_2 u P + \tilde{\beta}_3 P^2\right)_{xx} + \tilde\alpha u_{xxtt}\\
+&\qquad\qquad\qquad\qquad\qquad + \gamma_1 P_{xxxx} + \gamma_2 P_{xxtt} +\gamma_3 T_{xtt} + \gamma_4 T_{xxx} = 0, \quad x\in(0, L),
+\end{split}\\
+\label{3_bq_iv}
+&u(x, 0) = \phi(x), \qquad u_t(x, 0) = \psi(x),%\\
+%\label{3_bq_bc}
+%&u(0, t) = u(L, t).
+\end{align}
+где на границах области поставлены условия симметрии, поскольку модель Буссинеска выводилась для бесконечного стержня. Уравнение \eqref{3_bq_reg} совпадает по форме с \eqref{2_eq_fin_reg}, где некоторые коэффициенты переобозначены для лаконичности записи.
+
+Будем решать регуляризованное уравнение типа Буссинеска с помощью псевдоспектрального метода Фурье. Для этого сначала отобразим область задачи $(0, L)$ в $(0, 2\pi)$ с помощью замены $\tilde x = Sx$, где $S = 2\pi/L$, и запишем новое уравнение, опустив тильду над $x$:
+\begin{equation}
+\label{3_bq_reg_scaled}
+\begin{split}
+&u_{tt} - S^2 c^2 u_{xx} - S^2 g_1 P_{xx} - S g_2 T_x - S^2\left(\tilde{\beta}_1 u^2 + \tilde{\beta}_2 u P + \tilde{\beta}_3 P^2\right)_{xx} + S^2\tilde\alpha u_{xxtt}\\
+&\qquad\qquad\qquad\qquad + S^4\gamma_1 P_{xxxx} + S^2\gamma_2 P_{xxtt} + S\gamma_3 T_{xtt} + S^3\gamma_4 T_{xxx} = 0, \quad x\in(0, 2\pi),
 \end{split}
 \end{equation}
-
-Будем решать регуляризованное уравнение типа Буссинеска с помощью псевдоспектрального метода Фурье. Для этого предствим неизвестную функцию в виде:
+Будем искать неизвестную функцию в виде комбинации из $N$ гармоник:
+\begin{equation}\label{3_spect_approx}
+u(x, t) = \sum_{k=-N/2+1}^{N/2} \widehat u(k, t) e^{ikx}, \quad x\in(0, 2\pi).
+\end{equation}
+%Основная идея метода заключается в подстановке \eqref{3_spect_approx} в уравнение \eqref{3_bq_reg_scaled}, решение его в пространстве Фурье $\widehat{u}$ и 
+Для нахождения коэффициентов $\widehat u(k, t)$ при гармониках по значениям в узлах сетки используется дискретное преобразование Фурье (ДПФ), а для обратной операции -- обратное ДПФ:
+\begin{align}\label{3_dft}
+\widehat u(k, t) &= \mathcal{F} u = \sum_{j=0}^{N-1} u(x_j, t) e^{-ikx_j}, \quad k=-\frac N 2 + 1, \dots, \frac N 2,\\
+\label{3_idft}
+u(x_j, t) &= \mathcal{F}^{-1} \widehat u = \sum_{k=-N/2+1}^{N/2} \widehat u(k, t) e^{ikx_j}, \quad x_j = \frac{2\pi j}{N-1}, \quad j=0, \dots, N-1.
+\end{align}
+Применим ДПФ к уравнению \eqref{3_bq_reg_scaled} и начальным условиям \eqref{3_bq_iv}. Приравнивая коэффициент при каждой гармонике к нулю, получим систему ОДУ с начальными условиями в виде:
+\begin{gather}\label{3_bq_reg_dft}
+\begin{split}
+\lb 1 - \tilde{\alpha} S^2 k^2\rb\widehat u'' =&  -S^2 k^2 \lb c^2 \widehat u + \tilde \beta_1 \widehat{u^2} + \tilde\beta_2\widehat{uP} + \tilde{\beta}_3\widehat{P^2} \rb + S^2 g_1 \widehat{P_{xx}} - S g_2 \widehat{T_x} \\
+&- \lb S^4\gamma_1 \widehat{P_{xxxx}} + S^2\gamma_2 \widehat{P_{xxtt}} + S\gamma_3 \widehat{T_{xtt}} + S^3\gamma_4 \widehat{T_{xxx}}\rb,
+\end{split}\\
+\label{3_bq_dft_iv}
+\widehat{u}_0(k) = \widehat{\phi}(k), \qquad \widehat{u}_0'(k) = \widehat{\psi}(k), \qquad k=-\frac N 2 + 1, \dots, \frac N 2,
+\end{gather}
+где штрих обозначает производную по времени.
+Для нахождения Фурье образа нелинейного слагаемого $u^2$, а также $uP$, к Фурье образу $\widehat u$ применяется обратное преобразование, затем полученная функция $u(x_j, t)$ возводится в квадрат в узлах сетки или домножается на $P(x_j, t)$ и переводится обратно в пространство Фурье:
+$$
+\widehat{u^2} = \mathcal{F}\lbrack\lb\mathcal{F}^{-1}\widehat u\rb^2\rbrack, \qquad \widehat{uP} = \mathcal{F}\lbrack P\cdot \mathcal{F}^{-1}\widehat u\rbrack.
+$$
+Решать систему \eqref{3_bq_reg_dft}, \eqref{3_bq_dft_iv} будем с помощью метода Рунге-Кутты 4-го порядка. Применяя обратное ДПФ к решению этой системы, получаем приближение исходной задачи Коши \eqref{3_bq_reg}, \eqref{3_bq_iv}.
 
 \subsection{Полные трёхмерные уравнения}
-Рассмотрим стержень круглого сечения длиной $L$ и радиусом $R$.
+Разрабатывая численную схему для решения полных уравнений, мы задались целью сделать её пригодной для как можно более широкого круга численных экспериментов. Во-первых, схема должна подходить для моделирования эволюции некоторого начального импульса (решение задачи Коши на периодическом интервале). Во-вторых, должна быть возможность моделировать волны, возникающие в результате некоторого внешнего воздействия ...
+
+Рассмотрим осесимметричный стержень круглого сечения длиной $L$ и радиусом $R$.
 Выпишем полные уравнения движения и граничные условия в векторном виде:
 \begin{align}
 \label{3_eqns_full}
-&\rho \ddot{\vect{U}}(\vect{X}, t) = \nabla\cdot\tens{P},\quad \vect{X} \in \Omega = \lbrace(x, r, \varphi) \in \mathbb{R}^3 \, | \, -L<x<L, \; 0<r<R, \; 0<\varphi<2\pi\rbrace\\
+&\rho \ddot{\vect{U}}(\vect{X}, t) = \nabla\cdot\tens{P},\quad \vect{X} \in \Omega = \lbrace(x, r, \varphi) \in \mathbb{R}^3 \, | \, -L<x<L, \; 0<r<R, \; 0<\varphi<2\pi\rbrace,\\
 \label{3_bc_full}
-&\tens{P} \cdot \vect{n} = \vect{P_b}, \quad r = R\\
-&\vect{U}\big|_{x=0} = \vect{U}\big|_{x=L}\\
-&\tens{P} = (\lambda + 2\mu)I_1 \tens{I} - 2\mu I2 ...\\
-&\tens{E} = \frac12 \lb \nabla\vect{U}^T + \nabla\vect{U} + \nabla\vect{U}^T \cdot \nabla\vect{U} \rb
+&\tens{P} \cdot \vect{n} = \vect{P_b}, \quad r = R,\\
+%&\vect{U}\big|_{x=0} = \vect{U}\big|_{x=L},\\
+&\tens{P} = \lambda \lb\trace{\tens{E}}\rb \tens{\mathcal{I}} + 2\mu \tens{E} + l \lb\trace{\tens{E}}\rb^2 \tens{\mathcal{I}} - m\lb \lb\trace{\tens{E}}\rb^2\tens{\mathcal{I}} - 2\lb\trace{\tens{E}}\rb\tens{E} - \lb\trace{\tens{E}^2}\rb\tens{\mathcal{I}}\rb + n\lb\tens{E}^*\rb^T,\\
+&\tens{E} = \frac12 \lb \nabla\vect{U}^T + \nabla\vect{U} + \nabla\vect{U}^T \cdot \nabla\vect{U} \rb,
 \end{align}
+где $\tens{E}^*$ -- союзная матрица, а $\mathcal{I}$ -- единичный тензор.
 Будем искать решение этой задачи в некотором конечномерном пространстве, задаваемым системой базисных функций $\lbrace\Phi_n(x), \Psi_m(r), \Theta_l(\varphi)\rbrace$. Представим неизвестную функцию $\vect{U}$ в виде 
 \begin{equation}\label{3_spect_expan}
 \vect{U}(x,r,\varphi,t) = \sum a(t) \Phi_n(x) \Psi_m(r) \Theta_l(\varphi)
@@ -1156,6 +1179,13 @@ e_{tt} - c^2 e_{xx} - \frac{2}{\rho}\left[\nu P_{xx} + \frac1R T_x\right] - \lef
 &\qquad V_0(x, r) = -\nu r \pdiff{U_0}{x},& &\dot{V}_0 (x, r) = -c \pdiff{V_0}{x}&
 \end{flalign}
 На рисунке~\ref{fig:evol_compar1} слева изображена эволюция этого импульса и зарождение солитона при $A_0=0.01$, $W=20$. Исходный импульс испускает некоторые осцилляции и отрывается от них, что согласуется с моделью Буссинеска, согласно которой солитон имеет большую скорость, чем линейные волны. На рисунке справа представлено сравнение оторвавшегося импульса (<<экспериментального>> солитона) с <<теоретическим>> солитонном \eqref{soliton_v}. Если скорость теоретического солитона, являющуюся свободным параметром в \eqref{soliton_v}, подобрать так, чтобы она совпадала со скоростью экспериментального солитона, то последний имеет почти ту же длину, что и теоретический, но на 6\% большую амплитуду.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.49\linewidth]{figures/evol}
+	\includegraphics[width=0.49\linewidth]{figures/sol_compar}
+	\caption{Слева: решение задачи Коши с начальными условиями \eqref{3_ic_u}, \eqref{3_ic_v} для полных уравнений. На графике изображены профили продольной деформации в центре стержня ($r=0$) в различные моменты времени:~$-U_x(x - ct, 0, t)$. Масштаб деформации задан показан чёрным прямоугольником. Справа: сравнение профиля <<экспериментального>> солитона, полученного в численном эксперименте, и <<теоретического>> солитона \eqref{soliton_v}. Скорость теоретического солитона $v$ подобрана так, чтобы она совпадала со скоростью экспериментального.}
+	\label{fig:evol_compar1}
+\end{figure}
 
 Теперь решим аналогичную задачу Коши для регуляризованного уравнения типа Буссинеска, где начальное условие задано формулой:
 \begin{flalign}
@@ -1164,28 +1194,26 @@ e_{tt} - c^2 e_{xx} - \frac{2}{\rho}\left[\nu P_{xx} + \frac1R T_x\right] - \lef
 \end{flalign}
 Отметим, что уравнение Буссинеска записано относительно функции $u = U_{x}$, а выражение поперечного перемещения $V$ через продольное $U$ уже <<вшито>> в модель.
 На рисунке~\ref{fig:evol_compar2} представлено сравнение эволюции импульса согласно полным уравнениям и согласно модели Буссинеска.
-Обе модели имеют качественно одинаковый результат, однако модель Буссинеска в этом эксперименте дала солитон на 8\% большей амплитуды, и, как следствие, отрывающийся от солитона в полной модели.
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.49\linewidth]{figures/wires}
-	\includegraphics[width=0.49\linewidth]{figures/sol_compar}
-	\caption{Слева: решение задачи Коши с начальными условиями \eqref{3_ic_u}, \eqref{3_ic_v} для полных уравнений. На графике изображены профили продольной деформации в центре стержня ($r=0$) в различные моменты времени:~$-U_x(x - ct, 0, t)$. Справа: сравнение профиля <<экспериментального>> солитона, полученного в численном эксперименте, и <<теоретического>> солитона \eqref{soliton_v}. Скорость теоретического солитона $v$ подобрана так, чтобы она совпадала со скоростью экспериментального.}
-	\label{fig:evol_compar1}
-\end{figure}
+Обе модели показывают качественно одинаковый результат, однако модель Буссинеска в этом эксперименте дала солитон примерно на 8\% большей амплитуды и, как следствие, бегущий быстрее солитона в полной модели.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.6\linewidth]{figures/evol_compar2}
-	\caption{Сравнение решений задачи Коши~\eqref{3_ic_u}, \eqref{3_ic_v} для полной модели и задачи Коши~\eqref{3_bq_ic} для модели типа Буссинеска.}
+	\caption{Сравнение решений задачи Коши~\eqref{3_ic_u}, \eqref{3_ic_v} для полной модели и задачи Коши~\eqref{3_bq_ic} для упрощённой модели типа Буссинеска.}
 	\label{fig:evol_compar2}
 \end{figure}
 
-На основе численных решений задачи Коши для полных уравнений с начальными импульсами разной амплитуды можно построить <<экспериментальную>> зависимость скорости / длины от амплитуды образовавшегося солитона и сравнить её с <<теоретической>>, задаваемой формулой \eqref{soliton_v}. Эти зависимости изображены на рисунке ... 
+Отличительной особенностью нелинейных волн является зависимость скорости от амплитуды волны. На основе численных решений задачи Коши для полных уравнений с начальными импульсами разной амплитуды можно построить <<экспериментальную>> зависимость скорости от амплитуды образовавшегося солитона и сравнить её с <<теоретической>>, задаваемой формулой \eqref{soliton_v}. Эти зависимости изображены на рисунке \ref{fig:vel_ampl}. Теоретическая зависимость для небольших амплитуд почти линейна, в то время как в численном эксперименте рост скорости солитона существенно замедляется с увеличением амплитуды.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.6\linewidth]{figures/vel_ampl}
+	\caption{Сравнение <<экспериментальной>> и <<теоретической>> зависимостей скорости от амплитуды. Горизонтальная линия -- скорость линейных продольных волн $c$.}
+	\label{fig:vel_ampl}
+\end{figure}
 
 \subsection{Образование солитона из удара по торцу стержня}
-В предыдущем параграфе моделирование волн проводилось в стержне со свободной от напряжений поверхностью, однако представляет интерес изучение волн, вызываемых внешним воздействием, например, ударом по торцу стержня. Эти результаты могут быть полезны для того, чтобы экспериментально  
+В предыдущем параграфе моделирование волн проводилось в стержне со свободной от напряжений поверхностью, однако представляет интерес изучение волн, вызываемых внешним воздействием, например, ударом по торцу стержня. Эти результаты могут быть полезны для того, чтобы возбудить уединённые волны в эксперименте. 
 
-Модель типа Буссинеска строилась для бесконечного стержня, следовательно, она применима для описания волн только вдали от торцов стержня. Моделирование волн вблизи торцов возможно с помощью полных уравнений движения. На рис. ... представлены результаты 
+Модель типа Буссинеска строилась для бесконечного стержня, следовательно, она применима для описания волн вдали от торцов стержня. Моделирование волн вблизи торцов возможно с помощью полных уравнений движения. На рис. ... представлены результаты 
 
 \subsection{Образование солитона из бегущего по поверхности напряжения}
 
@@ -1196,42 +1224,60 @@ e_{tt} - c^2 e_{xx} - \frac{2}{\rho}\left[\nu P_{xx} + \frac1R T_x\right] - \lef
 \addcontentsline{toc}{chapter}{Заключение}
 
 
-\chapter*{Приложение 1}	
+\chapter*{Приложение 1}
+%\label{s:appendix_formulas}
+Нелинейные функции в уравнении \eqref{eq2_1}:
+\begin{equation} \nonumber
+\begin{split}
+&\begin{split}
+\Phi_1 =& \, 2\left[(-4\lambda - 4\mu + n - 4m) V_1 - 2(\lambda + 2\mu + m) U_{0x}\right] U_2 \\
+&- \left[ 2(2l + \lambda) V_1 + (3\lambda + 6\mu + 2l + 4m) U_{0x} \right] U_{0xx} \\
+& - \left[ (2\lambda + 2\mu + 8l + n) V_1 + 2(\lambda + \mu + 2l + m) U_{0x} \right] V_{1x},
+\end{split} \\
+&\begin{split}
+\Phi_2 =& \, \frac12 \left[2 (2\lambda + 2\mu + 8l + n) U_{2x} + (4\lambda + 4\mu + 4m - n) V_{1xx} + 32(2\lambda + 3\mu + 2l + 2m) V_3 \right] V_1 \\
+& + 2(\lambda + \mu + 2l + m) U_{0x} U_{2x} + 2(\mu + m)\left[ U_{0xx} + 4 V_{1x} \right] U_2 + (\lambda + 2\mu + m)(U_{0x} V_{1x})_x\\
+& + \frac14(12\lambda + 20\mu + 12m - n) V_{1x}^2 + 8(\lambda + 2l) V_3 U_{0x} + (4\lambda + 12\mu + 4m + n) U_2^2.
+\end{split}
+\end{split}
+\end{equation}
+
+\chapter*{Приложение 2}	
 %All Boussinesq-type equations discussed in the paper can be cast in the form
 Все уравнения типа Буссинеска, обсуждавшиеся в настоящей работе, могут быть записаны в виде:
 \begin{equation}
-e_{tt} - c^2 e_{xx} = d_1 (e^2)_{xx} + d_2 e_{tttt} + d_3 e_{ttxx} + d_4 e_{xxxx},
+u_{tt} - c^2 u_{xx} = d_1 (u^2)_{xx} + d_2 u_{tttt} + d_3 u_{ttxx} + d_4 u_{xxxx},
 \end{equation}
 где $c$ и $d_i$ -- некоторые постоянные. Будем искать решения в виде волн, бегущих влево или вправо:
 %where $c$ and $d_i, i=\overline{1, 4}$ are some constants. Looking for the right- or left-propagating travelling-wave solutions
 $
-e = e(\xi), \; \mbox{где} \; \xi = x \pm vt,
+u = u(\xi), \; \mbox{где} \; \xi = x \pm vt,
 $
 %we obtain the ordinary differential equation
 что сводит исходное уравнение к обыкновенному дифференциальному уравнению:
 \begin{equation}
-(v^2 - c^2) e'' = d_1 (e^2)'' + (d_2 v^4 + d_3 v^2 + d_4) e^{IV}.
+(v^2 - c^2) u'' = d_1 (u^2)'' + (d_2 v^4 + d_3 v^2 + d_4) u^{IV}.
 \label{ODE}
 \end{equation}
-Интегрируя это уравнения по $\xi$ дважды и требуя, чтобы на бесконечности не было возмущений $e, e', e'', e''' \to 0$ при $\xi \to \pm \infty$, получаем уравнение:
+Интегрируя это уравнения по $\xi$ дважды и требуя, чтобы на бесконечности не было возмущений $u, u', u'', u''' \to 0$ при $\xi \to \pm \infty$, получаем уравнение:
 %Integrating this equation with respect to $\xi$ twice, and requiring that $e, e', e'', e''' \to 0$ as $\xi \to \pm \infty$, we obtain the equation
 \begin{equation}
-e'' = \frac{(v^2-c^2) e - d_1 e^2}{d_2 v^4 + d_3 v^2 + d_4},
+u'' = \frac{(v^2-c^2) u - d_1 u^2}{d_2 v^4 + d_3 v^2 + d_4},
 \end{equation}
 которое может рассматриваться как уравнение движения частицы единичной массы в поле потенциальной силы. Интеграл энергии имеет вид:
 %which can be viewed as Newton's equation of motion for a particle of unit mass in a potential field. The energy integral has the form
 \begin{equation}
-E = \frac 12 \left (e' \right )^2 - \frac{3 (v^2-c^2) e^2 - 2 d_1 e^3}{6 (d_2 v^4 + d_3 v^2 + d_4)},
+E = \frac 12 \left (u' \right )^2 - \frac{3 (v^2-c^2) u^2 - 2 d_1 u^3}{6 (d_2 v^4 + d_3 v^2 + d_4)},
 \end{equation}
 а солитонное решение соответствует нулевому уровню энергии $E=0$. Разделение переменных и последующая подстановка
 %and the soliton solution corresponds to the zero energy level $E=0$. Separation of variables and the subsequent substitution
 $$
-e = \frac{3 (v^2 - c^2)}{2 d_1} {\rm sech}^2 \theta
+u = \frac{3 (v^2 - c^2)}{2 d_1} {\rm sech}^2 \theta
 $$
 позволяет получить солитонное решение в виде:
 %allow one to obtain the solitary wave solution in the form
 \begin{equation}
-e = \frac{3 (v^2 - c^2)}{2 d_1} {\rm sech}^2 \left [\sqrt{\frac{v^2 - c^2}{4 (d_4 + d_3 v^2 + d_2 v^4)}} (x \pm v t)\right ]
+u = \frac{3 (v^2 - c^2)}{2 d_1} {\rm sech}^2 \left [\sqrt{\frac{v^2 - c^2}{4 (d_4 + d_3 v^2 + d_2 v^4)}} (x \pm v t)\right ]
 \end{equation}
 для таких значений параметра $v$, что это решение вещественнозначное.
 %for the values of the parameter $v$ when this is a real-values solution.
