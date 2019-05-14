@@ -44,12 +44,24 @@
 	urlcolor={blue!50!black},
 }
 
+% Dots in table of contents
+\usepackage{tocloft}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % for chapters
+
 %\mathtoolsset{showonlyrefs=true}
 
 % Dots in section titles
 %\renewcommand{\thechapter}{\arabic{chapter}.}
 %\renewcommand{\thesection}{\thechapter.\arabic{section}.}
 %\renewcommand{\thesubsection}{\thesection.\arabic{subsection}.}
+
+% Rename some sections
+%\addto\captionsrussian{\def\contentsname{Содержание}}
+%\addto\captionsrussian{\def\bibname{Список источников}}
+
+%\renewcommand\contentsname{Содержание}
+%\renewcommand\refname{Список источников}
+%\renewcommand{\printtoctitle}[1]{\Huge\sffamily #1}
 
 % Smaller chapter title
 \usepackage{titlesec}
@@ -64,6 +76,7 @@
 \titleformat{\subsection}{\bfseries}{\thesubsection.}{.5em}{}
 
 \titlespacing*{\chapter}{0pt}{0pt}{40pt}
+
 
 % Graphics path for figures
 \graphicspath{{figures/}}
@@ -536,7 +549,7 @@ V_3 &= \frac{1}{8(\lambda + 2\mu)} \left[ \rho c^2 V_{1tt} - 2(\lambda + \mu) U_
 U_4 &= \frac{1}{16\mu}\left[\rho c^2 U_{2tt} - (\lambda + 2\mu) U_{2xx} - 4(\lambda + \mu) V_{3x}\right] + O(\varepsilon).
 %V_5 &=& \frac{1}{24(\lambda + 2\mu)} \left(\rho c^2 V_{3tt} - 4(\lambda+\mu)U_{4x} - \mu V_{3xx}\right) + O(\varepsilon).
 \end{align}
-Выражения для функций $f_2$ и $f_3$ очень громоздки и поэтому не приводятся здесь.
+Выражения для функций $f_2$ и $f_3$ приведены в Приложении 1.
 
 Затем, подставляя функции $ U_2 $, $ V_3 $, $ U_4 $ в граничные условия \eqref{2_bc_rr}, \eqref{2_bc_rx}, которые в безразмерном виде должны выполняться при $r = \delta$, получаем уравнения:
 \begin{equation} \label{2_bc_rr_subst}
@@ -568,7 +581,7 @@ U_4 &= \frac{1}{16\mu}\left[\rho c^2 U_{2tt} - (\lambda + 2\mu) U_{2xx} - 4(\lam
 \begin{equation} \label{v1_asympt}
 V_1(x, t) = \frac{ \mu(3\lambda + 2\mu) P - \lambda(\lambda + \mu) U_{0x}}{2(\lambda + \mu)^2} + \varepsilon f(x,t) + \delta^2 g(x,t) + O(\varepsilon^2, \varepsilon\delta^2, \delta^4),
 \end{equation}
-где неизвестные функции $f$ и $g$ могут быть найдены из условия равенства нулю коэффициентов при $\varepsilon$ и $\delta^2$ в \eqref{2_bc_rr_subst}. Затем, подстановка $V_1$ в \eqref{2_bc_rx_subst} приводит к следующему уравнению типа Буссинеска относительно $U_0$:
+где неизвестные функции $f$ и $g$ ищутся из условия равенства нулю коэффициентов при $\varepsilon$ и $\delta^2$ в \eqref{2_bc_rr_subst}. Их вид представлен в Приложении 1. Затем, подстановка $V_1$ в \eqref{2_bc_rx_subst} приводит к следующему уравнению типа Буссинеска относительно $U_0$:
 \begin{equation} \label{eq_u0_asympt}
 \begin{split}
 \rho c^2 U_{0tt} &- \frac{\mu(3\lambda + 2\mu)}{\lambda + \mu}\left(U_{0xx} + \frac{\lambda}{\lambda + \mu} P_x + 2T\right) - \varepsilon \left(\gamma_1 U_{0x}^2 + \gamma_2 U_x P + \gamma_3 P^2 \right)_x \\
@@ -1035,7 +1048,7 @@ B = \sqrt{\frac{A\beta_1}{6\nu^2 E R^2}},
 	\centering
 	\includegraphics[width=0.54\linewidth]{Fig3a}
 	\includegraphics[width=0.42\linewidth]{Fig3b}
-	\caption{Солитоны в стержне радиуса $R = 1$~см, сделанном из полистирола при $A = -0.07$ (слева) и $A= -0.001$ (справа). Упругие модули полистирола приведены в таблице~\ref{tab:ps}.}
+	\caption{Солитоны в стержне радиуса $R = 5$~мм, сделанном из полистирола при $A = -0.07$ (слева) и $A= -0.001$ (справа). Упругие модули полистирола приведены в таблице~\ref{tab:ps}.}
 	\label{fig:soliton}
 \end{figure}
 \begin{table}[h]
@@ -1054,6 +1067,15 @@ B = \sqrt{\frac{A\beta_1}{6\nu^2 E R^2}},
 	\caption{Упругие модули полистирола~\cite{HughesKelly}.}
 	\label{tab:ps}
 \end{table}
+
+На рисунке~\ref{fig:rod_deformed} показано, как выглядит деформированный стержень, когда по нему бежит солитон сжатия. Увеличенные перемещения позволяют увидеть эффект Пуассона (утолщение тела при продольном сжатии), а также нелинейную зависимость продольного перемещения от $r$ (вертикальные линии немного изгибаются в месте сжатия). На всякий случай напомним, что на рисунке~\ref{fig:soliton} изображён график продольной деформации на оси стержня, а не форма границы стержня на рисунке~\ref{fig:rod_deformed}. 
+\begin{figure}[hh]
+	\centering
+	\includegraphics[width=0.6\linewidth]{DeformedRod1}
+	\includegraphics[width=0.6\linewidth]{DeformedRod2}
+	\caption{Стержень в разрезе при прохождении солитона деформации~\eqref{soliton},~\eqref{Bi} с амплитудным параметром $A=-0.03$. Продольные перемещения увеличены в 30 раз, поперечные в 60 раз. Стержень сделан из полистирола.}
+	\label{fig:rod_deformed}
+\end{figure}
 
 Репараметризуем солитонное решение \eqref{soliton} через скорость $v$ вместо амплитуды $A$:
 \begin{align}
@@ -1198,6 +1220,8 @@ $$
 
 Из уравнений \eqref{3_eqns_full}, \eqref{3_stress}, \eqref{3_strain} следует, что для реализации псевдоспектрального метода требуется реализовать операции дивергенции и градиента на заданной сетке в цилиндрических координатах.
 
+Для обработки нелинейных слагаемых необходимо иметь быстрое преобразование для перехода из физического пространства (пространства функций, заданных своими значениями на сетке) в пространство ...
+
 
 
 \section{Численные эксперименты}
@@ -1256,65 +1280,8 @@ $$
 \addcontentsline{toc}{chapter}{Заключение}
 
 
-\chapter*{Приложение 1}
-%\label{s:appendix_formulas}
-Нелинейные функции в уравнении \eqref{eq2_1}:
-\begin{equation} \nonumber
-\begin{split}
-&\begin{split}
-\Phi_1 =& \, 2\left[(-4\lambda - 4\mu + n - 4m) V_1 - 2(\lambda + 2\mu + m) U_{0x}\right] U_2 \\
-&- \left[ 2(2l + \lambda) V_1 + (3\lambda + 6\mu + 2l + 4m) U_{0x} \right] U_{0xx} \\
-& - \left[ (2\lambda + 2\mu + 8l + n) V_1 + 2(\lambda + \mu + 2l + m) U_{0x} \right] V_{1x},
-\end{split} \\
-&\begin{split}
-\Phi_2 =& \, \frac12 \left[2 (2\lambda + 2\mu + 8l + n) U_{2x} + (4\lambda + 4\mu + 4m - n) V_{1xx} + 32(2\lambda + 3\mu + 2l + 2m) V_3 \right] V_1 \\
-& + 2(\lambda + \mu + 2l + m) U_{0x} U_{2x} + 2(\mu + m)\left[ U_{0xx} + 4 V_{1x} \right] U_2 + (\lambda + 2\mu + m)(U_{0x} V_{1x})_x\\
-& + \frac14(12\lambda + 20\mu + 12m - n) V_{1x}^2 + 8(\lambda + 2l) V_3 U_{0x} + (4\lambda + 12\mu + 4m + n) U_2^2.
-\end{split}
-\end{split}
-\end{equation}
-
-\chapter*{Приложение 2}	
-%All Boussinesq-type equations discussed in the paper can be cast in the form
-Все уравнения типа Буссинеска, обсуждавшиеся в настоящей работе, могут быть записаны в виде:
-\begin{equation}
-u_{tt} - c^2 u_{xx} = d_1 (u^2)_{xx} + d_2 u_{tttt} + d_3 u_{ttxx} + d_4 u_{xxxx},
-\end{equation}
-где $c$ и $d_i$ -- некоторые постоянные. Будем искать решения в виде волн, бегущих влево или вправо:
-%where $c$ and $d_i, i=\overline{1, 4}$ are some constants. Looking for the right- or left-propagating travelling-wave solutions
-$
-u = u(\xi), \; \mbox{где} \; \xi = x \pm vt,
-$
-%we obtain the ordinary differential equation
-что сводит исходное уравнение к обыкновенному дифференциальному уравнению:
-\begin{equation}
-(v^2 - c^2) u'' = d_1 (u^2)'' + (d_2 v^4 + d_3 v^2 + d_4) u^{IV}.
-\label{ODE}
-\end{equation}
-Интегрируя это уравнения по $\xi$ дважды и требуя, чтобы на бесконечности не было возмущений $u, u', u'', u''' \to 0$ при $\xi \to \pm \infty$, получаем уравнение:
-%Integrating this equation with respect to $\xi$ twice, and requiring that $e, e', e'', e''' \to 0$ as $\xi \to \pm \infty$, we obtain the equation
-\begin{equation}
-u'' = \frac{(v^2-c^2) u - d_1 u^2}{d_2 v^4 + d_3 v^2 + d_4},
-\end{equation}
-которое может рассматриваться как уравнение движения частицы единичной массы в поле потенциальной силы. Интеграл энергии имеет вид:
-%which can be viewed as Newton's equation of motion for a particle of unit mass in a potential field. The energy integral has the form
-\begin{equation}
-E = \frac 12 \left (u' \right )^2 - \frac{3 (v^2-c^2) u^2 - 2 d_1 u^3}{6 (d_2 v^4 + d_3 v^2 + d_4)},
-\end{equation}
-а солитонное решение соответствует нулевому уровню энергии $E=0$. Разделение переменных и последующая подстановка
-%and the soliton solution corresponds to the zero energy level $E=0$. Separation of variables and the subsequent substitution
-$$
-u = \frac{3 (v^2 - c^2)}{2 d_1} {\rm sech}^2 \theta
-$$
-позволяет получить солитонное решение в виде:
-%allow one to obtain the solitary wave solution in the form
-\begin{equation}
-u = \frac{3 (v^2 - c^2)}{2 d_1} {\rm sech}^2 \left [\sqrt{\frac{v^2 - c^2}{4 (d_4 + d_3 v^2 + d_2 v^4)}} (x \pm v t)\right ]
-\end{equation}
-для таких значений параметра $v$, что это решение вещественнозначное.
-%for the values of the parameter $v$ when this is a real-values solution.
-
 \begin{thebibliography}{99}
+	\addcontentsline{toc}{chapter}{Список источников}
 	% Nonlinear waves: history review and general books 
 	\bibitem{Dodd} Додд Р., Эйлбек Дж., Гиббон Дж., Моррис Х. Солитоны и нелинейные волновые уравнения. М.: «Мир», 1988.
 	%\bibitem{Ablowitz} Абловиц М., Сигур Х. Солитоны и метод обратной задачи. М.: Мир, 1987.
@@ -1400,6 +1367,98 @@ u = \frac{3 (v^2 - c^2)}{2 d_1} {\rm sech}^2 \left [\sqrt{\frac{v^2 - c^2}{4 (d_
 	\bibitem{Strain2010} G.V. Dreiden, K.R. Khusnutdinova, A.M. Samsonov, I.V. Semenova, Longitudinal strain solitary wave in a two-layered polymeric bar, \textit{Strain} 46 (2010) 589-598.
 	\bibitem{SPIE2018} A.V. Belashov, Y.M. Beltukov, I.V. Semenova, Pump-probe digital holography for monitoring of long bulk nonlinear strain waves in solid waveguides, \textit{Proc. SPIE} 10678 (2018) 1067810.
 \end{thebibliography}
+
+
+\chapter*{Приложение 1}
+\addcontentsline{toc}{chapter}{Приложение 1}
+%\label{s:appendix_formulas}
+Нелинейные функции в уравнении \eqref{eq2_1}:
+\begin{equation} \nonumber
+\begin{split}
+&\begin{split}
+\Phi_1 =& \, 2\left[(-4\lambda - 4\mu + n - 4m) V_1 - 2(\lambda + 2\mu + m) U_{0x}\right] U_2 \\
+&- \left[ 2(2l + \lambda) V_1 + (3\lambda + 6\mu + 2l + 4m) U_{0x} \right] U_{0xx} \\
+& - \left[ (2\lambda + 2\mu + 8l + n) V_1 + 2(\lambda + \mu + 2l + m) U_{0x} \right] V_{1x},
+\end{split} \\
+&\begin{split}
+\Phi_2 =& \, \frac12 \left[2 (2\lambda + 2\mu + 8l + n) U_{2x} + (4\lambda + 4\mu + 4m - n) V_{1xx} + 32(2\lambda + 3\mu + 2l + 2m) V_3 \right] V_1 \\
+& + 2(\lambda + \mu + 2l + m) U_{0x} U_{2x} + 2(\mu + m)\left[ U_{0xx} + 4 V_{1x} \right] U_2 + (\lambda + 2\mu + m)(U_{0x} V_{1x})_x\\
+& + \frac14(12\lambda + 20\mu + 12m - n) V_{1x}^2 + 8(\lambda + 2l) V_3 U_{0x} + (4\lambda + 12\mu + 4m + n) U_2^2.
+\end{split}
+\end{split}
+\end{equation}
+Функции из формул \eqref{U2}, \eqref{V3}:
+\begin{align}
+\nonumber
+\begin{split}
+f_2(x, t) =& \, \frac{1}{8 \mu ^2} \bigg(U_{0xx} V_1 \left(8\mu^2 - 2\mu(-4\lambda + 4l - 4m + n) + \lambda(4\lambda + 4m - n)\right) \\
+&+ 2V_1 V_{1x} (2 (\lambda + \mu) (2\lambda + \mu) - 8l\mu + 4m(\lambda + \mu) - n(\lambda + 2\mu)) \\
+&+ \rho c^2 U_{0tt}V_1 (-4(\lambda + \mu) - 4m + n) + 2U_{0x}U_{0xx} \left(-2\mu^2 + \mu(\lambda - 2(l + m)) + \lambda (\lambda + m)\right) \\
+&+ 4 U_{0x} V_{1x} \left((\lambda + \mu)^2 - 2l\mu + \lambda m\right) - 2\rho c^2 U_{0x}U_{0tt} (\lambda + 2\mu + m)\bigg)
+\end{split}\\
+\nonumber
+\begin{split}
+f_3(x, t) =& -\frac{1}{8 (\lambda +2 \mu )}\bigg(-\frac{2 V_1 (2 (\lambda +l+m)+3 \mu ) \left(-\rho  s^2 V_{1tt}+2 (\lambda +\mu ) U_{2,x}+\mu  V_{1xx}\right)}{\lambda +2 \mu }\\
+&-\frac{(\lambda +2 l) U_{0x} \left(-\rho  s^2 V_{1tt}+2 (\lambda +\mu ) U_{2x}+\mu  V_{1xx}\right)}{\lambda +2 \mu }+8 l V_1 U_{2x} + (4l + 2m)U_{0x} U_{2x}\\
+&+2 U_2 (\mu +m) \left(U_{0xx}+4 V_{1,x}\right)+m (U_{0x}V_{1x})_x + \lb 3\lambda + 5\mu + 3m -\frac{n}{4}\rb V_{1x}^2\\
+&+\lb 2\lambda + 2\mu + 2m-\frac{n}{2}\rb V_1 V_{1xx}+(2\lambda + 2\mu + n) V_1 U_{2x} + \lambda(U_{0x}V_{1x})_x\\
+&+ 2\mu(U_{0x} V_{1x})_x + (2\lambda + 2\mu)U_{0x}U_{2x} + (4 (\lambda +3 \mu )+4 m+n) U_2^2 \bigg)
+\end{split}
+\end{align}
+Функции из асимптотического представления $V_1$~\eqref{v1_asympt}:
+\begin{align}
+\nonumber
+\begin{split}
+f(x,t) &= \frac{1}{16 (\lambda +\mu )^3 (\lambda +2 \mu )}\bigg(\mu  \rho  s^2 (3 \lambda +2 \mu ) (2 \lambda +3 \mu ) S_{tt}+\lambda  \mu  (\lambda +2 \mu ) (3 \lambda +2 \mu ) S_{xx}\\
+&\hspace{25mm}+(\lambda +\mu ) \left(\mu  (\lambda +2 \mu ) (4 \lambda +3 \mu ) U_{0xxx}-\rho c^2 \left(3 \lambda ^2+7 \lambda  \mu +3 \mu ^2\right) U_{0xtt}\right)
+\end{split}\\
+\nonumber
+\begin{split}
+g(x,t) &= -\frac{1}{8(\lambda + \mu)}\bigg(-\frac{2U_{0x}(\lambda + 4l - 2m + n) \left(\lambda(\lambda + \mu) U_{0x} - \mu S (3\lambda + 2\mu)\right)}{(\lambda + \mu)^2} + \\
+&\hspace{20mm}\frac{(3 (\lambda +\mu )+4 l+2 m) \left(\mu  S (3 \lambda +2 \mu )-\lambda  (\lambda +\mu ) U_{0,x}\right){}^2}{(\lambda +\mu )^4} + (4l + 2\lambda)  U_{0x}^2\bigg)
+\end{split}
+\end{align}
+
+\chapter*{Приложение 2}	
+\addcontentsline{toc}{chapter}{Приложение 2}
+%All Boussinesq-type equations discussed in the paper can be cast in the form
+Все уравнения типа Буссинеска, обсуждавшиеся в настоящей работе, могут быть записаны в виде:
+\begin{equation}
+u_{tt} - c^2 u_{xx} = d_1 (u^2)_{xx} + d_2 u_{tttt} + d_3 u_{ttxx} + d_4 u_{xxxx},
+\end{equation}
+где $c$ и $d_i$ -- некоторые постоянные. Будем искать решения в виде волн, бегущих влево или вправо:
+%where $c$ and $d_i, i=\overline{1, 4}$ are some constants. Looking for the right- or left-propagating travelling-wave solutions
+$
+u = u(\xi), \; \mbox{где} \; \xi = x \pm vt,
+$
+%we obtain the ordinary differential equation
+что сводит исходное уравнение к обыкновенному дифференциальному уравнению:
+\begin{equation}
+(v^2 - c^2) u'' = d_1 (u^2)'' + (d_2 v^4 + d_3 v^2 + d_4) u^{IV}.
+\label{ODE}
+\end{equation}
+Интегрируя это уравнения по $\xi$ дважды и требуя, чтобы на бесконечности не было возмущений $u, u', u'', u''' \to 0$ при $\xi \to \pm \infty$, получаем уравнение:
+%Integrating this equation with respect to $\xi$ twice, and requiring that $e, e', e'', e''' \to 0$ as $\xi \to \pm \infty$, we obtain the equation
+\begin{equation}
+u'' = \frac{(v^2-c^2) u - d_1 u^2}{d_2 v^4 + d_3 v^2 + d_4},
+\end{equation}
+которое может рассматриваться как уравнение движения частицы единичной массы в поле потенциальной силы. Интеграл энергии имеет вид:
+%which can be viewed as Newton's equation of motion for a particle of unit mass in a potential field. The energy integral has the form
+\begin{equation}
+E = \frac 12 \left (u' \right )^2 - \frac{3 (v^2-c^2) u^2 - 2 d_1 u^3}{6 (d_2 v^4 + d_3 v^2 + d_4)},
+\end{equation}
+а солитонное решение соответствует нулевому уровню энергии $E=0$. Разделение переменных и последующая подстановка
+%and the soliton solution corresponds to the zero energy level $E=0$. Separation of variables and the subsequent substitution
+$$
+u = \frac{3 (v^2 - c^2)}{2 d_1} {\rm sech}^2 \theta
+$$
+позволяет получить солитонное решение в виде:
+%allow one to obtain the solitary wave solution in the form
+\begin{equation}
+u = \frac{3 (v^2 - c^2)}{2 d_1} {\rm sech}^2 \left [\sqrt{\frac{v^2 - c^2}{4 (d_4 + d_3 v^2 + d_2 v^4)}} (x \pm v t)\right ]
+\end{equation}
+для таких значений параметра $v$, что это решение вещественнозначное.
+%for the values of the parameter $v$ when this is a real-values solution.
 
 	
 \end{document}
