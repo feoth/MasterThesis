@@ -25,7 +25,7 @@
 \usepackage{amssymb,amsfonts,latexsym,mathtools}
 
 % Graphics
-\usepackage{graphicx,setspace}
+\usepackage{graphicx,setspace,subcaption}
 \usepackage[usenames,dvipsnames,svgnames]{xcolor}
 
 % Formatting
@@ -730,17 +730,15 @@ G^{(2)} &= \frac{1 + \nu}{4\rho} P_{xxxx} - \frac{1 + \nu - 2\nu^2 - 2\nu^3}{4E(
 \end{align}
 
 Уравнения (\ref{eq_u0_def_1}) были выведены для случая сильных поверхностных напряжений, когда соответствующие слагаемые находятся в ведущем порядке по малому параметру $\varepsilon$. Если напряжения сравнительно невелики:
-$$
-P = \varepsilon \hat P, \quad T = \varepsilon \hat T,
-$$
-тогда уравнения (\ref{eq_u0_def_1}) асимптотически сводятся к
-\begin{equation}\label{eq_u0_def_1a}
-\begin{split}
-u_{tt} - u_{xx}  - \varepsilon \bigg[2&\left(\nu \hat P_{xx} + \hat T_x\right) + \frac{1}{2E} \left(\beta_1 u^2  \right)_{xx} \\
-& + \frac{\delta^2}{\varepsilon} \left(\alpha_1^{(i)} u_{tttt} + \alpha_2^{(i)} u_{xxtt} + \alpha_3^{(i)} u_{xxxx}  \right)\bigg] + O(\varepsilon^2) = 0, \quad i = 1,2,
-\end{split}
-\end{equation}
-а в размерном виде эти уравнения записываются следующим образом:
+$P = \varepsilon \hat P$, $T = \varepsilon \hat T$,
+тогда в \eqref{eq_u0_def_1} напряжения <<сдвигаются>> в следующий порядок по $\varepsilon$, что в размерном виде приводит следующим уравнениям:
+%\begin{equation}\label{eq_u0_def_1a}
+%\begin{split}
+%u_{tt} - u_{xx}  - \varepsilon \bigg[2&\left(\nu \hat P_{xx} + \hat T_x\right) + \frac{1}{2E} \left(\beta_1 u^2  \right)_{xx} \\
+%& + \frac{\delta^2}{\varepsilon} \left(\alpha_1^{(i)} u_{tttt} + \alpha_2^{(i)} u_{xxtt} + \alpha_3^{(i)} u_{xxxx}  \right)\bigg] + O(\varepsilon^2) = 0, \quad i = 1,2,
+%\end{split}
+%\end{equation}
+%а в размерном виде эти уравнения записываются следующим образом:
 \begin{equation}\label{eq_dim_weak_trac}
 \begin{split}
 u_{tt} - c^2 u_{xx} - \frac{2}{\rho}\left(\nu P_{xx} + \frac1R T_x\right)  &- \left(\frac{\beta_1}{2\rho} u^2 \right)_{xx} \\
@@ -768,9 +766,9 @@ u_{tt} - c^2 u_{xx} =  \frac{\beta_1}{2 \rho} (u^2)_{xx} + \frac{\nu^2 R^2}{2} u
 %\end{split}
 %\end{flalign}
 \begin{align} \nonumber
-&\alpha_1^{(3)} = 0,&\quad &\alpha_2^{(3)} = \frac{(1-\nu)\nu}{2},& \quad &\alpha_3^{(3)} = -\frac \nu 2,&\\
+&\alpha_1^{(3)} = 0,& &\alpha_2^{(3)} = \frac{(1-\nu)\nu}{2},&  &\alpha_3^{(3)} = -\frac \nu 2,&\\
 \nonumber
-&\alpha_1^{(4)} = 0,&\quad &\alpha_2^{(4)} = -\frac{\nu^2}{2},& \quad &\alpha_3^{(4)} = 0.&
+&\alpha_1^{(4)} = 0,& &\alpha_2^{(4)} = -\frac{\nu^2}{2},&  &\alpha_3^{(4)} = 0.&
 \end{align}
 
 %Moreover, we note that all four Boussinesq-type models shown above are not asymptotically exact equations, i.e. in non-dimensional form they include both $O(1)$ and $O(\varepsilon)$ terms, and if we regularise both equations (\ref{eq_dim_free_surf}) and (\ref{eq_dim_SP}) using the leading order relation $ u_{tt} = c^2 u_{xx} + \dots$, all three equations will reduce to the asymptotically equivalent equation (\ref{eq_dim_OS}). However, the models have different dispersive properties, and, similarly to the linear studies (see \cite{bostrm2000} and references to the classical linear results therein), it would be interesting to compare the performance of these four nonlinear models with the exact (numerical) solution of the problem.  We also note that the three dispersive terms present in the equation (\ref{eq_dim_free_surf}) are similar to the dispersive terms in the Boussinesq-type equation derived from a nonlinear lattice model for a waveguide in \cite{KSZ}. 
@@ -1278,10 +1276,29 @@ j_1 = 0,\dots, N_1-1, \quad &j_2 = 0,\dots, N_2-1,\\
 %Отметим, что если на доменах выбирать базисы небольшой размерности, то вычисление производной с помощью умножения на матрицу дифференцирования будет происходить быстрее, чем с помощью быстрого преобразования Фурье, за счёт меньшей константы.
 %Отметим, что для реализации периодических условий по $x$, 
 
-В настоящей работе представляют интерес решения уравнений в осесимметричном случае, поэтому дискретизацию по $\varphi$ в численных экспериментах, описанных в следующем параграфе, мы не будем.
-Для дискретизации по $x$ и по $r$ мы будем использовать базис Лежандра, причём по $x$ в качестве точек коллокации выбираются точки Гаусса-Лобатто, включающие границы, а по $r$ --- точки Гаусса-Радо, чтобы исключить центральную точку стержня ($r=0$). 
+Пример сетки с двумя доменами вдоль оси $x$ представлен на рисунке \ref{fig:grid}, где для дискретизации по $x$ и по $r$ используется базис Лежандра, причём по $x$ в качестве точек коллокации выбираются точки Гаусса-Лобатто, включающие границы, а по $r$ --- точки Гаусса-Радо, чтобы исключить центральную точку стержня ($r=0$). По $\varphi$ используется базис Фурье с равномерно распределёнными по интервалу $(0, 2\pi)$ точками.
+Узлы такой сетки распределены сильно неравномерно со сгущением около оси стержня и разрежением у его поверхности. В работах [ссылки] предложен ряд способов как равномернее распределить узлы и, следовательно, повысить точность аппроксимации при том же количестве узлов.
 
-%Система ОДУ \eqref{3_ode_inner}, \eqref{3_ode_boundary} была получена путём вычисления пространственных производных в \eqref{3_eqns_full}, \eqref{3_bc_full}, \eqref{3_strain} с помощью умножения на матрицу дифференцирования, как в~\eqref{3_phys_deriv}. Однако умножение массива значений функции на матрицу --- дорогостоящая операция. Например, для вычисления $\pdiff{U}{x}$ необходимо умножить массив значений $\{U_N\}_{k=k_0}^{k_N}$ размером $N_1\times N_2\times N_3$ на матрицу дифференцирования $D_N$ размером $N_1\times N_1$, что требует $O(N_1^2N_2N_3)$ операций.
+%Для дискретизации по $x$ и по $r$ мы будем использовать базис Лежандра, причём по $x$ в качестве точек коллокации выбираются точки Гаусса-Лобатто, включающие границы, а по $r$ --- точки Гаусса-Радо, чтобы исключить центральную точку стержня ($r=0$). Пример такой сетки представлен на рисунке \ref{fig:grid} слева.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{0.5\textwidth}
+		\centering
+		\includegraphics[width=.8\textwidth]{figures/Grid3D}
+		%\caption{Lorem ipsum}
+	\end{subfigure}
+	\begin{subfigure}{0.48\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/Grid2D}
+		%\caption{Lorem ipsum}
+	\end{subfigure}
+	\caption{Пример трёхмерной и двумерной сеток из двух доменов.}
+	\label{fig:grid}
+\end{figure}
+
+Следующий параграф посвящён описанию результатов численного моделирования согласно приведённым здесь методам. В настоящей работе представляют интерес решения уравнений в осесимметричном случае, поэтому мы не провидим дискретизацию по $\varphi$, и, следовательно, проблемы неравномерного распределения узлов не возникает. Пример двумерной сетки по $x$ и $r$ приведён на рисунке \ref{fig:grid} справа.
+
 
 %Следующая задача -- сшивка доменов -- проводится также, как в методе конечных элементов. 
 %\begin{figure}[h]
@@ -1293,16 +1310,16 @@ j_1 = 0,\dots, N_1-1, \quad &j_2 = 0,\dots, N_2-1,\\
 
 
 
-\section{Численные эксперименты}
+\section{Численное моделирование}
 
 \subsection{Образование солитона из начального условия}
 Будем решать задачу Коши для полных уравнений, где начальное условие задано распространяющимся вправо со скоростью $c$ гладким импульсом:
-\begin{flalign}
+\begin{align}
 \label{3_ic_u}
-&\qquad U_0 (x, r) = A_0 W \erf\lb \frac{x - L/2}{W}\rb,&  &\dot{U}_0 (x, r) = -c \pdiff{U_0}{x}&\\
+& U_0 (x, r) = A_0 W \erf\lb \frac{x - L/2}{W}\rb,&  &\dot{U}_0 (x, r) = -c \pdiff{U_0}{x}&\\
 \label{3_ic_v}
-&\qquad V_0(x, r) = -\nu r \pdiff{U_0}{x},& &\dot{V}_0 (x, r) = -c \pdiff{V_0}{x}&
-\end{flalign}
+& V_0(x, r) = -\nu r \pdiff{U_0}{x},& &\dot{V}_0 (x, r) = -c \pdiff{V_0}{x}&
+\end{align}
 На рисунке~\ref{fig:evol_compar1} слева изображена эволюция этого импульса и зарождение солитона при $A_0=0.01$, $W=20$ в стержне из полистирола, характеристики которого представлены в таблице~\ref{tab:ps}. Исходный импульс испускает некоторые осцилляции и отрывается от них, что согласуется с моделью Буссинеска, согласно которой солитон имеет большую скорость, чем линейные волны. На рисунке справа представлено сравнение оторвавшегося импульса (<<экспериментального>> солитона) с <<теоретическим>> солитонном \eqref{soliton_v}. Если скорость теоретического солитона, являющуюся свободным параметром в \eqref{soliton_v}, подобрать так, чтобы она совпадала со скоростью экспериментального солитона, то последний имеет почти ту же длину, что и теоретический, но на 6\% большую амплитуду.
 \begin{figure}[h]
 	\centering
@@ -1313,10 +1330,10 @@ j_1 = 0,\dots, N_1-1, \quad &j_2 = 0,\dots, N_2-1,\\
 \end{figure}
 
 Теперь решим аналогичную задачу Коши для регуляризованного уравнения типа Буссинеска, где начальное условие задано формулой:
-\begin{flalign}
+\begin{align}
 \label{3_bq_ic}
-&\qquad u_0 (x) = 2A_0 \exp\lb \frac{(x - L/2)^2}{W^2}\rb,&  &\dot{u}_0 (x) = -c \pdiff{u_0}{x}.&
-\end{flalign}
+& u_0 (x) = 2A_0 \exp\lb \frac{(x - L/2)^2}{W^2}\rb,&  &\dot{u}_0 (x) = -c \pdiff{u_0}{x}.&
+\end{align}
 Отметим, что уравнение Буссинеска записано относительно функции $u = U_{x}$, а выражение поперечного перемещения $V$ через продольное $U$ уже <<вшито>> в модель.
 На рисунке~\ref{fig:evol_compar2} слева представлено сравнение эволюции импульса согласно полным уравнениям и согласно модели Буссинеска.
 Обе модели показывают качественно одинаковый результат, однако модель Буссинеска в этом эксперименте дала солитон примерно на 8\% большей амплитуды и, как следствие, бегущий быстрее солитона в полной модели.
