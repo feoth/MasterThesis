@@ -1,6 +1,6 @@
 %!TeX TS-program = xelatex
 %!TeX encoding = UTF-8
-%!TeX spellcheck = russian-aot
+% !TeX spellcheck = en_GB
 \documentclass[12pt, a4paper]{report}
 
 % Basic packages
@@ -24,7 +24,7 @@
 \usepackage{amsmath,euscript,mathrsfs}
 \usepackage{amssymb,amsfonts,latexsym,mathtools}
 
-\usepackage{caption}
+\usepackage{caption,tabularx}
 
 % Graphics
 \usepackage{graphicx,setspace,subcaption}
@@ -88,6 +88,7 @@
 \DeclareMathOperator{\trace}{tr}
 %\DeclareMathOperator{\tg}{tg}
 %\DeclareMathOperator{\ctg}{ctg}
+\DeclareMathOperator{\sech}{sech}
 
 % Page breaking in multi-line formulae
 \allowdisplaybreaks[1]
@@ -126,14 +127,14 @@
 \begin{document}
 
 \begin{titlepage}
-	
+	\newgeometry{top=20mm,bottom=15mm,left=25mm,right=15mm}
 	\begin{center}
 		Министерство науки и высшего образования Российской Федерации\\
 		Санкт-Петербургский политехнический университет Петра Великого\\
 		Институт прикладной математики и механики
 	\end{center}
 	
-	\vspace{3mm}
+	\vspace{5mm}
 	
 	\begin{flushleft}
 		\rule{10cm}{0pt} {Работа допущена к защите}\\
@@ -145,7 +146,7 @@
 		\rule{10cm}{0pt} "\rule{0.8cm}{0.5pt}" \rule{5.05cm}{0.5pt}
 	\end{flushleft}
 	
-	\vspace{10mm}
+	\vspace{22mm}
 	
 	\begin{center}
 		{\bf ВЫПУСКНАЯ КВАЛИФИКАЦИОННАЯ РАБОТА МАГИСТРА}\\
@@ -156,17 +157,31 @@
 		по образовательной программе 01.04.02\_01 <<Математическое моделирование>>
 	\end{center}
 
+	\vspace{20mm}
 	\begin{flushleft}
-		\vspace{12mm}
-		Выполнил\\
-		студент гр. 23641/1 \hspace{90mm} Ф.\,E.~Гарбузов \\
-		\vspace{6mm} Руководитель\\
-		проф., д.т.н. \hspace{104mm} Б.\,С.~Григорьев\\
-		\vspace{6mm} Научный консультант\\
-		к.ф.-м.н. \hspace{109mm} Я.\,М.~Бельтюков\\
+	\begin{tabularx}{\linewidth}{Xl}
+		Выполнил & \\
+		студент гр. 23641/1 & Ф.\,E.~Гарбузов  \\ 
+		\vspace{3mm}
+		Руководитель &  \\ 
+		проф., д.т.н. & Б.\,С.~Григорьев \\ 
+		\vspace{3mm}
+		Научный консультант  &  \\ 
+		к.ф.-м.н. & Я.\,М.~Бельтюков
+	\end{tabularx} 
 	\end{flushleft}
+
+%	\begin{flushleft}
+%		\vspace{12mm}
+%		Выполнил\\
+%		студент гр. 23641/1 \hspace{90mm} Ф.\,E.~Гарбузов \\
+%		\vspace{6mm} Руководитель\\
+%		проф., д.т.н. \hspace{104mm} Б.\,С.~Григорьев\\
+%		\vspace{6mm} Научный консультант\\
+%		к.ф.-м.н. \hspace{109mm} Я.\,М.~Бельтюков\\
+%	\end{flushleft}
 	
-	\vspace{10mm}
+	\vspace{30mm}
 	
 	\begin{center}
 		Санкт-Петербург\\2019
@@ -175,24 +190,35 @@
 \end{titlepage}
 
 
-\newpage
-
 
 \newpage
 \thispagestyle{empty}
 \begin{center}
 	\textbf{РЕФЕРАТ}
+	
+	с. 43, рис. 12, табл. 1
 \end{center}
-ключевые слова
 
-Сам реферат на полстранички.
+НЕЛИНЕЙНАЯ ТЕОРИЯ УПРУГОСТИ, НЕЛИНЕЙНЫЕ ВОЛНЫ, ОБЪЁМНЫЕ ВОЛНЫ ДЕФОРМАЦИИ, СОЛИТОНЫ, МОДЕЛЬ ТИПА БУССИНЕСКА, ЧИСЛЕННОЕ МОДЕЛИРОВАНИЕ, ПСЕВДОСПЕКТРАЛЬНЫЙ МЕТОД
 
+Выведены две новые асимптотические модели типа Буссинеска, описывающие длинные нелинейные продольные волны деформации в стержнях круглого сечения. Эти модели обобщены на случай ненулевой осесимметричной нагрузки на боковой поверхности, а также на случай предварительно растянутого стержня. Проведено сравнение дисперсионных свойств и солитонных решений новых моделей с моделями, полученными в прежних работах.
+
+Применён псевдоспектральный метод для численного моделирования полных трёхмерных уравнений, описывающих динамику нелинейно упругого стержня. Проведена серия численных экспериментов по возбуждению и сравнению солитонов в рамках модели типа Буссинеска и полной трёхмерной модели.
+
+\vspace{2cm}
 \begin{center}
 	\textbf{ABSTRACT}
+	
+	p. 43, fig. 12, tab. 1
 \end{center}
-key words
 
-The same in English.
+NONLINEAR ELASTICITY, NONLINEAR WAVES, BULK STRAIN WAVES, SOLITONS, BOUSSINESQ-TYPE MODEL, NUMERICAL SIMULATION, PSEUDOSPECTRAL METHOD
+
+Two new Boussinesq-type models describing long nonlinear longitudinal strain waves in elastic rods of circular cross section derived. These models extended to include axially symmetric loading on the lateral surface and longitudinal pre-stretch. The dispersive properties and solitary wave solutions of these models compared with the ones of existing models.
+
+Pseudospectral method applied to perform numerical simulations of the full three-dimensional equations of motion of nonlinearly elastic rod. A set of numerical experiments to excite and compare solitons of Boussinesq-type model and the full model conducted.
+
+%In this paper we revisit the derivations of model equations describing long nonlinear longitudinal bulk strain waves in elastic rods within the scope of the Murnaghan model in order to derive a Boussinesq-type model, and extend these derivations to include axially symmetric loading on the lateral boundary surface, and longitudinal pre-stretch.  We systematically derive two forced Boussinesq-type  models from the full equations of motion and non-zero surface boundary conditions, utilising the presence of two small parameters characterising the smallness of the wave amplitude and the long wavelength compared to the radius of the waveguide. We compare the basic dynamical properties of both models (linear dispersion curves and solitary wave solutions). We also briefly describe the laboratory experiments on generation of bulk strain solitary waves in the Ioffe Institute,  and suggest that this generation process can be modelled using the derived equations.
 
 
 \newpage
@@ -339,7 +365,7 @@ $$
 
 
 \section{Нелинейные волны деформации в твёрдых упругих волноводах}
-%The study of nonlinear waves in solids is an important theme of the current research on waves (see, for example, \cite{Maugin,Dai,M,HL,E1,P,E2} and references therein). The research includes the studies of bulk strain solitons in solid waveguides (e.g. \cite{S_book,P_book}). Historically, theoretical developments began with the studies of waves in elastic rods of circular cross section. G.A. Nariboli and A. Sedov have systematically derived the Burgers - Korteweg de Vries equation for long longitudinal waves in a viscoelastic rod using power series expansions in the radius \cite{NS}. Later, L.A. Ostrovsky and A.M. Sutin have developed a regularised Boussinesq - type model using the plane cross section and Love's hypothesis in order to simplify the Lagrangian of the problem \cite{OS}. 
+%The study of nonlinear waves in solids is an important theme of the current research on waves (see, for example, \cite{Maugin,Dai,M,HL,E1,P,E2} and references therein). The research includes the studies of bulk strain solitons in solid waveguides (e.g. \cite{S_book,P_book}). Historically, theoretical developments began with the studies of waves in elastic rods of circular cross section. G.A. Nariboli and A. Sedov have systematically derived the Burgers - Korteweg de Vries equation for long longitudinal waves in a viscoelastic rod using power series expansions in the radius \cite{NS}. Later, Ostrovsky~L.\,A. and A.M. Sutin have developed a regularised Boussinesq - type model using the plane cross section and Love's hypothesis in order to simplify the Lagrangian of the problem \cite{OS}. 
 
 %Изучение нелинейных волн деформации в твёрдых телах является важной темой современного изучения волн \cite{Maugin,Dai,M,HL,E1,P,E2}. Исследование включает в себя изучение солитонов деформации в твердотельных волноводах \cite{S_book,P_book}. 
 Изучение нелинейных волн деформации в твёрдых телах, в том числе солитонов деформации, является важной темой современного изучения волн~\cite{S_book, P_book}.
@@ -365,7 +391,7 @@ $$
 U(x,r,t) = U(x,t), \qquad V(x,r,t) = -\nu r \pdiff U x.
 \end{equation}
 Первая из этих гипотез называется гипотезой плоских сечений и означает, что поперечные сечения стержня остаются плоскими после деформации, а вторая гипотеза аналогична гипотезе Кирхгофа-Лява в теории тонких пластин и оболочек~\cite{Love}.
-%A.M. Samsonov has suggested a model with two types of dispersive terms  \cite{S1}, and a model for the rod with a variable radius and elastic moduli \cite{S2}. The coefficients of Samsonov's model with two types of dispersive terms have been refined in the works by A.M. Samsonov and A.V. Porubov  \cite{SP, S_book, P_book}, and a dispersive-dissipative model has been suggested by A.V. Porubov and M.G. Velarde \cite{PV}. A model with three types of dispersive terms has been discussed by V.I. Erofeev et al. (see \cite{E_book} and references therein), however, the nonlinearity coefficient of this model differs from that in the  models of L.A. Ostrovsky and A.M. Sutin, and A.M. Samsonov and A.V. Porubov, while the choice of dispersive coefficients has not been fixed.
+%Samsonov~A.\,M. has suggested a model with two types of dispersive terms  \cite{S1}, and a model for the rod with a variable radius and elastic moduli \cite{S2}. The coefficients of Samsonov's model with two types of dispersive terms have been refined in the works by Samsonov~A.\,M. and Porubov~A.\,V.  \cite{SP, S_book, P_book}, and a dispersive-dissipative model has been suggested by Porubov~A.\,V. and M.G. Velarde \cite{PV}. A model with three types of dispersive terms has been discussed by V.I. Erofeev et al. (see \cite{E_book} and references therein), however, the nonlinearity coefficient of this model differs from that in the  models of Ostrovsky~L.\,A. and A.M. Sutin, and Samsonov~A.\,M. and Porubov~A.\,V., while the choice of dispersive coefficients has not been fixed.
 А.\,М.~Самсонов, используя подход Островского и Сутина, предложил модель типа Буссинеска с двумя дисперсионными слагаемыми и обобщил её на случай с меняющимися вдоль оси стержня радиусом и модулями упругости~\cite{S1, S2}. Коэффициенты модели Самсонова с двумя типами дисперсионных членов были позже уточнены в работах А.\,М.~Самсонова и А.\,В.~Порубова~\cite{SP}.
 А.\,В.~Порубовым и М.~Веларде предложена дисперсионно-диссипативная модель для длинных волн в упругом стержне, помещённом в вязкоупругую среду~\cite{PV}.
 Модель типа Буссинеска с тремя типами дисперсионных членов обсуждалась В.\,И.~Ерофеевым, однако коэффициент при нелинейном слагаемом в его модели отличается от соответствующего коэффициента у Островского и Самсонова~\cite{E_book}. Все выводы моделей типа Буссинеска в упомянутых исследованиях основывались на представлении Мурнагана для энергии упругой деформации и последующем упрощении полного функционала действия задачи с использованием некоторых гипотез. 
@@ -398,7 +424,7 @@ U(x,r,t) = U(x,t), \qquad V(x,r,t) = -\nu r \pdiff U x.
 %Вывод модели осуществляется с помощью пакета MATHEMATICA.
 %Кроме этого, в настоящей работе обсуждаются основные решения в виде уединённых волн, а также дисперсионные свойства описанных здесь моделей. Результаты этой работы опубликованы автором в сотрудничестве с К.Р. Хуснутдиновой и И.В. Семёновой~\cite{Garbuzov}.
 
-%All derivations of Boussinesq-type models in these studies were based on the use of the Murnaghan model for elastic energy \cite{Murnaghan}, accounting for both physical and geometrical sources of nonlinearity, and subsequent simplification of the full Lagrangian of the problem using some hypothesis. In \cite{DF} {\color{red} H.-H. Dai and X. Fan have obtained} a system of two coupled equations and a uni-directional model of the Benjamin-Bona-Mahony (BBM) type within the scope of nonlinear elasticity, using a systematic asymptotic derivation from the full equations of motion and free surface boundary conditions. The systematic asymptotic analysis has been also developed for the description of linear transient waves in a pre-stretched compressible hyperelastic material (with application to Mooney-Rivlin material) in \cite{DC}. In  \cite{KSZ}, a Boussinesq-type model 
+%All derivations of Boussinesq-type models in these studies were based on the use of the Murnaghan model for elastic energy \cite{Murnaghan}, accounting for both physical and geometrical sources of nonlinearity, and subsequent simplification of the full Lagrangian of the problem using some hypothesis. In \cite{DF} {\color{red} Dai~H.-H. and X. Fan have obtained} a system of two coupled equations and a uni-directional model of the Benjamin-Bona-Mahony (BBM) type within the scope of nonlinear elasticity, using a systematic asymptotic derivation from the full equations of motion and free surface boundary conditions. The systematic asymptotic analysis has been also developed for the description of linear transient waves in a pre-stretched compressible hyperelastic material (with application to Mooney-Rivlin material) in \cite{DC}. In  \cite{KSZ}, a Boussinesq-type model 
 %for a nonlinearly elastic waveguide with both physical and geometrical sources of nonlinearity 
 %has been derived using  the systematic asymptotic derivation within the scope of a lattice model, i.e. the model equation has been derived from the full equations of motion, and no hypothesis have been used to simplify the Lagrangian of the problem. Interestingly, Boussinesq-type models with both two and three types of dispersive terms have been systematically derived in the latter study, as well as coupled Boussinesq-type equations for the waves in a layered waveguide with an imperfect interface.
 %
@@ -640,7 +666,7 @@ U_{0tt} &- U_{0xx} - 2\left(\nu P_{x} + T\right) - \frac{\varepsilon}{2 E} \left
 &+ \delta^2 \left(\alpha_1^{(i)} U_{0tttt} + \alpha_2^{(i)} U_{0xxtt} + \alpha_3^{(i)} U_{0xxxx} + F^{(i)}\right) + O(\varepsilon^2, \varepsilon\delta^2, \delta^4) = 0, \quad i = 1,2,
 \end{split}
 \end{equation}
-где
+%где
 \begin{align}
 \label{alpha_1}
 &\alpha_1^{(1)} = \alpha_3^{(1)} = \frac{1 + \nu}{4}, \quad \alpha_2^{(1)} = -\frac{1 + \nu + \nu^2}{2}, \\
@@ -1026,7 +1052,7 @@ p^2 = \frac{\rho \overline{\omega}^2}{\lambda + 2\mu} - \overline{k}^2, \quad q^
 \begin{equation}\label{soliton}
 u_i(x,t) = A\ {\rm sech}^2\ \left[B_{i} \left(x\pm t \sqrt{c^2+\frac{A \beta_1}{3 \rho}}\right) \right], \quad i = \overline {1,4}.
 \end{equation}
-Здесь амплитуда $A$ является свободным параметром, причём при $A<0$ такая волна является солитоном сжатия, а при $A>0$ --- солитоном разрежения. Для заданной амплитуды~$A$, соответствующие солитонные решения имеют одинаковую скорость, но разные параметры длины~$B_i$:
+Здесь амплитуда $A$ является свободным параметром, причём при $A<0$ такая волна называется солитоном сжатия, а при $A>0$ --- солитоном разрежения. Для заданной амплитуды~$A$, соответствующие солитонные решения имеют одинаковую скорость, но разные параметры длины~$B_i$:
 \begin{align}
 %\label{B1}
 %B_1 &=& \sqrt{\frac{3 A\beta c^2 \rho}{\left[18 c^4  \nu^2 \rho^2 + 6A\beta c^2  \nu^2  \rho - A^2 \beta^2 (\nu+1)\right] R^2}} \, ,\\
@@ -1041,31 +1067,33 @@ B_4 &= \sqrt{\frac{A\beta_1}{(6E + 2A\beta_1)\nu^2 R^2}},
 
 На рисунке \ref{fig:soliton} в левой части изображены четыре солитона сжатия, задаваемых формулами \eqref{soliton} -- \eqref{B4} и имеющих амплитудный параметр $A = -0.05$.  <<Регуляризованный>> солитон \eqref{B4} и солитон (\ref{Bi}, $i=1$) практически полностью совпадают и являются самыми длинными из всех.
 %Все четыре солитона имеют разную длину, причём <<регуляризованный>> солитон \eqref{B4} самый длинный. 
-Однако солитоны такой амплитуды вызывают напряжения близкие к пределу упругости для полистирола. В экспериментах с полистироловым стержнем, описанных в~\cite{Garbuzov}, амплитуда очень мала: $A \sim 10^{-3} - 10^{-4}$, следовательно, в главном порядке по $A$ во всех четырёх формулах параметр длины примерно равен
+Однако солитоны такой амплитуды вызывают напряжения близкие к пределу упругости для полистирола. В экспериментах с полистироловым стержнем, описанных в~\cite{Garbuzov}, амплитуда очень мала: $A \sim 10^{-3} - 10^{-4}$, и, следовательно, в во всех четырёх формулах параметр длины примерно равен
 %In the left part of the Figure \ref{fig:soliton} we plot the four solitons given by the formulae (\ref{soliton}) - (\ref{B4}) for one and the same value of the amplitude parameter $A = -0.05$ and the same elastic moduli shown in Table \ref{tab:ps} (typical for a polystyrene \cite{HughesKelly}). We can see that the four solitons have a different width, with the regularised soliton (\ref{B4}) being the widest. However, this figure is plotted for the value of $A$ which exceeds the yield point for the polystyrene, and therefore in practice this difference would not be important for that particular material (but could be important for some other materials). Indeed, in experiments with polystyrene discussed in the next section the value of $A$ is very small, $A \sim 10^{-3} - 10^{-4}$. Therefore, to leading order in $A$, all four formulae will give the width parameter approximately equal to 
-\begin{equation}\label{}
+\begin{equation}\label{B}
 B = \sqrt{\frac{A\beta_1}{6\nu^2 E R^2}},
 \end{equation}
-а соответствующее солитонное решение изображено в правой части рисунка~\ref{fig:soliton} для $A = -0.001$. Отметим, что для полистирола коэффициент $\beta_1$, задаваемый формулой~\eqref{beta_1} отрицателен и, следовательно, параметр $B$ вещественен.
+а соответствующее солитонное решение изображено в правой части рисунка~\ref{fig:soliton} для $A = -0.001$.
+Отметим, что для полистирола, упругие характеристики которого представлены в таблице \ref{tab:ps}, коэффициент $\beta_1$, задаваемый формулой~\eqref{beta_1} отрицателен и, следовательно, параметр $B$ вещественен. Более того, из формулы \eqref{B} следует, что при малых значениях $A$ тип солитона (сжатия или растяжения) определяется именно знаком коэффициента~$\beta_1$.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.54\linewidth]{3a_FourSolitonsBlack}
 	\includegraphics[width=0.42\linewidth]{3b_SingleSoliton}
 	\caption{Графики функций $-u_i(x,t)$, задаваемых формулой \eqref{soliton}, в стержне радиуса $R = 5$~мм, сделанном из полистирола при $A = -0.05$ (слева) и $A= -0.001$ (справа). Упругие модули полистирола приведены в таблице~\ref{tab:ps}.}
 	\label{fig:soliton}
+	\vspace{-3mm}
 \end{figure}
 \begin{table}[h]
 	\captionsetup{justification=raggedleft,singlelinecheck=false}
 	\caption{Упругие модули полистирола~\cite{HughesKelly}.}
-	\vspace{-5mm}
+	\vspace{-7mm}
 	\begin{center}
 		\begin{tabular}{|c|c|c|c|c|c|}
 			\hline
-			Модуль Юнга & Коэффициент & \multicolumn{3}{|c|} {Модули Мурнагана, Н/м\textsuperscript{2} } & Плотность \\
+			\rule[-1ex]{0pt}{3ex} Модуль Юнга & Коэффициент & \multicolumn{3}{|c|} {Модули Мурнагана, Н/м\textsuperscript{2} } & Плотность \\
 			\cline{3-5}
-			$E$, Н/м\textsuperscript{2} & Пуассона, $\nu$ & $l$ & $m$ & $n$ & $\rho$, кг/м\textsuperscript{3}  \\
+			\rule[-1ex]{0pt}{3ex} $E$, Н/м\textsuperscript{2} & Пуассона, $\nu$ & $l$ & $m$ & $n$ & $\rho$, кг/м\textsuperscript{3}  \\
 			\hline
-			$3.7\cdot10^9$ & $0.34$ & $-18.9\cdot10^{9}$ & $-13.3\cdot10^{9}$ & $-10\cdot10^{9}$ & 1060 \\
+			\rule[-1ex]{0pt}{3ex} $3.7\cdot10^9$ & $0.34$ & $-18.9\cdot10^{9}$ & $-13.3\cdot10^{9}$ & $-10\cdot10^{9}$ & 1060 \\
 			\hline
 		\end{tabular}
 	\end{center}
@@ -1120,18 +1148,18 @@ u_i(x, t) &= \frac{3 \rho \left(v^2 - c^2\right)}{\beta_1} {\rm sech}^{2}\left[\
 %\eqref{2_eq1_0}, \eqref{2_eq2_0} и граничных условий \eqref{2_bc_rr}, \eqref{2_bc_rx} 
 выведены упрощённые модели типа Буссинеска, описывающие длинные продольные волны деформации, которые теперь интересно сравнить с численным решением полных уравнений.
 
-В настоящей работе основной интерес представляют непрерывные гладкие решения нелинейных уравнений. Наилучшим средством для этого является псевдоспектральный метод, с помощью которого мы будем решать как пространственно одномерные уравнения типа Буссинеска, так и полные трёхмерные уравнения движения.
-Отметим, что пседвоспектральный метод чаще всего используется только для пространственной дискретизации, в то время как дискретизация по времени осуществляется с помощью стандартных методов, например, Рунге-Кутты 4-го порядка.
+В настоящей работе основной интерес представляют непрерывные гладкие решения нелинейных уравнений. Наилучшим средством для их нахождения является псевдоспектральный метод, с помощью которого мы будем решать как пространственно одномерные уравнения типа Буссинеска, так и полные трёхмерные уравнения движения.
+Отметим, что пседвоспектральный метод чаще всего используется только для пространственной дискретизации, в то время как дискретизация по времени осуществляется с помощью стандартных методов решения обыковенных дифференциальных уравнений, например, Рунге-Кутты 4-го порядка.
 %Опишем метод подробнее.
 
-Семейство спектральных методов, одним из которых является псевдоспектральный метод или метод коллокации, основано на поиске решения задачи в некотором подпространстве, имеющем конечный базис, в качестве которого чаще всего выбирается базис Фурье (набор синусов и косинусов) или семейство ортогональных многочленов. 
+Семейство спектральных методов, одним из которых является псевдоспектральный метод или метод коллокации, основано на поиске решения задачи в некотором подпространстве, имеющем конечный базис, в качестве которого чаще всего выбирается базис Фурье (набор синусов и косинусов) или семейство ортогональных многочленов, например, Чебышёва или Лежандра. 
 %Выбор базиса определяется граничными условиями Дирихле: базисные функции должны удовлетворять им. 
 %Псевдоспектральный метод, называемый также методом коллокации, является одним из семейства спектральных методов. 
 Отличительной особенностью псевдоспектрального метода является выполнение уравнений не на всей области, а лишь в конечном наборе точек, называемых точками коллокации. Получаемые в результате значения решения в точках коллокации затем интерполируются на всю область задачи. 
 %В качестве точек коллокации выбираются точки соответствущей квадратуры, что определяется нулями определённых полиномов.
 %Конкретный вид полинома, у которого ищутся нули, определяется типом квадратуры (Гаусса, Радау, Гаусса-Лобатто).
 %При этом нули полиномов Чебышева и их производных имеют простой аналитический вид. А вот для полиномов Лежандра все сложнее и нули надо искать численно.
-Выбор точек коллокации определяется используемым базисом: для базиса Фурье точки равномерно распределены по области, а для ортогональных многочленов выбираются точки соответствующей квадратуры, задаваемые нулями определённых многочленов. Конкретный вид многочлена, у которого ищутся нули, определяется типом квадратуры: Гаусса, Гаусса-Радо или Гаусса-Лобатто. Более подробному описанию этого метода применительно к решаемым уравнениям посвящён следующий параграф.
+Выбор точек коллокации определяется используемым базисом: для базиса Фурье точки равномерно распределены по области, а для ортогональных многочленов выбираются точки соответствующей интерполяционной квадратуры, задаваемые нулями определённых многочленов. Конкретный вид многочлена, у которого ищутся нули, определяется типом квадратуры: Гаусса, Гаусса-Радо или Гаусса-Лобатто. Более подробному описанию этого метода применительно к решаемым уравнениям посвящён следующий параграф.
 
 %Выбор этих точек определяется используемым базисом: для базиса Фурье точки равномерно распределены по области, а для многочленов Чебышёва эти точки должны быть распределены согласно чебышёвской плотности с разрежением в центре области и сгущением к краям. Неправильный выбор точек коллокации грозит возникновением больших ошибок в решении.
 
@@ -1197,7 +1225,10 @@ $$
 Такой метод при использовании быстрого преобразования Фурье позволяет эффективно вычислять $\widehat{u^2}$ и $\widehat{uP}$.
 Решать систему \eqref{3_bq_reg_dft}, \eqref{3_bq_dft_iv} будем с помощью метода Рунге-Кутты 4-го порядка. Применяя обратное ДПФ к решению этой системы, получаем приближение исходной задачи Коши \eqref{3_bq_reg}, \eqref{3_bq_iv}.
 
-С помощью псевдоспектрального метода уравнения в частных производных часто сводятся к системе ОДУ относительно значений функции в точках коллокации $u_N(x_j, t)$, а не $\widehat u(k, t)$. В таком случае нелинейные слагаемые вычисляются простым поточечным произведением значений функций в точках коллокации, а вычисление пространственных производных осуществляется с помощью ДПФ и формулы ~\eqref{3_spect_deriv}. Отметим, что вычисление производной может быть выражено через умножение вектора значений $u_N(x_j, t)$ на матрицу производной $D_N$:
+С помощью псевдоспектрального метода уравнения в частных производных часто сводятся к системе ОДУ относительно значений функции в точках коллокации $u_N(x_j, t)$, а не коэффициентов $\widehat u(k, t)$. В таком случае нелинейные слагаемые вычисляются простым поточечным произведением значений функций в точках коллокации, а вычисление пространственных производных осуществляется 
+%в пространстве коэффициентов $\widehat u(k, t)$, для перехода 
+%с помощью ДПФ и формулы~\eqref{3_spect_deriv}. Отметим, что вычисление производной может быть выражено 
+через умножение вектора значений $u_N(x_j, t)$ на матрицу производной $D_N$:
 \begin{equation}\label{3_phys_deriv}
 \vect{u}_N'(t) = D_N \vect{u}_N(t), \qquad \vect{u}_N(t) = \{u_N(x_j, t)\}_{j=0}^{N-1}.
 \end{equation}
@@ -1219,7 +1250,7 @@ $$
 %\end{cases}
 %\end{equation}
 
-Аналогичным образом можно дискретизировать нерегуляризованные уравнения (\ref{eq_dim}) с тремя дисперсионными слагаемыми, однако возникающая система обыкновенных дифференциальных уравнений 4-го порядка оказывается жёсткой и не поддаётся решению явными методами. В настоящей работе много времени было уделено реализации псевдоспектрального метода для полных уравнений, описанию которого посвящён следующий пункт, поэтому задачу о численном моделировании уравнений \eqref{eq_dim} было решено оставить на будущее.
+Аналогичным образом можно дискретизировать уравнения (\ref{eq_dim}) с тремя дисперсионными слагаемыми, однако возникающая система обыкновенных дифференциальных уравнений 4-го порядка оказывается жёсткой и не поддаётся решению явными методами. В настоящей работе много времени было уделено реализации псевдоспектрального метода для полных уравнений, описанию которого посвящён следующий пункт, поэтому задачу о численном моделировании уравнений \eqref{eq_dim} было решено оставить на будущее.
 
 \subsection{Полные трёхмерные уравнения}
 %Разрабатывая численный метод для решения полных уравнений, мы задались целью сделать его пригодным для как можно более широкого круга численных экспериментов. Во-первых, метод должен подходить для моделирования эволюции некоторого начального импульса в течение длительного времени, для чего необходимо иметь возможность задачу Коши на периодическом интервале. Во-вторых, метод должен позволять моделировать волны, возникающие в результате внешнего воздействия, как на боковую поверхность, так и на торец стержня (решение начально-краевой задачи на некотором конечном, но достаточно длинном интервале). %В третьих, мы хотели бы учитывать в будущем не только осесимметричную деформацию, т.е. случай, когда перемещение зависит от угловой координаты $\varphi$.
@@ -1229,7 +1260,8 @@ $$
 Сформулируем задачу Коши для полных уравнений, описывающих динамику однородного стержня круглого сечения длиной $L$ и радиусом $R$:
 \begin{align}
 \label{3_eqns_full}
-&\ddot{\vect{U}}(x, r, \varphi, t) = \frac1\rho \nabla\cdot\tens{P},\quad 0<x<L, \quad 0<r<R,\quad 0<\varphi<2\pi,\\
+&\ddot{\vect{U}}(x, r, \varphi, t) = %\frac1\rho
+\rho^{-1} \,\divg\tens{P},\quad 0<x<L, \quad 0<r<R,\quad 0<\varphi<2\pi,\\
 \label{3_bc_full}
 &\tens{P} \cdot \vect{n} = \vect{P_b}, \quad r = R,\\
 \label{3_iv_full}
@@ -1239,7 +1271,8 @@ $$
 \label{3_strain}
 &\tens{E} = \frac12 \lb \nabla\vect{U}^T + \nabla\vect{U} + \nabla\vect{U}^T \cdot \nabla\vect{U} \rb,
 \end{align}
-где $\tens{E}^*$ -- союзная матрица, $\tens{\mathcal{I}}$ -- единичный тензор, а по $x$ ставятся периодические граничные условия.
+где $\tens{E}^*$ -- союзная матрица, $\tens{\mathcal{I}}$ -- единичный тензор, а по $x$ ставятся периодические граничные условия. Напомним, что уравнения \eqref{3_eqns_full} совпадают с \eqref{2_eq1_0}, \eqref{2_eq2_0} при отсутствии кручения и независимости перемещений от $\varphi$.
+
 Будем искать решение в некотором конечномерном пространстве, задаваемым системой базисных функций $\Phi_{n_1}(x)$, $\Psi_{n_2}(r)$, $\Theta_{n_3}(\varphi)$. 
 Представим приближённое решение %на $i$-м домене
 $\vect{U}_{N}$ в спектральном виде и потребуем, чтобы приближённое решение совпадало с точным в точках коллокации:
@@ -1269,10 +1302,10 @@ j_1 = 0,\dots, N_1-1, \quad &j_2 = 0,\dots, N_2-1,\\
 &j_3 = 0,\dots, N_3-1,
 \end{split}
 \end{align}
-где в правой части выполняется суммирование по повторяющемуся индексу $l$. Такое вычисление производной требует $O(N_1^2N_2N_3)$ операций. Если в задаче используется базис Фурье или Чебышёва, то дифференцирование можно провести в пространстве коэффициентов $\widehat{U}_N$, для перехода к которым используется быстрое преобразование Фурье, что потребует $O\lb N_1\log(N_1) N_2 N_3\rb$ операций. Если используется другой базис, например, Лежандра, то такой возможности ускорить вычисление производной нет.
+где в правой части выполняется суммирование по повторяющемуся индексу $l$. Такое вычисление производной требует $O(N_1^2N_2N_3)$ операций. Если в задаче используется базис Фурье или Чебышёва, то дифференцирование можно провести в пространстве коэффициентов $\widehat{U}_N$, для перехода к которым используется быстрое преобразование Фурье, что потребует $O\lb N_1\log(N_1) N_2 N_3\rb$ операций. Если используется другой базис, например, Лежандра, то такой возможности ускорить вычисление производной нет, однако практическая реализация алгоритма показала, что метод с использованием быстрого преобразования Фурье эффективнее умножения на матрицу лишь начиная со значения $N_1 \sim 1000$. Это обусловлено тем, что константа алгоритма умножения матриц значительно меньше константы быстрого преобразования Фурье.
 
-Для того, чтобы справиться с этой проблемой и иметь возможность относительно быстро получать решения уравнений на сетке с большим количеством точек, мы применили \emph{многодоменный} псевдоспектральный метод, он же метод \emph{спектрального элемента}.
-В рамках этого метода область задачи $\Omega$ разбивается по каждой из осей на $M$ подобластей (доменов) $\Omega_m$:
+Для того, чтобы  иметь возможность относительно быстро получать решения уравнений на сетке с большим количеством точек, мы применили \emph{многодоменный} псевдоспектральный метод, он же метод \emph{спектрального элемента}.
+В рамках этого метода область задачи $\Omega$ разбивается на $M$ подобластей (доменов) $\Omega_m$:
 \begin{align*}
 &\Omega = \{(x,r,\varphi)\in\mathbb{R}^3 \, | \, 0<x<L, \; 0<r<R, \; 0<\varphi<2\pi\} = \bigcup\limits_{i=1}^{M} \Omega_m,\\
 &\Omega_m = \{(x,r,\varphi)\in\mathbb{R}^3 \, | \, 0\leqslant L_{m}<x<L_{m+1}\leqslant L, \; 0<R_m<r<R_{m+1}\leqslant R, \\
@@ -1419,7 +1452,7 @@ j_1 = 0,\dots, N_1-1, \quad &j_2 = 0,\dots, N_2-1,\\
 %\end{figure}
 
 
-\subsection{Образование солитона из удара по поверхности}
+\subsection{Образование солитона из удара по боковой поверхности}
 Представляет интерес возможность возбуждения солитона с помощью воздействия не только на его торец, но и на боковою поверхность. Для этого зададим непродолжительное локализованное на небольшом участке в центре стержня нормальное напряжение:
 \begin{equation}\label{3_surf_imp}
 P_{rr} = 0.3 \cosh^{-2}\lb\frac{t}{10}\rb \cosh^{-2}\lb\frac{x}{10}\rb\mbox{ГПа}, \quad P_{xr} = 0, \quad \mbox{при} \quad r=R.
@@ -1449,18 +1482,18 @@ P_{rr} = 0.3 \cosh^{-2}\lb\frac{t}{10}\rb \cosh^{-2}\lb\frac{x}{10}\rb\mbox{ГП
 
 В настоящей работе получены следующие результаты:
 \begin{enumerate}
-	\item Выведены две новые асимптотические модели типа Буссинеска, описывающие длинные продольные волны в стержнях круглого сечения. Эти модели обобщены на случай ненулевой осесимметричной нагрузки на боковой поверхности, а также на случай предварительно растянутого стержня. Установлено, что новые модели:
+	\item Для описания продольных длинных волн в стержнях круглого сечения выведены две новые асимптотические модели типа Буссинеска, отличающиеся друг от друга коэффициентами при дисперсионных слагаемых. Эти модели обобщены на случай ненулевой осесимметричной нагрузки на боковой поверхности, а также на случай предварительно растянутого стержня. Установлено, что новые модели:
 	\begin{itemize}[noitemsep,topsep=1pt]
 		\item имеют семейство решений в виде солитонов деформации;
 		\item асимптотически эквивалентны моделям, выведенным ранее;
 		\item обладают лучшими дисперсионными свойствами, чем модели, выведенные ранее.
 	\end{itemize}
 
-	\item Построен метод, позволяющий численно моделировать полные трёхмерные уравнения. В серии численных экспериментов показано, что:
+	\item Построен метод, позволяющий численно моделировать полные трёхмерные уравнения движения стержня в рамках нелинейной теории упругости. Проведена серия численных экспериментов, в ходе которых:
 	\begin{itemize}[noitemsep,topsep=1pt]
-		\item в полной модели, как и в модели Буссинеска, формируются солитоны;
-		\item чем меньше амплитуда солитона, тем более схожи его свойства в полной модели и модели Буссинеска, а именно, зависимость его скорости от амплитуды;
-		\item солитоны деформации могут быть возбуждены с помощью воздействия на поверхность стержня (удара), причём модель Буссинеска даёт схожие с полной моделью солитоны.
+		\item показано, что в полной модели, как и в модели Буссинеска, формируются солитоны;
+		\item построена зависимость скорости от амплитуды солитона в полной модели и показано, что чем меньше амплитуда солитона, тем более схожи его свойства в полной модели и модели Буссинеска;
+		\item установлено, что солитоны деформации могут быть возбуждены с помощью воздействия на поверхность стержня (удара), причём модель Буссинеска даёт схожие с полной моделью солитоны.
 	\end{itemize}
 \end{enumerate}
 
@@ -1477,35 +1510,35 @@ P_{rr} = 0.3 \cosh^{-2}\lb\frac{t}{10}\rb \cosh^{-2}\lb\frac{x}{10}\rb\mbox{ГП
 	% Nonlinear waves: history review and general books 
 	\bibitem{Dodd} Додд Р., Эйлбек Дж., Гиббон Дж., Моррис Х. Солитоны и нелинейные волновые уравнения. М.: «Мир», 1988.
 	%\bibitem{Ablowitz} Абловиц М., Сигур Х. Солитоны и метод обратной задачи. М.: Мир, 1987.
-	\bibitem{Ablowitz2011} M.J. Ablowitz, \textit{Nonlinear dispersive waves: asymptotic analysis and solitons}, Cambridge University Press, Cambridge, 2011.
+	\bibitem{Ablowitz2011} Ablowitz M.\,J., Nonlinear dispersive waves: asymptotic analysis and solitons, Cambridge: Cambridge University Press, 2011.
 	%\bibitem{Russel} Scott Russell J. \textit{Report on waves}, Rept. 14th meetings of the British Assoc. for the Advancement of Science. London: John Murray, 1844. P. 311–390.
 	%\bibitem{Boussinesq} Boussinesq J. The?orie de l’intumescence liquid apple?e onde solitarie ou de translation se propagent dans un canal rectangularie // Comptes Rendus. 1871. Vol. 72. P. 755–759.
 	%\bibitem{Korteweg} Korteweg D.J., de Vries G. On the change of form of long waves advancing in a rectangular channel, and on a new type of long stationary waves // Phil. Mag. 1895. Vol. 39. P. 422–443.
 	%\bibitem{BBM} T.B. Benjamin, J.L. Bona, and J.J. Mahony, Model equations for long waves in nonlinear dispersive systems, \textit{Philos. Trans. R. Soc. London, Ser. A} 272(1220) (1972) 47-78.
-	\bibitem{Zabusky} Zabusky N.J., Kruskal M.D. Interaction of «solitons» in a collisionless plasma and the reccurence of initial states // Phys. Rev. Lett. 1965.	Vol. 15, No 6. P. 240–243.
-	\bibitem{GardnerIST} Gardner C.\,S., Greene J.\,M., Kruskal M.\,D., Miura R.\,M., Method for Solving the Korteweg-de Vries Equation, Physical Review Letters, 1967, 19(19), 1095--1097.
-	\bibitem{Zakharov} Захаров В.\,Е., Манаков С.\,В., Новиков С.\,П., Питаевский Л.\,П., Теория солитонов: метод обратной задачи, Наука, М., 1980. 
+	\bibitem{Zabusky} Zabusky N.J., Kruskal M.D. Interaction of «solitons» in a collisionless plasma and the reccurence of initial states, Physical Review Letters, 1965, 15 (6), 240--243.
+	\bibitem{GardnerIST} Gardner C.\,S., Greene J.\,M., Kruskal M.\,D., Miura R.\,M., Method for Solving the Korteweg-de Vries Equation, Physical Review Letters, 1967, 19 (19), 1095--1097.
+	\bibitem{Zakharov} Захаров В.\,Е., Манаков С.\,В., Новиков С.\,П., Питаевский Л.\,П., Теория солитонов: метод обратной задачи, М.: <<Наука>>, 1980. 
 	
 	% Numerical methods review
-	\bibitem{Taha} Taha T.\,R., Ablowitz M.\,I., Analytical and numerical aspects of certain nonlinear evolution equations. III. Numerical, Korteweg-de Vries equation, Journal of Computational Physics, 1984, 55(2), 231--253.
+	\bibitem{Taha} Taha T.\,R., Ablowitz M.\,I., Analytical and numerical aspects of certain nonlinear evolution equations. III. Numerical, Korteweg-de Vries equation, Journal of Computational Physics, 1984, 55 (2), 231--253.
 	\bibitem{Christov} Christov C.\,I., Conservative Difference Scheme for Boussinesq Model of Surface Waves, Proceedings ICFD 5, 1996, 343--349.
-	\bibitem{Kolkovska} Kolkovska N., Dimova M., A new conservative finite difference scheme for Boussinesq paradigm equation, Central European Journal of Mathematics, 2012, 10(3), 1159--1171.
+	\bibitem{Kolkovska} Kolkovska N., Dimova M., A new conservative finite difference scheme for Boussinesq paradigm equation, Central European Journal of Mathematics, 2012, 10 (3), 1159--1171.
 	%\bibitem{Dutykh_KdV} Dutykh D., Katsaounis T., Mitsotakis D., Finite volume methods for unidirectional dispersive wave models, электронная публикация, arXiv/HAL
-	\bibitem{Dutykh_Boussinesq} Dutykh D., Katsaounis T., Mitsotakis D., Finite volume schemes for Boussinesq type equations, электронная публикация, arXiv/HAL
-	\bibitem{Karczewska} Karczewska A., Rozmej P., Szczecinski M., Boguniewicz B., A finite element method for extended KdV equations, International Journal of Applied Mathematics and Computer Science, 2016, 26(3), 555--567.
-	\bibitem{Gottlieb_Orszag} Gottlieb D., Orszag S.\,A., Numerical Analysis of Spectral Methods: Theory and Applications, SIAM, Philadelphia, 1977.
+	\bibitem{Dutykh_Boussinesq} Dutykh D., Katsaounis T., Mitsotakis D., Finite volume schemes for Boussinesq type equations, электронная публикация, https://arxiv.org/abs/1101.1728
+	\bibitem{Karczewska} Karczewska A., Rozmej P., Szczecinski M., Boguniewicz B., A finite element method for extended KdV equations, International Journal of Applied Mathematics and Computer Science, 2016, 26 (3), 555--567.
+	\bibitem{Gottlieb_Orszag} Gottlieb D., Orszag S.\,A., Numerical Analysis of Spectral Methods: Theory and Applications, Philadelphia: SIAM, 1977.
 	%\bibitem{Trefethen} Trefethen L.\,N., Spectral Methods in MATLAB, SIAM, Philadelphia, 2000.
-	\bibitem{Canuto2007} Canuto C. et al., Spectral Methods. Evolution to Complex Geomenties and Applications to Fluid Dynamics, Springer-Verlag Berlin Heidelberg, 2007.
+	\bibitem{Canuto2007} Canuto C. et al., Spectral Methods. Evolution to Complex Geomenties and Applications to Fluid Dynamics, Berlin: Springer-Verlag, 2007.
 	
 	% Nonlinear mechanics %
-	\bibitem{LurieNL} Лурье А. И. Нелинейная теория упругости. М.: <<Наука>>, 1980.
-	\bibitem{Murnaghan} F.D. Murnaghan, \textit{Finite deformation of an elastic solid}, John Wiley and Sons, 1951.
-	\bibitem{Bergstrom} J. Bergstr\"{o}m, \textit{Mechanics of Solid Polymers}, William Andrew Publishing, 2015.
-	\bibitem{Yu} Y.-Y. Yu, Generalized Hamilton's Principle and Variational Equation of Motion in Nonlinear Elasticity Theory, With Application to Plate Theory, Journal of the Acoustical Society of America, vol. 36, 1964, pp. 111-120.
+	\bibitem{LurieNL} Лурье А.\,И., Нелинейная теория упругости, М.: <<Наука>>, 1980.
+	\bibitem{Murnaghan} Murnaghan F.\,D., Finite deformation of an elastic solid, New York: John Wiley and Sons, 1951.
+	\bibitem{Bergstrom} Bergstr\"{o}m J., Mechanics of Solid Polymers, Amsterdam: William Andrew Publishing, 2015.
+	\bibitem{Yu} Yu Y.-Y., Generalized Hamilton's Principle and Variational Equation of Motion in Nonlinear Elasticity Theory, With Application to Plate Theory, Journal of the Acoustical Society of America, 1964, 36, 111--120.
 	
 	% Nonlinear waves
 	%\bibitem{Maugin} G.A. Maugin, \textit{Nonlinear waves in elastic crystals}, Oxford University Press, Oxford, 1999.
-	%\bibitem{Dai} H.-H. Dai, Z. Cai, Phase transition in a slender cylinder composed of an incompressible elastic material. I. Asymptotic model equation, \textit{Proc. Roy. Soc. A} 462 (2006) 419-438.
+	%\bibitem{Dai} Dai~H.-H., Z. Cai, Phase transition in a slender cylinder composed of an incompressible elastic material. I. Asymptotic model equation, \textit{Proc. Roy. Soc. A} 462 (2006) 419-438.
 	%\bibitem{M}
 	%A. Mayer, 
 	%Surface acoustic waves in nonlinear elastic media, \textit{Phys. Reports} 256 (1995) 257 - ?.
@@ -1514,49 +1547,48 @@ P_{rr} = 0.3 \cosh^{-2}\lb\frac{t}{10}\rb \cosh^{-2}\lb\frac{x}{10}\rb\mbox{ГП
 	%\bibitem{E1} J. Engelbrecht, A. Salupere and K. Tamm, Waves in microstructured solids and the Boussinesq paradigm, \textit{Wave Motion} 48 (2011) 717-726.
 	%\bibitem{P} A. Pau, F. Lanza di Scalea, Nonlinear guided wave propagation in prestressed plates, \textit{J. Acoust. Soc. Am.} 137 (2015) 1529-1540.
 	%\bibitem{E2} T. Peets, K. Tamm, J. Engelbrecht, On the role of nonlinearities in the Boussinesq-type wave equations, \textit{Wave Motion} 71 (2017) 113-119.
-	\bibitem{S_book} A.M. Samsonov, \textit{Strain solitons in solids and how to construct them}, Chapman \& Hall/CRC, Boca Raton, 2001.
-	\bibitem{P_book} A.V. Porubov, \textit{Amplification of nonlinear strain waves in solids}, World Scientific, Singapore, 2003.
-	\bibitem{NS}
-	G.A. Nariboli, A. Sedov, Burgers-Korteweg de Vries equation for viscoelastic rods and plates, \textit{J. Math. Anal. Appl.} 32(3) (1970) 661-677.
-	\bibitem{OS} L.A. Ostrovsky, A.M. Sutin, Nonlinear elastic waves in rods, \textit{PMM} 41 (1977) 531-537.
-	\bibitem{Love} A.E.H. Love, \textit{A treatise on the mathematical theory of elasticity}, Cambridge University Press, London, 1927.
+	\bibitem{S_book} Samsonov A.\,M., Strain solitons in solids and how to construct them, Boca Raton: Chapman \& Hall/CRC, 2001.
+	\bibitem{P_book} Porubov A.\,V., Amplification of nonlinear strain waves in solids, Singapore: World Scientific, 2003.
+	\bibitem{NS} Nariboli G.\,A., Sedov A., Burgers-Korteweg de Vries equation for viscoelastic rods and plates, J. Math. Anal. Appl., 1970, 32 (3), 661--677.
+	\bibitem{OS} Ostrovsky~L.\,A., Sutin~A.\,M., Nonlinear elastic waves in rods, PMM, 1977, 41, 531--537.
+	\bibitem{Love} Love A\,.E.\,H., A treatise on the mathematical theory of elasticity, London: Cambridge University Press, 1927.
 	\bibitem{S1}
-	A.M. Samsonov, Structural optimization in nonlinear wave propagation problems. In: \textit{Structural Optimization under Dynamical Loading. Seminar and Workshop for Junior Scientists}, U. Lepik ed., Tartu University Press, 75-76 (1982).
+	Samsonov~A.\,M., Structural optimization in nonlinear wave propagation problems. In: \textit{Structural Optimization under Dynamical Loading. Seminar and Workshop for Junior Scientists}, U. Lepik ed., Tartu University Press, 75-76 (1982).
 	\bibitem{S2}
-	A.M. Samsonov, Soliton evolution in a rod with variable cross section, \textit{Sov. Physics - Doklady} 29 (1984) 586-587.
+	Samsonov~A.\,M., Soliton evolution in a rod with variable cross section, \textit{Sov. Physics - Doklady} 29 (1984) 586-587.
 	\bibitem{SP}
-	A.M. Samsonov, A.V. Porubov, Refinement of the model for the propagation of longitudinal strain waves in a rod with nonlinear elasticity, \textit{Tech. Phys. Lett.} 19(6) (1993) 365-366.
+	Samsonov~A.\,M., Porubov~A.\,V., Refinement of the model for the propagation of longitudinal strain waves in a rod with nonlinear elasticity, \textit{Tech. Phys. Lett.} 19(6) (1993) 365-366.
 	\bibitem{PV}
-	A.V. Porubov, M.G. Velarde, Dispersive - dissipative solitons in nonllinear solids, \textit{Wave Motion} 31(3) (2000) 197-207.
+	Porubov~A.\,V., M.G. Velarde, Dispersive - dissipative solitons in nonllinear solids, \textit{Wave Motion} 31(3) (2000) 197-207.
 	\bibitem{E_book} V.I. Erofeev, V.V. Kazhaev, N.P. Semerikova, \textit{Waves in rods: dispersion, dissipation, nonlinearity}, Fizmatlit, Moscow, 2002 (in Russian).
-	\bibitem{DF} H.-H. Dai, X. Fan, Asymptotically approximate model equations for weakly nonlinear long waves in compressible elastic rods and their comparisons with other simplified model equations, \textit{Maths. Mechs. Solids} 9 (2004) 61-79.
-	\bibitem{DC} H.-H. Dai, and Z. Cai, Uniform asymptotic analysis for transient waves in a pre-stressed compressible hyperelastic rod, \textit{Acta Mechanica} 139 (2000) 201-230.
-	\bibitem{KSZ} K.R. Khusnutdinova, A.M. Samsonov, A.S. Zakharov, Nonlinear layered lattice model and generalized solitary waves in imperfectly bonded structures, \textit{Phys. Rev. E} 79(5) (2009) 056606.
-	\bibitem{KS} K.R. Khusnutdinova, A.M. Samsonov, Fission of a longitudinal strain solitary wave in a delaminated bar, \textit{Phys. Rev. E} 77 (2008) 066603.
-	\bibitem{KT1} K.R. Khusnutdinova, M.R. Tranter, Modelling of nonlinear wave scattering in a delaminated elastic bar, \textit{Proc. R. Soc. A} 471 (2015) 20150584.
-	\bibitem{KT2} K.R. Khusnutdinova, M.R. Tranter, On radiating solitary waves in bi-layers with delamination and coupled Ostrovsky equations, \textit{Chaos} 27 (2017) 013112.
-	\bibitem{JAP2010} G.V. Dreiden, K.R. Khusnutdinova, A.M. Samsonov, and I.V. Semenova, Splitting induced generation of soliton trains in layered waveguides, \textit{J. Appl. Phys.} 107 (2010) 034909.
-	\bibitem{JAP2012} G.V. Dreiden, K.R. Khusnutdinova, A.M. Samsonov, and I.V. Semenova, Bulk strain solitary waves in bonded layered polymeric bars with delamination, \textit{J. Appl. Phys.} 112 (2012) 063516.
+	\bibitem{DF} Dai~H.-H., Fan~X., Asymptotically approximate model equations for weakly nonlinear long waves in compressible elastic rods and their comparisons with other simplified model equations, \textit{Maths. Mechs. Solids} 9 (2004) 61-79.
+	\bibitem{DC} Dai~H.-H., and Z. Cai, Uniform asymptotic analysis for transient waves in a pre-stressed compressible hyperelastic rod, \textit{Acta Mechanica} 139 (2000) 201-230.
+	\bibitem{KSZ} Khusnutdinova~K.\,R., Samsonov~A.\,M., A.S. Zakharov, Nonlinear layered lattice model and generalized solitary waves in imperfectly bonded structures, \textit{Phys. Rev. E} 79(5) (2009) 056606.
+	\bibitem{KS} Khusnutdinova~K.\,R., Samsonov~A.\,M., Fission of a longitudinal strain solitary wave in a delaminated bar, \textit{Phys. Rev. E} 77 (2008) 066603.
+	\bibitem{KT1} Khusnutdinova~K.\,R., Tranter~M.\,R., Modelling of nonlinear wave scattering in a delaminated elastic bar, \textit{Proc. R. Soc. A} 471 (2015) 20150584.
+	\bibitem{KT2} Khusnutdinova~K.\,R., Tranter~M.\,R., On radiating solitary waves in bi-layers with delamination and coupled Ostrovsky equations, \textit{Chaos} 27 (2017) 013112.
+	\bibitem{JAP2010} Dreiden~G.\,V., Khusnutdinova~K.\,R., Samsonov~A.\,M., and Semenova~I.\,V., Splitting induced generation of soliton trains in layered waveguides, \textit{J. Appl. Phys.} 107 (2010) 034909.
+	\bibitem{JAP2012} Dreiden G.\,V., Khusnutdinova~K.\,R., Samsonov~A.\,M., and Semenova~I.\,V., Bulk strain solitary waves in bonded layered polymeric bars with delamination, \textit{J. Appl. Phys.} 112 (2012) 063516.
 	%\bibitem{ML} J.-F. Mercier, B. Lombard, A two-way model for nonlinear acoustic waves in a non-unfirm lattice of Helmholtz resonators, \textit{Wave Motion} 72 (2017) 260-275.
 	%\bibitem{AM} R. Arredondo and J.P. McHugh, Mean displacement near an interface in a nonlinear string, \textit{SIAM J. Appl. Math.} 78 (2018) 1470-1488.
 	%\bibitem{DS} M. Destrade and G. Saccomandi, Nonlinear transverse waves in deformed dispersive solids, \textit{Wave Motion} 45 (2008) 325-336.
-	\bibitem{Garbuzov} F.E. Garbuzov, K.R. Khusnutdinova, I.V. Semenova, On Boussinesq-type models for long longitudinal waves in elastic rods. \textit{Wave Motion}, 88 (2019), 129-143.
+	\bibitem{Garbuzov} Garbuzov F.\,E., Khusnutdinova K.\,R., Semenova I.\,V., On Boussinesq-type models for long longitudinal waves in elastic rods, Wave Motion, 2019, 88 129--143.
 	
 	%\bibitem{DSS} M. Destrade, G. Saccomandi, I. Sigura, Methodical fitting for mathematical models of rubber-like materials, \textit{Proc. R. Soc. A} 473 (2017) 20160811.
 	%\bibitem{Ogden} R.W. Ogden, \textit{Non-linear elastic deformations}, Dover, Mineola, New York, 1984.
-	\bibitem{bostrm2000} Bostr\"{o}m A., On wave equations for elastic rods, \textit{ZAMM} 80(4) (2000) 245-251. 
-	\bibitem{HughesKelly} Hughes D.\,S., Kelly J.\,L., Second order elastic deformation of solids, \textit{Phys. Rev.}, 92,  1145-1149, 1953.
-	\bibitem{ADO} Z. Abiza, M. Destrade, and R.W. Ogden, Large acoustoelastic effect, \textit{Wave Motion} 49 (2012) 364-374.
+	\bibitem{bostrm2000} Bostr\"{o}m A., On wave equations for elastic rods, ZAMM, 2000, 80 (4), 245--251. 
+	\bibitem{HughesKelly} Hughes D.\,S., Kelly J.\,L., Second order elastic deformation of solids, Phys. Rev., 1953, 92,  1145-1149.
+	\bibitem{ADO} Abiza Z., Destrade M., Ogden R.\,W., Large acoustoelastic effect, Wave Motion, 2012, 49, 364--374.
 %	\bibitem{PAT} A.V. Pichugin, H. Askes, A. Tyas, Asymptotic equivalence of homogenisation procedures and fine-tuning of continuum theories, \textit{J. Sound and Vibration} 313 92008) 858-874.
 %	\bibitem{ADKM} I.V. Andrianov, V.D. Danishevsky, J.D. Kaplunov and B. Markert, Wide frequency higher-order dynamic model for transient waves in a lattice, In: I.V. Andrianov et al. ed., ``Problems of Nonlinear Mechanics and Physics of Materials", Springer, 2019.
 %	\bibitem{TP1988} G. V. Dreiden, Yu. I. Ostrovsky, A. M. Samsonov, I. V. Semenova, E. V. Sokurinskaya, Formation and propagation of strain solitons in nonlinearly elastic solid, \textit{Techn. Phys.} 58 (1988) 2040-2017. (in Russian)
-%	\bibitem{Dreiden-TP-2008} G.V. Dreiden, A.M. Samsonov, I.V. Semenova, Evolution of bulk strain solitons in long polymeric waveguides, \textit{Techn. Phys.} 53 (2008) 540-546.
-%	\bibitem{TPL-Polycarb}  G.V. Dreiden, A.M. Samsonov, I.V. Semenova, Bulk elastic strain solitons in polycarbonate, \textit{Techn. Phys. Lett.} 37 (2011) 500-502.
-%	\bibitem{JAP2008} G.V. Dreiden, K.R. Khusnutdinova, A.M. Samsonov, I.V. Semenova, Comparison of the effect of cyanoacrylate- and polyurethane-based adhesives on a longitudinal strain solitary wave in layered polymethylmethacrylate waveguides, \textit{J. Appl. Phys.} 104 (2008) 086106.
-%	\bibitem{APL2014} G.V. Dreiden, A.M. Samsonov, I.V. Semenova, and A.G. Shvartz, Strain solitary waves in a thin-walled waveguide, \textit{Appl. Phys. Lett.} 105 (2014) 211906.
-%	\bibitem{APL2018} A.V. Belashov, Y.M. Beltukov, N.V. Petrov, A.M. Samsonov, I.V. Semenova, Indirect assessment of bulk strain soliton velocity in opaque solids, \textit{Appl. Phys. Lett.} 112 (2018) 121903.
-%	\bibitem{Strain2010} G.V. Dreiden, K.R. Khusnutdinova, A.M. Samsonov, I.V. Semenova, Longitudinal strain solitary wave in a two-layered polymeric bar, \textit{Strain} 46 (2010) 589-598.
-%	\bibitem{SPIE2018} A.V. Belashov, Y.M. Beltukov, I.V. Semenova, Pump-probe digital holography for monitoring of long bulk nonlinear strain waves in solid waveguides, \textit{Proc. SPIE} 10678 (2018) 1067810.
+%	\bibitem{Dreiden-TP-2008} Dreiden~G.\,V., Samsonov~A.\,M., Semenova~I.\,V., Evolution of bulk strain solitons in long polymeric waveguides, \textit{Techn. Phys.} 53 (2008) 540-546.
+%	\bibitem{TPL-Polycarb}  Dreiden~G.\,V., Samsonov~A.\,M., Semenova~I.\,V., Bulk elastic strain solitons in polycarbonate, \textit{Techn. Phys. Lett.} 37 (2011) 500-502.
+%	\bibitem{JAP2008} Dreiden~G.\,V., Khusnutdinova~K.\,R., Samsonov~A.\,M., Semenova~I.\,V., Comparison of the effect of cyanoacrylate- and polyurethane-based adhesives on a longitudinal strain solitary wave in layered polymethylmethacrylate waveguides, \textit{J. Appl. Phys.} 104 (2008) 086106.
+%	\bibitem{APL2014} Dreiden~G.\,V., Samsonov~A.\,M., Semenova~I.\,V., and A.G. Shvartz, Strain solitary waves in a thin-walled waveguide, \textit{Appl. Phys. Lett.} 105 (2014) 211906.
+%	\bibitem{APL2018} A.V. Belashov, Y.M. Beltukov, N.V. Petrov, Samsonov~A.\,M., Semenova~I.\,V., Indirect assessment of bulk strain soliton velocity in opaque solids, \textit{Appl. Phys. Lett.} 112 (2018) 121903.
+%	\bibitem{Strain2010} Dreiden~G.\,V., Khusnutdinova~K.\,R., Samsonov~A.\,M., Semenova~I.\,V., Longitudinal strain solitary wave in a two-layered polymeric bar, \textit{Strain} 46 (2010) 589-598.
+%	\bibitem{SPIE2018} A.V. Belashov, Y.M. Beltukov, Semenova~I.\,V., Pump-probe digital holography for monitoring of long bulk nonlinear strain waves in solid waveguides, \textit{Proc. SPIE} 10678 (2018) 1067810.
 \end{thebibliography}
 
 
@@ -1610,46 +1642,36 @@ g(x,t) &= -\frac{1}{8(\lambda + \mu)}\bigg(-\frac{2U_{0x}(\lambda + 4l - 2m + n)
 \end{split}
 \end{align}
 
-\chapter*{Приложение 2}	
+\chapter*{Приложение 2.\\Солитонные решения уравнения типа Буссинеска}
 \addcontentsline{toc}{chapter}{Приложение 2}
 %All Boussinesq-type equations discussed in the paper can be cast in the form
 Все уравнения типа Буссинеска, обсуждавшиеся в настоящей работе, могут быть записаны в виде:
 \begin{equation}
-u_{tt} - c^2 u_{xx} = d_1 (u^2)_{xx} + d_2 u_{tttt} + d_3 u_{ttxx} + d_4 u_{xxxx},
+u_{tt} - c^2 u_{xx} = \tilde{\beta} (u^2)_{xx} + \tilde\alpha_1 u_{tttt} + \tilde\alpha_2 u_{ttxx} + \tilde\alpha_3 u_{xxxx},
 \end{equation}
-где $c$ и $d_i$ -- некоторые постоянные. Будем искать решения в виде волн, бегущих влево или вправо:
-%where $c$ and $d_i, i=\overline{1, 4}$ are some constants. Looking for the right- or left-propagating travelling-wave solutions
-$
-u = u(\xi), \; \mbox{где} \; \xi = x \pm vt,
-$
-%we obtain the ordinary differential equation
+где $c$, $\tilde\beta$ и $\tilde\alpha_i$ -- некоторые постоянные. Будем искать решения в виде волн, бегущих влево или вправо:$ u = u(\xi), \; \mbox{где} \; \xi = x \pm vt, $
 что сводит исходное уравнение к обыкновенному дифференциальному уравнению:
 \begin{equation}
-(v^2 - c^2) u'' = d_1 (u^2)'' + (d_2 v^4 + d_3 v^2 + d_4) u^{IV}.
+(v^2 - c^2) u'' = \tilde\beta (u^2)'' + (\tilde\alpha_1 v^4 + \tilde\alpha_2 v^2 + \tilde\alpha_3) u^{IV}.
 \label{ODE}
 \end{equation}
 Интегрируя это уравнения по $\xi$ дважды и требуя, чтобы на бесконечности не было возмущений $u, u', u'', u''' \to 0$ при $\xi \to \pm \infty$, получаем уравнение:
-%Integrating this equation with respect to $\xi$ twice, and requiring that $e, e', e'', e''' \to 0$ as $\xi \to \pm \infty$, we obtain the equation
 \begin{equation}
-u'' = \frac{(v^2-c^2) u - d_1 u^2}{d_2 v^4 + d_3 v^2 + d_4},
+u'' = \frac{(v^2-c^2) u - \tilde\beta u^2}{\tilde\alpha_1 v^4 + \tilde\alpha_2 v^2 + \tilde\alpha_3},
 \end{equation}
 которое может рассматриваться как уравнение движения частицы единичной массы в поле потенциальной силы. Интеграл энергии имеет вид:
 %which can be viewed as Newton's equation of motion for a particle of unit mass in a potential field. The energy integral has the form
 \begin{equation}
-E = \frac 12 \left (u' \right )^2 - \frac{3 (v^2-c^2) u^2 - 2 d_1 u^3}{6 (d_2 v^4 + d_3 v^2 + d_4)},
+E = \frac 12 \left (u' \right )^2 - \frac{3 (v^2-c^2) u^2 - 2 \tilde\beta u^3}{6 (\tilde\alpha_1 v^4 + \tilde\alpha_2 v^2 + \tilde\alpha_3)},
 \end{equation}
-а солитонное решение соответствует нулевому уровню энергии $E=0$. Разделение переменных и последующая подстановка
-%and the soliton solution corresponds to the zero energy level $E=0$. Separation of variables and the subsequent substitution
-$$
-u = \frac{3 (v^2 - c^2)}{2 d_1} {\rm sech}^2 \theta
-$$
-позволяет получить солитонное решение в виде:
-%allow one to obtain the solitary wave solution in the form
-\begin{equation}
-u = \frac{3 (v^2 - c^2)}{2 d_1} {\rm sech}^2 \left [\sqrt{\frac{v^2 - c^2}{4 (d_4 + d_3 v^2 + d_2 v^4)}} (x \pm v t)\right ]
+а солитонное решение соответствует нулевому уровню энергии $E=0$. Разделение переменных позволяет получить солитонное решение в виде:
+\begin{equation} \label{4_soliton}
+u = \frac{3 (v^2 - c^2)}{2 \tilde\beta} \sech^2 \left [\sqrt{\frac{v^2 - c^2}{4 (\tilde\alpha_1 v^4 + \tilde\alpha_2 v^2 + \tilde\alpha_3)}} (x \pm v t)\right ]
 \end{equation}
 для таких значений параметра $v$, что это решение вещественнозначное.
-%for the values of the parameter $v$ when this is a real-values solution.
-
+Решение \eqref{4_soliton} можно репараметризовать через амплитуду $A$:
+\begin{equation}
+u = A \sech^2 \left [\sqrt{\frac{3A\tilde{\beta}}{2 (\tilde\alpha_1 (3c^2+2A\beta)^2 + 3\tilde\alpha_2 (3c^2+2A\beta) + 9\tilde\alpha_3)}} \lb x \pm t\sqrt{c^2+\frac23A\beta} \rb\right ].
+\end{equation}
 	
 \end{document}
