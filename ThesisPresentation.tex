@@ -103,48 +103,46 @@
 \begin{itemize}
 	\item Построить асимптотическую одномерную модель для продольных волн в нелинейно упругом стержне, учитывающую нагрузку на поверхности стержня.
 	\item Найти солитонные решения и проанализировать свойства выведенной модели.
-	\item В численном моделировании сравнить полученную модель с полной трёхмерной моделью.
+	\item [Провести...] В численном моделировании сравнить полученную модель с полной трёхмерной моделью.
 \end{itemize}
-%\begin{wrapfigure}[4]{r}{130pt}
-%	\vspace{-.8cm}
-%	\includegraphics[width=\linewidth]{figures/1_RodSchematic}
-%\end{wrapfigure}
 \end{frame}
 
 
 \begin{frame} \frametitle{Полные трёхмерные уравнения}
-Трёхмерный вектор перемещения $\color{darkblue}\vect{U}$.
-\vspace{1mm}
-\begin{wrapfigure}[2]{r}{125pt}
-	\vspace{-5mm}
+\begin{wrapfigure}[4]{r}{125pt}
+	\vspace{-2mm}
 	\includegraphics[width=\linewidth]{figures/1_RodSchematic}
 \end{wrapfigure}
+Трёхмерный вектор перемещения $\color{darkblue}\vect{U}$.\\
+\vspace{1mm}
 Слабонелинейная деформация (малой, но не бесконечно малой амплитуды).\\
 \vspace{1mm}
-Тензоры деформации и напряжения:
+Тензор деформации и плотность потенциальной энергии:
+\small
 \begin{align*}
 %&\color{darkblue}\vect{U} - \mbox{\color{black}трёхмерный вектор перемещения}\\
 &\tens{E} = \frac12 \lb(\nabla\vect{U})^T + \nabla\vect{U} + {\color{darkblue}(\nabla\vect{U})^T\cdot\nabla\vect{U}}\rb\\
-%&W = \frac{\lambda + 2\mu}{2}I_1(\tens{E})^2 - 2\mu I_2(\tens{E}) + \frac{l+2m}{3}I_1(\tens{E})^3 - 2m I_1(\tens{E}) I_2(\tens{E}) + n I_3(\tens{E})
-&\tens{P} = {\color{black}\lambda} \lb\trace{\tens{E}}\rb \tens{{I}} + 2{\color{black}\mu} \tens{E}\\
-&\hspace{7mm}\color{darkblue} + l \lb\trace{\tens{E}}\rb^2 \tens{{I}} - m\lb \lb\trace{\tens{E}}\rb^2\tens{{I}} - 2\lb\trace{\tens{E}}\rb\tens{E} - \lb\trace{\tens{E}^2}\rb\tens{{I}}\rb + n\lb\tens{E}^*\rb^T,
+&W = \frac{\lambda + 2\mu}{2}I_1(\tens{E})^2 - 2\mu I_2(\tens{E}) +\color{darkblue} \frac{l+2m}{3}I_1(\tens{E})^3 - 2m I_1(\tens{E}) I_2(\tens{E}) + n I_3(\tens{E})
+%&\tens{P} = {\color{black}\lambda} \lb\trace{\tens{E}}\rb \tens{{I}} + 2{\color{black}\mu} \tens{E}\\
+%&\hspace{7mm}\color{darkblue} + l \lb\trace{\tens{E}}\rb^2 \tens{{I}} - m\lb \lb\trace{\tens{E}}\rb^2\tens{{I}} - 2\lb\trace{\tens{E}}\rb\tens{E} - \lb\trace{\tens{E}^2}\rb\tens{{I}}\rb + n\lb\tens{E}^*\rb^T,
 \end{align*}
-$\color{darkblue}\lambda,\ \mu$ --- модули упругости Ламе (линейные),\\
+$\lambda,\ \mu$ --- модули упругости Ламе (линейные),\\
 $\color{darkblue}l,\ m,\ n$ --- модули упругости Мурнагана (нелинейные).\\
 \vspace{1mm}
+\normalsize
 Полные трёхмерные уравнения движения:
 \begin{equation}\nonumber
 \color{darkblue}
-\rho\ddot{\vect{U}} = \divg\tens{P}%, \qquad \tens{P} = (\tens{I} + \nabla\vect{U}) \cdot \pdiff{W}{\tens{E}}
+\rho\ddot{\vect{U}} = \divg\tens{P}, \qquad \tens{P} = (\tens{I} + \nabla\vect{U}) \cdot \pdiff{W}{\tens{E}}
 \end{equation}
 %Уравнения дополняются граничными условиями.
 \end{frame}
 
 
 \begin{frame} \frametitle{Упрощающие предположения}
-\begin{wrapfigure}[2]{r}{125pt}
-	\vspace{-5mm}
-	\includegraphics[width=\linewidth]{figures/1_RodSchematic}
+\begin{wrapfigure}[4]{r}{125pt}
+	\vspace{-2mm}
+	\includegraphics[width=\linewidth]{figures/1_RodSchematic}\\
 	\footnotesize
 	Радиус стержня --- $R$.\\
 	Перемещения:\\
@@ -156,37 +154,55 @@ $\color{darkblue}l,\ m,\ n$ --- модули упругости Мурнаган
 	\item Стержень бесконечен вдоль оси $x$.
 	\item Осесимметричная задача: нет кручения и от угловой координаты $\varphi$ ничего не зависит.
 	\item Малые деформации: $\color{darkblue}U,\ V \sim \varepsilon \ll 1$
-	\item Функции медленно меняются: $\color{blue}x,\ r \sim L$.
+	\item Функции медленно меняются: $\color{darkblue}\partial/\partial x,\ \partial/\partial r \sim 1/L$.
 	\item Тонкий стержень: $\color{darkblue}R/L = \delta \ll 1$.
 \end{itemize}
 %На боковой поверхности заданы напряжения $\vect{P_b} = (P(x,t), T(x,t), 0)$.
 \vspace{1mm}
-Разложение перемещений по радиальной переменной:
+Разложение перемещений в степенной ряд по радиальной переменной:
 %\color{darkblue}
 \begin{align*}
 U(x,r,t) &= U_0(x,t) + r^2 U_2(x,t) + r^4 U_4(x,t) + \dots \, ,\\
 V(x,r,t) &= r V_1(x,t) + r^3 V_3(x,t) + r^5 V_5(x,t) + \dots \, .
 \end{align*}
+Подстановка разложений в уравнения движения позволяет выразить $U_2,\ V_3,\ U_4,\ V_5$ через $U_0$ и $V_1$. 
+\end{frame}
+
+
+\begin{frame} \frametitle{Упрощённая система двух уравнений}
+На границе задано нормальное напряжение $P(x,t)$ и касательное $T(x,t)$:
+\small
+\begin{align*} \nonumber
+\begin{split}
+&2 (\lambda + \mu) {\color{red}V_1} + \lambda {\color{darkblue}U_{0x}} +\varepsilon \Psi_1({\color{darkblue}U_{0}}, {\color{red}V_1}) + \delta^2 \bigg[ \gamma_1 {\color{darkblue}U_{0xxx}} + \gamma_2 {\color{darkblue}U_{0xtt}} + \gamma_3 {\color{red}V_{1tt}} + \gamma_4 {\color{red}V_{1xx}}\bigg] +\\
+&\hspace{70mm}+ O(\varepsilon^2, \varepsilon\delta^2, \delta^4) =  \frac{\mu(3\lambda + 2\mu)}{\lambda + \mu} P,
+\end{split}\\
+\begin{split}
+&\rho  c^2 {\color{darkblue}U_{0tt}} -2 \lambda {\color{red}V_{1x}}-(\lambda +2 \mu ) {\color{darkblue}U_{0xx}} - \varepsilon \Psi_2({\color{darkblue}U_{0}}, {\color{red}V_1})
++ \delta^2\bigg[\gamma_5 {\color{darkblue}U_{0xxxx}} + \gamma_6 {\color{darkblue}U_{0tttt}} + \\
+&\hspace{18mm}+ \gamma_7 {\color{darkblue}U_{0xxtt}} + \gamma_8 {\color{red}V_{1xxx}} + \gamma_9 {\color{red}V_{1xtt}} \bigg] + O(\varepsilon^2, \varepsilon\delta^2, \delta^4) = \frac{2\mu(3\lambda + 2\mu)}{\lambda + \mu} T.
+\end{split}
+\end{align*}
+Коэффициенты $\gamma_j$ зависят от упругих модулей, $\Psi$ --- нелинейные функции.\\
+\vspace{1mm}
+\normalsize
+Существует два способа исключения ${\color{red}V_1}$, приводящие к одномерному уранению типа Буссинеска.
 \end{frame}
 
 
 \begin{frame} \frametitle{Уравнения типа Буссинеска}
-На границе задано нормальное напряжение $P(x,t)$ и касательное $T(x,t)$.
-
-\begin{equation}\nonumber
-\begin{split}
-&u_{tt} - c^2 u_{xx} - \frac{2}{\rho}\bigg(\nu P_{xx} + \frac1R T_x\bigg) - \left(\frac{\beta_1}{2\rho} u^2 + \frac{\beta_2}{\rho E} u P + \frac{\beta_3}{2\rho E^2} P^2\right)_{xx}\\
-&\hspace{20mm} + R^2 \bigg(\frac{\alpha_1^{(i)}}{c^2} u_{tttt} + \alpha_2^{(i)} u_{xxtt} + c^2\alpha_3^{(i)} u_{xxxx} + G^{(i)}(P, T) \bigg) = 0, \quad i = 1,2,
-\end{split}
-\end{equation}
-\end{frame}
-
-
-\begin{frame} \frametitle{Дисперсионные свойства и солитонные решения}
+$u = U_{0x}$ --- продольная деформация, $c = \sqrt{E/\rho}$ --- скорость длинных линейных волн.
+\small
+\begin{align*}
+&u_{tt} - c^2 u_{xx} - \frac{2}{\rho}\bigg(\nu P_{xx} + \frac1R T_x\bigg) - {\color{darkblue}\left(\frac{\beta_1}{2\rho} u^2 + \frac{\beta_2}{\rho E} u P + \frac{\beta_3}{2\rho E^2} P^2\right)_{xx}} +\\
+&\hspace{10mm} + {\color{red}R^2 \bigg(\frac{\alpha_1^{(i)}}{c^2} u_{tttt} + \alpha_2^{(i)} u_{xxtt} + c^2\alpha_3^{(i)} u_{xxxx} + G^{(i)}(P, T) \bigg)} = 0, \quad i = 1,2.\\
+&\color{black}\mbox{\color{black}\normalsize Солитонное решение: } u_i(x,t) = A\ {\rm sech}^2\ \left[B_{i} \left(x\pm t \sqrt{c^2+\frac{A \beta_1}{3 \rho}}\right) \right].&
+%&B_i = \sqrt{\frac{3A\beta_1 E}{-4\left[(A\beta_1 + 3E)^2\alpha_1^{(i)} + 3E(A\beta_1 + 3E)\alpha_2^{(i)} + 9E^2\alpha_3^{(i)}\right] R^2}} \, , \quad i = \overline {1,4}.
+\end{align*}
 \begin{figure}
-	\flushleft
-	\includegraphics[width=0.49\linewidth]{figures/2_DispColor}
-	\includegraphics[width=.49\linewidth]{figures/3a_FourSolitonsColor}
+	\vspace{-6mm}
+	\includegraphics[width=.6\linewidth]{figures/DispColorSmall}
+	\includegraphics[width=.39\linewidth]{figures/FourSolitonsColor2}
 	%\includegraphics[width=.44\linewidth]{figures/3b_SingleSoliton}
 \end{figure}
 
@@ -206,7 +222,7 @@ V(x,r,t) &= r V_1(x,t) + r^3 V_3(x,t) + r^5 V_5(x,t) + \dots \, .
 	%		\includegraphics[width=\textwidth]{figures/Grid2D}
 	%\caption{Lorem ipsum}
 	%	\end{subfigure}
-	\caption{Пример трёхмерной сетки из двух доменов, обозначенных разными цветами.}
+	\caption{Cетка из двух доменов.}
 \end{figure}
 \end{frame}
 
