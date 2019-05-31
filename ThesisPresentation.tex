@@ -15,6 +15,7 @@
 \usepackage{xcolor}
 
 \usepackage{caption,tabularx}
+\usepackage{animate,xmpmulti,multimedia}
 
 % Absolute value declaration
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
@@ -62,7 +63,7 @@
 \setlength{\belowdisplayskip}{1pt}
 
 
-\title[Волны в нелинейно упругих телах]{Продольные волны деформации в нелинейно упругих волноводах}
+\title[Волны в нелинейно упругих стержнях]{Продольные волны деформации в нелинейно упругих волноводах}
 \author[Ф.\,Е. Гарбузов]{Ф.\,Е. Гарбузов}
 %\date{Days on Diffraction 2018}
 %\institute[]{Ioffe Institute}
@@ -91,24 +92,35 @@
 \begin{tabularx}{.9\linewidth}{Xr}
 	Выполнил студент гр. 23641/1 & Ф.\,E.~Гарбузов  
 	\vspace{2mm}\\
-	Руководитель (СПб\,ПУ) & Б.\,С.~Григорьев
+	Руководитель, д.т.н., проф. (СПб\,ПУ) & Б.\,С.~Григорьев
 	\vspace{2mm}\\
-	Научный консультант (ФТИ им. Иоффе)  & Я.\,М.~Бельтюков
+	Научный консультант, к.ф.-м.н. (ФТИ им. Иоффе)  & Я.\,М.~Бельтюков
 \end{tabularx} 
 }
 \end{frame}
+
  
 \begin{frame}
 \frametitle{Постановка задачи}
+%\animategraphics[loop,controls,width=.5\linewidth]{}{anim/sol}{1}{30}
+%\animategraphics[width=.5\linewidth]{12}{anim/sol}{1}{30}
+\begin{figure}
+	\includegraphics[width=0.46\linewidth]{figures/DeformedRod1}
+	\hspace{5mm}
+	\includegraphics[width=0.46\linewidth]{figures/DeformedRod2}
+	\caption{Продольная волна в стержне.}
+	\vspace{-5mm}
+\end{figure}
+%Задачи:
 \begin{itemize}
 	\item Построить асимптотическую одномерную модель для продольных волн в нелинейно упругом стержне, учитывающую нагрузку на поверхности стержня.
 	\item Найти солитонные решения и проанализировать свойства выведенной модели.
-	\item [Провести...] В численном моделировании сравнить полученную модель с полной трёхмерной моделью.
+	\item Провести серию численных экспериментов. Сравнить выведенную одномерную модель с полной моделью.
 \end{itemize}
 \end{frame}
 
 
-\begin{frame} \frametitle{Полные трёхмерные уравнения}
+\begin{frame}{Полная трёхмерная модель}
 \begin{wrapfigure}[4]{r}{125pt}
 	\vspace{-2mm}
 	\includegraphics[width=\linewidth]{figures/1_RodSchematic}
@@ -139,7 +151,7 @@ $\color{darkblue}l,\ m,\ n$ --- модули упругости Мурнаган
 \end{frame}
 
 
-\begin{frame} \frametitle{Упрощающие предположения}
+\begin{frame}{Упрощающие предположения}
 \begin{wrapfigure}[4]{r}{125pt}
 	\vspace{-2mm}
 	\includegraphics[width=\linewidth]{figures/1_RodSchematic}\\
@@ -169,7 +181,7 @@ V(x,r,t) &= r V_1(x,t) + r^3 V_3(x,t) + r^5 V_5(x,t) + \dots \, .
 \end{frame}
 
 
-\begin{frame} \frametitle{Упрощённая система двух уравнений}
+\begin{frame}{Упрощённая система двух уравнений}
 На границе задано нормальное напряжение $P(x,t)$ и касательное $T(x,t)$:
 \small
 \begin{align*} \nonumber
@@ -190,7 +202,7 @@ V(x,r,t) &= r V_1(x,t) + r^3 V_3(x,t) + r^5 V_5(x,t) + \dots \, .
 \end{frame}
 
 
-\begin{frame} \frametitle{Уравнения типа Буссинеска}
+\begin{frame}{Уравнение типа Буссинеска}
 $u = U_{0x}$ --- продольная деформация, $c = \sqrt{E/\rho}$ --- скорость длинных линейных волн.
 \small
 \begin{align*}
@@ -209,12 +221,23 @@ $u = U_{0x}$ --- продольная деформация, $c = \sqrt{E/\rho}$ 
 \end{frame}
 
 
-\begin{frame} \frametitle{Численная схема}
+\begin{frame}{Численная схема}
+%Спектральное представление:
+%\begin{equation}\nonumber
+%\vect{U}_{N}(x,r,\varphi,t) = \sum_{n_1,n_2,n_3} \vect{\widehat{U}}(n_1,n_2,n_3,t) \Phi_{n_1}(x) \Psi_{n_2}(r) \Theta_{n_3}(\varphi)
+%\end{equation}
+\begin{itemize}
+	\item Псевдоспектральный метод: поиск в конечномерном пространстве функции, совпадающей с решением в точках коллокации.
+	\item Точки коллокации --- узлы интерполяционной квадратуры Гаусса (Радо, Лобатто).
+	\item Пространственные производные вычисляются умножением на матрицу дифференцирования.
+	\item Для ускорения: многодоменный псевдоспектральный метод.
+	%\item Система ОДУ по временной переменной решается с помощью метода Рунге-Кутты.
+\end{itemize}
 \begin{figure}[h!]
 	\centering
 	%\begin{subfigure}{0.5\textwidth}
 	\centering
-	\includegraphics[width=.35\textwidth]{figures/Grid3D}
+	\includegraphics[width=.4\textwidth]{figures/Grid2D}
 	%\caption{Lorem ipsum}
 	%\end{subfigure}
 	%\begin{subfigure}{0.48\textwidth}
@@ -222,12 +245,12 @@ $u = U_{0x}$ --- продольная деформация, $c = \sqrt{E/\rho}$ 
 	%		\includegraphics[width=\textwidth]{figures/Grid2D}
 	%\caption{Lorem ipsum}
 	%	\end{subfigure}
-	\caption{Cетка из двух доменов.}
+	%\caption{Cетка из двух доменов.}
 \end{figure}
 \end{frame}
 
 
-\begin{frame} \frametitle{Сравнение моделей: эволюция волны}
+\begin{frame}{Сравнение моделей: эволюция волны}
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.49\linewidth]{figures/SolEvolCompareSmallColor}
@@ -237,7 +260,7 @@ $u = U_{0x}$ --- продольная деформация, $c = \sqrt{E/\rho}$ 
 \end{frame}
 
 
-\begin{frame} \frametitle{Сравнение моделей: скорость-амплитуда}
+\begin{frame}{Сравнение моделей: скорость-амплитуда}
 %Начальные условия:
 %\begin{align*}
 %& U_0 (x, r) = A_0 W \erf\lb \frac{x - L/2}{W}\rb,&  &\dot{U}_0 (x, r) = -c \pdiff{U_0}{x}\\
@@ -251,19 +274,19 @@ $u = U_{0x}$ --- продольная деформация, $c = \sqrt{E/\rho}$ 
 \begin{equation}\nonumber
 v(A) = \sqrt{c^2 + A\frac{\beta_1}{3\rho}}
 \end{equation}
-Зависимость для полных уравнений получена в серии численных экспериментов.
+Зависимость для полных уравнений получена в серии численных экспериментов.\\
 \end{frame}
 
 
-\begin{frame} \frametitle{Сравнение моделей: удар по поверхности}
+\begin{frame}{Сравнение моделей: удар по поверхности}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=.93\linewidth]{figures/Impact2Color}
+	\includegraphics[width=\linewidth]{figures/Impact2Color_mod}
 \end{figure}
 \end{frame}
 
 
-\begin{frame} \frametitle{Заключение}
+\begin{frame}{Заключение}
 %Результаты:
 \begin{itemize}
 	\item Выведены две новые асимптотические модели типа Буссинеска с внешним воздействием, описывающие продольные волны в нелинейно упругих стержнях круглого сечения.
@@ -273,14 +296,32 @@ v(A) = \sqrt{c^2 + A\frac{\beta_1}{3\rho}}
 %Для описания продольных длинных волн в стержнях круглого сечения мы вывели две новые асимптотические модели типа Буссинеска, отличающиеся друг от друга коэффициентами при дисперсионных слагаемых. Эти модели обобщены на случай ненулевой осесимметричной нагрузки на боковой поверхности, а также на случай предварительно растянутого стержня.
 
 %Нам удалось построить метод, позволяющий численно моделировать полные трёхмерные уравнения движения стержня в рамках нелинейной теории упругости. Мы численно решили ряд начально-краевых задач и показали хорошую применимость модели типа Буссинеска для моделирования возникновения солитонов.
+\end{frame}
 
-Статьи и конференции:
+
+\begin{frame}{Статьи и конференции}
+\small
+Результаты работы частично опубликованы:
 \footnotesize
-\begin{enumerate}
+\begin{itemize}
 	\item Garbuzov F.\,E., Khusnutdinova K.\,R., Semenova I.\,V., On Boussinesq-type models for long longitudinal waves in elastic rods, \textit{Wave Motion} 88 (2019) 129--143.
-	\item International Conference ''Days on Diffraction 2018'', Steklov Mathematical Institute, St.  Petersburg, Russia, 4 - 8 June 2018, oral presentation.
-\end{enumerate}
-
+\end{itemize}
+\small
+Публикации по смежным темам:
+\footnotesize
+\begin{itemize}
+	\item Samsonov A.\,M., Semenova I.\,V., Garbuzov F.\,E.,  Nonlinear guided bulk waves in heterogeneous elastic structural elements. \textit{Int. J. Nonlin. Mech.} 94 (2017) 343--350.
+	\item Semenova I.\,V., Belashov A.\,V., Garbuzov F.\,E., Samsonov A.\,M., Semenov A.\,A., Bulk strain solitons as a tool for determination of the third order elastic moduli of composite materials. \textit{Proceedings of SPIE 10329} (2017) 103291W.
+	\item Гарбузов Ф.\,Е., Самсонов А.\,М., Семёнов А.\,А., Шварц А.\,Г., Определение упругих модулей	3-го порядка по параметрам объёмных солитонов деформации, \textit{ПЖТФ} 42\,(2) (2016) 121--123.
+\end{itemize}
+\small
+Конференции:
+\footnotesize
+\begin{itemize}
+	\item Days on Diffraction, C.-Петербург, 4 -- 8 июня 2018.
+	\item Научная школа ''Нелинейные волны 2018'', Н. Новгород, 26 февр. -- 4 марта 2018.
+	\item Nonlinear Waves, C.-Петербург, 22 декабря 2017.
+\end{itemize}
 \end{frame}
 
 \end{document}

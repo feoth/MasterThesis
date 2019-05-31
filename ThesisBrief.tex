@@ -34,7 +34,7 @@
 \usepackage[top=20mm,bottom=20mm,left=30mm,right=10mm]{geometry}
 \setlength{\parindent}{1.25cm}
 %\onehalfspacing
-\linespread{1.15}
+\linespread{1.1}
 \usepackage{enumitem}
 
 % Hyperlinks
@@ -137,16 +137,16 @@
 		{\bf ПРОДОЛЬНЫЕ ВОЛНЫ ДЕФОРМАЦИИ В НЕЛИНЕЙНО УПРУГИХ ВОЛНОВОДАХ}
 	\end{center}
 
-	\vspace{30mm}
+	\vspace{45mm}
 	\begin{flushleft}
 	\begin{tabularx}{\linewidth}{Xr}
 		Выполнил & Ф.\,E.~Гарбузов  \\ 
-		\vspace{3mm}
+		\vspace{5mm}
 		Руководитель &  \\ 
-		проф., д.т.н. & Б.\,С.~Григорьев \\ 
-		\vspace{3mm}
-		Научный консультант  &  \\ 
-		к.ф.-м.н. & Я.\,М.~Бельтюков
+		проф., д.т.н. & Б.\,С.~Григорьев 
+%		\vspace{3mm}
+%		Научный консультант  &  \\ 
+%		к.ф.-м.н. & Я.\,М.~Бельтюков
 	\end{tabularx} 
 	\end{flushleft}
 
@@ -180,6 +180,7 @@ W = \frac{\lambda + 2\mu}{2}I_1(\tens{E})^2 - 2\mu I_2(\tens{E}) + \frac{l+2m}{3
 \begin{equation}\label{1_strain}
 \tens{E} = \frac12 \lb(\nabla\vect{U})^T + \nabla\vect{U} + (\nabla\vect{U})^T\cdot\nabla\vect{U}\rb.
 \end{equation}
+
 Полные уравнения движения стержня в отсутствие массовых сил записываются в векторном виде следующим образом:
 \begin{equation}\label{full_eqns}
 \rho\ddot{\vect{U}} = \divg\tens{P}, \qquad \tens{P} = (\tens{I} + \nabla\vect{U}) \cdot \pdiff{W}{\tens{E}},
@@ -344,7 +345,7 @@ u_{tt} - c^2 u_{xx} = \frac{\beta_1}{2\rho}\left(u^2\right)_{xx} -  R^2 \bigg(\f
 \end{equation}
 
 Сравним оба уравнения \eqref{eq_dim_free_surf} с <<уравнением с двумя дисперсиями>>, полученным Самсоновым и Порубовым~\cite{SP}
-и <<регуляризованным>> уравнением, выведенным Островским и Сутиным~\cite{OS}. Эти уравнения могут быть записаны в форме уравнений \eqref{eq_dim} с помощью следующих дисперсионных коэффициентов:
+и <<регуляризованным>> уравнением, выведенным Островским и Сутиным~\cite{OS}. Эти уравнения могут быть записаны в форме уравнений \eqref{eq_dim_free_surf} с помощью следующих дисперсионных коэффициентов:
 \begin{align} \nonumber
 &\alpha_1^{(3)} = 0,& &\alpha_2^{(3)} = \frac{(1-\nu)\nu}{2},&  &\alpha_3^{(3)} = -\frac \nu 2,\\
 \nonumber
@@ -413,7 +414,7 @@ u_{tt} - \left(c^2 + \kappa\frac{\beta_1}{\rho}\right) u_{xx} - \frac{2}{\rho}\l
 Здесь амплитуда $A$ является свободным параметром, причём при $A<0$ такая волна называется солитоном сжатия, а при $A>0$ --- солитоном разрежения.
 
 На рисунке \ref{fig:soliton} в левой части изображены четыре солитона сжатия, задаваемых формулами \eqref{soliton} и имеющих амплитудный параметр $A = -0.05$.  <<Регуляризованный>> солитон (\ref{soliton}, $i=4$) и солитон (\ref{soliton}, $i=1$) практически полностью совпадают и являются самыми длинными из всех.
-Однако солитоны такой амплитуды вызывают напряжения близкие к пределу упругости для полистирола. В экспериментах с полистироловым стержнем, описанных в~\cite{Garbuzov}, амплитуда очень мала: $A \sim 10^{-3} - 10^{-4}$, и, следовательно, в во всех четырёх формулах параметр длины примерно равен
+Однако солитоны такой амплитуды вызывают напряжения близкие к пределу упругости для полистирола. В экспериментах с полистироловым стержнем, описанных в~\cite{JAP2010,JAP2012}, амплитуда очень мала: $A \sim 10^{-3} - 10^{-4}$, и, следовательно, в во всех четырёх формулах параметр длины примерно равен
 \begin{equation}\label{B}
 B = \sqrt{\frac{A\beta_1}{6\nu^2 E R^2}},
 \end{equation}
@@ -469,10 +470,8 @@ B = \sqrt{\frac{A\beta_1}{6\nu^2 E R^2}},
 
 %Псевдоспектральный метод или метод коллокации, основан на поиске решения задачи в некотором подпространстве, имеющем конечный базис, в качестве которого чаще всего выбирается базис Фурье (набор синусов и косинусов) или семейство ортогональных многочленов. Этот метод используется только для пространственной дискретизации, в то время как дискретизация по времени проводится стандартными методами, например, Рунге-Кутты 4-го порядка. Мы будем использовать псевдоспектральный метод для решения начально-краевых задач как в полной трёхмерной модели \eqref{murnaghan} -- \eqref{full_eqns}, так и в модели Буссинеска. При пространственной дискретизации уравнений Буссинеска (\ref{eq_dim}, $i=1,2$) возникшая система ОДУ оказалась жёсткой и не поддающейся решению явными методами, поэтому в настоящей работе мы проводили моделирование лишь регуляризованного уравнения \eqref{2_eq_fin_reg}.
 
-
-%\subsection{Образование солитона из длинной волны}
 На рисунке \ref{fig:evol_compare} представлено сравнение эволюции заданной в начальный момент времени волны согласно полным уравнениям и регуляризованному уравнению Буссинеска при отсутствии граничных напряжений. В рамках обеих моделей возникают солитоны, двигающиеся быстрее линейной скорости $c=\sqrt{E/\rho}$. В первом случае (левый график) модель Буссинеска дала солитон на 8\% большей амплитуды и, как следствие, бегущий несколько быстрее солитона в полной модели. Во втором случае (правый график), отличающегося от первого большей амплитудой начальной волны, отличие полной модели от модели Буссинеска намного значительнее. 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.44\linewidth]{figures/SolEvolCompareSmall}
 	\includegraphics[width=0.44\linewidth]{figures/SolEvolCompareSmall2}
@@ -506,19 +505,14 @@ B = \sqrt{\frac{A\beta_1}{6\nu^2 E R^2}},
 Представляет большой интерес возможность возбуждения солитонов в результате внешнего воздействия. На рисунке \ref{fig:impact} представлены результаты моделирования при наличии коротких воздействий (ударов) на торец и на боковую поверхность стержня. Отметим, что в модели Буссинеска стержень предполагается бесконечным и, следовательно, не имеет торцов, однако, мы можем сымитировать удар, задав короткую начальную волну, похожую на ту, что возникает при ударе в полной модели.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.85\linewidth]{figures/Impact2Small}
+	\vspace{-2mm}
+	\includegraphics[width=.88\linewidth]{figures/Impact2Black_mod}
 	\caption{Удар по торцу (верхний график) и по боковой поверхности (нижний график) в стержне из полистирола. Вертикальный и горизонтальные подграфики показывают зависимость нормального напряжения на поверхности от времени и координаты $x$. При ударе по торцу напряжение задано одинаковым на всей площади торца.}
 	\label{fig:impact}
-	\vspace{-1mm}
+	\vspace{-2.5mm}
 \end{figure}
 
-На рисунках видно, что модель Буссинеска даёт результаты, схожие с полной моделью. Учитывая, что на рисунках \ref{fig:impact} амплитуды деформации являются достаточно большими в сравнении с пределом упругости и в реальных экспериментах амплитуды как правило на порядок меньше, то можно сделать вывод о хорошей применимости модели Буссинеска для моделирования возникновения солитонов.
-
-
-%\subsection{О применении полученных результатов для возбуждения солитонов}
-
-
-%\chapter{Обработка экспериментальных данных}
+На рисунках видно, что модель Буссинеска даёт результаты, схожие с полной моделью. Учитывая, что на рисунках \ref{fig:impact} амплитуды деформации являются достаточно большими в сравнении с пределом упругости и в реальных экспериментах амплитуды как правило на порядок меньше, то можно сделать вывод о хорошей применимости уравнения Буссинеска для моделирования возникновения солитонов.
 
 
 \section{Заключение}
@@ -527,16 +521,24 @@ B = \sqrt{\frac{A\beta_1}{6\nu^2 E R^2}},
 
 Нам удалось построить метод, позволяющий численно моделировать полные трёхмерные уравнения движения стержня в рамках нелинейной теории упругости. Мы численно решили ряд начально-краевых задач и показали хорошую применимость модели типа Буссинеска для моделирования возникновения солитонов.
 
-Результаты настоящей работы частично опубликованы в \cite{Garbuzov}.
+%Результаты настоящей работы частично опубликованы в \cite{Garbuzov}.
+
+\section{Список публикаций по теме работы}
+\begin{enumerate}[noitemsep,topsep=1pt]
+	\item Garbuzov F.\,E., Khusnutdinova K.\,R., Semenova I.\,V., On Boussinesq-type models for long longitudinal waves in elastic rods, \textit{Wave Motion} 88 (2019) 129--143.
+	\item Samsonov A.\,M., Semenova I.\,V., Garbuzov F.\,E.,  Nonlinear guided bulk waves in heteroge-neous elastic structural elements. \textit{Int. J. Nonlin. Mech.} 94 (2017) 343--350.
+	\item Semenova I.\,V., Belashov A.\,V., Garbuzov F.\,E., Samsonov A.\,M., Semenov A.\,A., Bulk strain solitons as a tool for determination of the third order elastic moduli of composite materials. \textit{Proceedings of SPIE 10329} (2017) 103291W.
+	\item Samsonov A.\,M., Belashov A.\,V., Garbuzov F.\,E., Gula I.\,A., Semenov A.\,A., Semenova I.\,V., Solitary strain waves in a nanostructured rod. \textit{Proc. Intern. Conf. Days on Diffraction} (2017) 288--293.
+	\item Гарбузов Ф.\,Е., Самсонов А.\,М., Семёнов А.\,А., Шварц А.\,Г., Определение упругих модулей	3-го порядка по параметрам объёмных солитонов деформации, \textit{ПЖТФ} 42\,(2) (2016) 121--123.
+\end{enumerate}
 
 
 \let\OLDthebibliography\thebibliography
 \renewcommand\thebibliography[1]{
 	\OLDthebibliography{#1}
 	\setlength{\parskip}{0pt}
-	\setlength{\itemsep}{0pt plus 0.3ex}
+	\setlength{\itemsep}{0pt plus 0ex}
 }
-
 \begin{thebibliography}{99}
 
 	\bibitem{OS} Ostrovsky~L.\,A., Sutin~A.\,M., Nonlinear elastic waves in rods, \textit{PMM} 41 (1977) 531--537.
@@ -555,7 +557,7 @@ B = \sqrt{\frac{A\beta_1}{6\nu^2 E R^2}},
 	\bibitem{KT2} Khusnutdinova~K.\,R., Tranter~M.\,R., On radiating solitary waves in bi-layers with delamination and coupled Ostrovsky equations, \textit{Chaos} 27 (2017) 013112.
 	\bibitem{JAP2010} Dreiden~G.\,V., Khusnutdinova~K.\,R., Samsonov~A.\,M., and Semenova~I.\,V., Splitting induced generation of soliton trains in layered waveguides, \textit{J. Appl. Phys.} 107 (2010) 034909.
 	\bibitem{JAP2012} Dreiden G.\,V., Khusnutdinova~K.\,R., Samsonov~A.\,M., and Semenova~I.\,V., Bulk strain solitary waves in bonded layered polymeric bars with delamination, \textit{J. Appl. Phys.} 112 (2012) 063516.
-	\bibitem{Garbuzov} Garbuzov F.\,E., Khusnutdinova K.\,R., Semenova I.\,V., On Boussinesq-type models for long longitudinal waves in elastic rods, \textit{Wave Motion} 88 (2019) 129--143.
+	%\bibitem{Garbuzov} Garbuzov F.\,E., Khusnutdinova K.\,R., Semenova I.\,V., On Boussinesq-type models for long longitudinal waves in elastic rods, \textit{Wave Motion} 88 (2019) 129--143.
 	\bibitem{bostrm2000} Bostr\"{o}m A., On wave equations for elastic rods, \textit{ZAMM} 80\,(4) (2000) 245--251. 
 	%\bibitem{HughesKelly} Hughes D.\,S., Kelly J.\,L., Second order elastic deformation of solids, Phys. Rev., 1953, 92,  1145-1149.
 	\bibitem{Canuto2007} Canuto C. et al., Spectral Methods. Evolution to Complex Geomenties and Applications to Fluid Dynamics, Berlin: Springer-Verlag, 2007.
