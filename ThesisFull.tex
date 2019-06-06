@@ -1,6 +1,6 @@
 %!TeX TS-program = xelatex
 %!TeX encoding = UTF-8
-% !TeX spellcheck = en_GB
+% !TeX spellcheck = ru_RU
 \documentclass[12pt, a4paper]{report}
 
 % Basic packages
@@ -216,9 +216,7 @@ NONLINEAR ELASTICITY, NONLINEAR WAVES, BULK STRAIN WAVES, SOLITONS, BOUSSINESQ-T
 
 Two new Boussinesq-type models describing long nonlinear longitudinal strain waves in elastic rods of circular cross section derived. These models extended to include axially symmetric loading on the lateral surface and longitudinal pre-stretch. The dispersive properties and solitary wave solutions of these models compared with the ones of existing models.
 
-Pseudospectral method applied to perform numerical simulations of the full three-dimensional equations of motion of nonlinearly elastic rod. A set of numerical experiments to excite and compare solitons of Boussinesq-type model and the full model conducted.
-
-%In this paper we revisit the derivations of model equations describing long nonlinear longitudinal bulk strain waves in elastic rods within the scope of the Murnaghan model in order to derive a Boussinesq-type model, and extend these derivations to include axially symmetric loading on the lateral boundary surface, and longitudinal pre-stretch.  We systematically derive two forced Boussinesq-type  models from the full equations of motion and non-zero surface boundary conditions, utilising the presence of two small parameters characterising the smallness of the wave amplitude and the long wavelength compared to the radius of the waveguide. We compare the basic dynamical properties of both models (linear dispersion curves and solitary wave solutions). We also briefly describe the laboratory experiments on generation of bulk strain solitary waves in the Ioffe Institute,  and suggest that this generation process can be modelled using the derived equations.
+Pseudospectral method applied to perform numerical simulation of the full three-dimensional equations of motion of nonlinearly elastic rod. A set of numerical experiments are conducted in order to excite and compare solitons of Boussinesq-type model and the full model.
 
 
 \newpage
@@ -288,15 +286,20 @@ u_{t} + 6 u u_x + u_{xxx} = 0,
 %u(x,t) = A \cosh^{-2}\lsq\sqrt{\frac{A}{2}}\lb x - 2A t \rb\rsq.
 %\end{equation}
 
-Существование решений нелинейных уравнений в виде устойчивых уединённых волн обусловлено так называемым балансом нелинейности и дисперсии. Нелинейное слагаемое, нестрого говоря, стремится сделать фронт волны более крутым и в конечном счёте опрокинуть его, а дисперсионное слагаемое, наоборот, стремится сделать волну более пологой. Стоит отметить, что уравновешивать нелинейность может не только дисперсия, но и диссипация. Например, уравнение Бюргерса описывает простейшую нелинейную физическую систему с диссипацией:
-\begin{equation}\label{1_burgers}
-u_{t} + u u_x = \nu u_{xx},
-\end{equation}
-а систему и с диссипацией и с дисперсией может описывать уравнение Бюргерса-Кортевега-де~Фриза:
+Существование решений нелинейных уравнений в виде устойчивых уединённых волн обусловлено так называемым балансом нелинейности и дисперсии. Нелинейное слагаемое, нестрого говоря, стремится сделать фронт волны более крутым и в конечном счёте опрокинуть его, а дисперсионное слагаемое, наоборот, стремится сделать волну более пологой. 
+Стоит отметить, что в реальных физических системах как правило присутствует диссипация энергии. Простейшую нелинейную систему с дисперсией и диссипацией описывает уравнение Бюргерса-Кортевега-де~Фриза:
 \begin{equation}\label{1_burgers-kdv}
 u_{t} + 6u u_x + u_{xxx} = \nu u_{xx}.
 \end{equation}
-Существует множество других классических уравнений теории нелинейных волн, например, нелинейное уравнение Шрёдингера, однако в настоящей работе они не затрагиваются. Отметим, что приведённые выше уравнения имеют множество других похожих на себя уравнений. Так, уравнением типа Буссинеска будем называть всякое уравнение вида \eqref{1_boussinesq}, возможно, с другим нелинейным или дисперсионным слагаемым, например:
+%Стоит отметить, что уравновешивать нелинейность может не только дисперсия, но и диссипация. Например, уравнение Бюргерса описывает простейшую нелинейную физическую систему с диссипацией:
+%\begin{equation}\label{1_burgers}
+%u_{t} + u u_x = \nu u_{xx},
+%\end{equation}
+%а систему и с диссипацией и с дисперсией может описывать уравнение Бюргерса-Кортевега-де~Фриза:
+%\begin{equation}\label{1_burgers-kdv}
+%u_{t} + 6u u_x + u_{xxx} = \nu u_{xx}.
+%\end{equation}
+Существует множество других классических уравнений теории нелинейных волн, например, нелинейное уравнение Шрёдингера, однако в настоящей работе они не затрагиваются. Отметим, что приведённые выше уравнения имеют множество других похожих на себя уравнений. Так, уравнением \emph{типа Буссинеска} будем называть всякое уравнение вида \eqref{1_boussinesq}, возможно, с другим нелинейным или дисперсионным слагаемым, например:
 $$
 u_{tt} - u_{xx} - 3 (u^3)_{xx} + u_{xxtt} = 0.
 $$
@@ -331,11 +334,11 @@ $$
 \begin{equation}\label{1_dynamics}
 \rho\ddot{\vect{U}}(\vect{x}, t) = \divg \tens{P} + \vect{F}, \quad \vect{x}\in\Omega.
 \end{equation}
-Здесь $\rho$ -- плотность материала, $\vect{U}(\vect{x},t)$ -- вектор перемещений, $\vect{x}$ -- координаты точки среды в отсчётной конфигурации, $\tens{P}$ -- первый тензор напряжений Пиолы-Кирхгофа, $\vect{F}$ -- плотность массовых сил, точка обозначает взятие частной производной по времени, а дивергенция берётся по координатам в отсчётной конфигурации. Тензор напряжений $\tens{P}$ выражается через тензор деформации $\tens{E}$ следующим образом:
+Здесь $\rho$ -- плотность материала, $\vect{U}(\vect{x},t)$ -- вектор перемещений, $\vect{x}$ -- координаты точки среды в отсчётной конфигурации, $\tens{P}$ -- первый тензор напряжений Пиолы-Кирхгофа, $\vect{F}$ -- плотность массовых сил, точка обозначает частную производную по времени, а дивергенция берётся по координатам в отсчётной конфигурации. Тензор напряжений $\tens{P}$ выражается через тензор деформации $\tens{E}$ следующим образом:
 \begin{equation} \label{1_piola}
-\tens{P} = (\tens{I} + \nabla\vect{U}) \cdot \pdiff{\Pi}{\tens{E}},
+\tens{P} = (\tens{I} + \nabla\vect{U}) \cdot \pdiff{W}{\tens{E}},
 \end{equation}
-где $\Pi$ -- плотность энергии деформации, а тензор деформации связан с градиентом перемещения:
+где $W$ -- плотность энергии деформации, а тензор деформации связан с градиентом перемещения:
 \begin{equation}\label{1_strain}
 2\tens{E} = (\nabla\vect{U})^T + \nabla\vect{U} + (\nabla\vect{U})^T\cdot\nabla\vect{U} \,.
 \end{equation}
@@ -345,22 +348,22 @@ $$
 \end{equation}
 %Случай, когда $\vect{P}_b = 0$ будем называть условием свободной поверхности.
 
-Энергия деформации $\Pi$ однородного и изотропного тела может быть разложена в ряд по инвариантам $I_i$ тензора деформации:
+Энергия деформации $W$ однородного и изотропного тела может быть разложена в ряд по инвариантам $I_i$ тензора деформации:
 \begin{equation}\label{1_murnaghan}
-\Pi = \frac{\lambda + 2\mu}{2}I_1(\tens{E})^2 - 2\mu I_2(\tens{E}) + \frac{l+2m}{3}I_1(\tens{E})^3 - 2m I_1(\tens{E}) I_2(\tens{E}) + n I_3(\tens{E}) + \dots,
+W = \frac{\lambda + 2\mu}{2}I_1(\tens{E})^2 - 2\mu I_2(\tens{E}) + \frac{l+2m}{3}I_1(\tens{E})^3 - 2m I_1(\tens{E}) I_2(\tens{E}) + n I_3(\tens{E}) + \dots,
 \end{equation}
-при этом коэффициенты в этом разложении характеризуют упругость материала и называются модулями упругости ($\lambda$ и $\mu$ -- коэффициенты Ламе, а $l$, $m$, $n$ -- модули Мурнагана). Заметим, что первые два слагаемых в приведённом разложении являются слагаемыми второго порядка относительно компонент тензора $\tens{E}$, а следующие три -- третьего порядка.
-В разложении \eqref{1_murnaghan} для линейно упругого материала удерживаются только слагаемые второго порядка, а для слабо нелинейного материала Мурнагана~\cite{Murnaghan} учитываются ещё и слагаемые третьего порядка. Существуют другие нелинейно упругие материалы, например, материал Муни-Ривлина или Огдена, однако они предназначены в первую очередь для описания резиноподобных материалов, подверженных большим деформациям~\cite{Bergstrom}. Отметим, что нелинейно упругие материалы иногда называют гиперупругими.
+при этом коэффициенты в этом разложении характеризуют упругость материала и называются модулями упругости ($\lambda$ и $\mu$ --- коэффициенты Ламе, а $l$, $m$, $n$ --- модули Мурнагана). Заметим, что первые два слагаемых в приведённом разложении являются слагаемыми второго порядка относительно компонент тензора $\tens{E}$, а следующие три --- третьего порядка.
+В разложении \eqref{1_murnaghan} для линейно упругого материала удерживаются только слагаемые второго порядка, а для слабо нелинейного материала Мурнагана~\cite{Murnaghan} учитываются ещё и слагаемые третьего порядка. Существуют другие нелинейно упругие материалы, например, материал Муни-Ривлина или Огдена, однако они предназначены в первую очередь для описания резино- и пеноподобных материалов, подверженных большим деформациям~\cite{Bergstrom}. Отметим, что нелинейно упругие материалы иногда называют гиперупругими.
 
 Помимо классической постановки задачи в виде дифференциальных уравнений в частных производных \eqref{1_dynamics}, \eqref{1_bc}, существует вариационная постановка на основе принципа Гамильтона, гласящего, что истинная траектория системы $\vect{U}$ является стационарной точкой функционала действия $\mathcal{S}$:
 \begin{equation}\label{1_action}
 %\underset{\vect{U}\in W^1_2(\Omega, \mathbb{R}^3)}{\inf \mathcal{S},} \quad 
-\delta\mathcal{S} = \delta\int_{t_1}^{t_2} dt \lsq \int_{\Omega} \lb \frac12\rho\dot{\vect{U}}^2 - \Pi + \vect{F}\cdot\vect{U} \rb dx + \int_{S_P} \vect{P}_b\cdot\vect{U} ds \rsq = 0.
+\delta\mathcal{S} = \delta\int_{t_1}^{t_2} dt \lsq \int_{\Omega} \lb \frac12\rho\dot{\vect{U}}^2 - W + \vect{F}\cdot\vect{U} \rb dx + \int_{S_P} \vect{P}_b\cdot\vect{U} ds \rsq = 0.
 \end{equation}
 В \eqref{1_action} варьирование происходит по перемещениям $\vect{U}$. Отметим, что существует обобщённый принцип Гамильтона, где в функционал действия включаются соотношения \eqref{1_piola} и \eqref{1_strain}, а варьирование осуществляется не только по перемещениям, но и по деформациям $\tens{E}$ и напряжениям $\tens{P}$~\cite{Yu}.
 %Отметим, что некоторые авторы использовали <<неполный>> принцип наименьшего действия, при котором в функционал действия включаются только уравнения движения (объёмный интеграл по $\Omega$), а граничные условия ставятся в виде уравнений \eqref{1_bc}.
 
-%Упомянутые выше постановки задачи используют непрерывную модель твёрдого тела. Однако твёрдое тело можно описать дискретно с помощью решёточной модели~\cite{Maugin}, простейшая из которых -- цепочка грузов, соединённых пружинами -- представлена на рисунке \ref{fig:chain}.
+%Упомянутые выше постановки задачи используют непрерывную модель твёрдого тела. Однако твёрдое тело можно описать дискретно с помощью решёточной модели~\cite{Maugin}, простейшая из которых --- цепочка грузов, соединённых пружинами --- представлена на рисунке \ref{fig:chain}.
 %Определяя закон упругости пружины, то есть вводя потенциал взаимодействия между грузами, можно записать дискретные уравнения движения.
 
 
@@ -379,7 +382,7 @@ $$
 	U(x,r,t) &= U_0(x,t) + a^2 U_2(x,r,t) + \mathcal{O}(a^4),\\
 	V(x,r,t) &= -a \nu r \pdiff{U_0}{x} + a^3 V_3(x,r,t) + \mathcal{O}(a^5),
 	\end{align}
-	где $U$ -- продольное перемещение вдоль оси стержня, совпадающей с осью $x$, $V$ -- радиальное перемещение, а $\nu$ -- коэффициент Пуассона,
+	где $U$ --- продольное перемещение вдоль оси стержня, совпадающей с осью $x$, $V$ --- радиальное перемещение, а $\nu$ --- коэффициент Пуассона,
 	\item предположения о малых деформациях $U, \, V \sim \varepsilon \ll 1$.
 \end{itemize}
 Позже Л.~Островский и А.~Сутин получили модель типа Буссинеска, %:
@@ -392,7 +395,7 @@ U(x,r,t) = U(x,t), \qquad V(x,r,t) = -\nu r \pdiff U x.
 \end{equation}
 Первая из этих гипотез называется гипотезой плоских сечений и означает, что поперечные сечения стержня остаются плоскими после деформации, а вторая гипотеза аналогична гипотезе Кирхгофа-Лява в теории тонких пластин и оболочек~\cite{Love}.
 %Samsonov~A.\,M. has suggested a model with two types of dispersive terms  \cite{S1}, and a model for the rod with a variable radius and elastic moduli \cite{S2}. The coefficients of Samsonov's model with two types of dispersive terms have been refined in the works by Samsonov~A.\,M. and Porubov~A.\,V.  \cite{SP, S_book, P_book}, and a dispersive-dissipative model has been suggested by Porubov~A.\,V. and M.G. Velarde \cite{PV}. A model with three types of dispersive terms has been discussed by V.I. Erofeev et al. (see \cite{E_book} and references therein), however, the nonlinearity coefficient of this model differs from that in the  models of Ostrovsky~L.\,A. and A.M. Sutin, and Samsonov~A.\,M. and Porubov~A.\,V., while the choice of dispersive coefficients has not been fixed.
-А.\,М.~Самсонов, используя подход Островского и Сутина, предложил модель типа Буссинеска с двумя дисперсионными слагаемыми и обобщил её на случай с меняющимися вдоль оси стержня радиусом и модулями упругости~\cite{S1, S2}. Коэффициенты модели Самсонова с двумя типами дисперсионных членов были позже уточнены в работах А.\,М.~Самсонова и А.\,В.~Порубова~\cite{SP}.
+А.\,М.~Самсонов, используя подход Островского и Сутина, предложил модель типа Буссинеска с двумя дисперсионными слагаемыми и обобщил её на случай с меняющимися вдоль оси стержня радиусом и модулями упругости~\cite{S_book}. Коэффициенты модели Самсонова с двумя типами дисперсионных членов были позже уточнены в работах А.\,М.~Самсонова и А.\,В.~Порубова~\cite{SP}.
 А.\,В.~Порубовым и М.~Веларде предложена дисперсионно-диссипативная модель для длинных волн в упругом стержне, помещённом в вязкоупругую среду~\cite{PV}.
 Модель типа Буссинеска с тремя типами дисперсионных членов обсуждалась В.\,И.~Ерофеевым, однако коэффициент при нелинейном слагаемом в его модели отличается от соответствующего коэффициента у Островского и Самсонова~\cite{E_book}. Все выводы моделей типа Буссинеска в упомянутых исследованиях основывались на представлении Мурнагана для энергии упругой деформации и последующем упрощении полного функционала действия задачи с использованием некоторых гипотез. 
 
@@ -401,7 +404,7 @@ U(x,r,t) = U(x,t), \qquad V(x,r,t) = -\nu r \pdiff U x.
 %	\item масштаб перемещений $h$ мал по сравнению с характерной длиной волны $l$: $\varepsilon = h/l \ll 1$,
 %	\item радиус стержня $a$ мал по сравнению с характерной длиной волны $l$: $\delta = a^2/l^2 \ll 1$.
 %\end{itemize}
-Полные уравнения были упрощены при помощи разложения перемещений в степенной ряд по радиальной координате и отбрасывания членов порядка $\mathcal{O}(\varepsilon^2, \varepsilon\delta, \delta^2)$.
+Полные уравнения были упрощены при помощи разложения перемещений в степенной ряд по радиальной координате и отбрасывания членов порядка $O(\varepsilon^2, \varepsilon\delta, \delta^2)$.
 %Кроме того, были использованы разложения перемещений в ряд по радиальной координате. Упрощённые уравнения были выведены из полных с помощью метода регулярных возмущений и отбрасывания членов порядка $\mathcal{O}(\varepsilon^2, \varepsilon\delta, \delta^2)$.
 В другой работе X.~Дай и З.~Цай применили аналогичный асимптотический вывод для описания волн в предварительно растянутом гиперупругом стержне, сделанном из материала Муни-Ривлина~\cite{DC}.
 
@@ -410,7 +413,7 @@ U(x,r,t) = U(x,t), \qquad V(x,r,t) = -\nu r \pdiff U x.
 В недавних исследованиях модели типа Буссинеска использовались для изучения распространения длинных продольных уединённых волн деформации в волноводе с расслоением \cite{KS, KT1, KT2}, а некоторые соответствующие экспериментальные наблюдения были опубликованы в \cite{JAP2010, JAP2012}. 
 %Отметим исследования по распространению нелинейных волн на дефектах в решетках \cite{ML} и струнах \cite{AM}. Некоторые другие модели типа Буссинеска были получены для описания распространения поперечных волн большой амплитуды~\cite{DS}.
 
-Целью настоящей работы является исследование длинных продольных слабонелинейных волн деформации в круглом бесконечном стержне методами асимптотического анализа и численного моделирования. Исследователи, занимавшиеся этой задачей ранее, полагали боковую поверхность стержня свободной от напряжений, поэтому научный интерес представляет обобщение вывода модели типа Буссинеска на случай, когда имеется ненулевая осесимметричная нагрузка на боковой поверхности, а также продольное предварительное растяжение стержня.
+Целью настоящей работы является исследование длинных продольных слабонелинейных волн деформации в круглом бесконечном стержне методами асимптотического анализа и численного моделирования. Исследователи, занимавшиеся этой задачей ранее, полагали боковую поверхность стержня свободной от напряжений, поэтому представляет интерес обобщение вывода модели типа Буссинеска на случай, когда имеется ненулевая осесимметричная нагрузка на боковой поверхности, а также продольное предварительное растяжение стержня.
 %Научный интерес представляет задача с ненулевой осесимметричной нагрузкой на боковой поверхности стержня, поскольку исследователи, занимавшиеся этой задачей ранее, полагали её свободной от напряжений. 
 Большое значение имеет построение численной схемы решения полных нелинейных уравнений динамики упругого стержня, поскольку она может служить средством для верификации упрощённых моделей и более детального исследования нелинейных волн.
 
@@ -418,7 +421,7 @@ U(x,r,t) = U(x,t), \qquad V(x,r,t) = -\nu r \pdiff U x.
 %Для этого с помощью методов асимптотического анализа производится упрощение полных уравнений динамики упругого тела и сведение их к одному уравнению типа Буссинеска, где, в отличие от других работ, учтена ненулевая осесимметричная нагрузка на боковой поверхности и продольное предварительное растяжение.
 %Для этого используются как методы асимптотического анализа, позволяющие из полных уравнений деформации стержня получить упрощённую модель типа Буссинеска и Кортевега-де Фриза, так и численные методы. 
 
-%Цель настоящей работы -- вернуться к выводу слабо нелинейной длинноволновой модели для продольных волн в круглом бесконечном стержне, чтобы 
+%Цель настоящей работы --- вернуться к выводу слабо нелинейной длинноволновой модели для продольных волн в круглом бесконечном стержне, чтобы 
 %систематически 
 %получить новую модель типа Буссинеска и распространить её на более сложный случай, когда имеется ненулевая осесимметричная нагрузка на боковой поверхности и продольное предварительное растяжение. 
 %Вывод модели осуществляется с помощью пакета MATHEMATICA.
@@ -446,7 +449,7 @@ U(x,r,t) = U(x,t), \qquad V(x,r,t) = -\nu r \pdiff U x.
 
 %We consider a rod of circular cross section with the radius $R$ and use cylindrical coordinates $(x, r, \varphi)$ with the axial coordinate $x$, radial coordinate $r$ and angular coordinate $\varphi$. We use the Lagrangian description and denote the displacement vector by $\underline{U} = (U, V, W) $, where $ U $ is the axial displacement, $ V $ is the radial displacement and $ W $ is the torsion. 
 
-Рассмотрим стержень круглого поперечного сечения радиуса $R$. Введём цилиндрическую систему координат $(x, r, \varphi)$, где $x$ -- осевая координата, $r$ -- продольная, $\varphi$ -- угловая, как показано на рисунке \ref{fig:rod}. Положим стержень бесконечным вдоль оси $x$. Используя Лагранжев подход, введём вектор перемещения точек тела: $\vect{U} = (U, V, W)$, где $U$ -- осевое (продольное) перемещение, $V$ -- радиальное (поперечное) перемещение, а $W$ -- вращение.
+Рассмотрим стержень круглого поперечного сечения радиуса $R$. Введём цилиндрическую систему координат $(x, r, \varphi)$, где $x$ --- осевая координата, $r$ --- продольная, $\varphi$ --- угловая, как показано на рисунке \ref{fig:rod}. Положим стержень бесконечным вдоль оси $x$. Используя Лагранжев подход, введём вектор перемещения точек тела: $\vect{U} = (U, V, W)$, где $U$ --- осевое (продольное) перемещение, $V$ --- радиальное (поперечное) перемещение, а $W$ --- вращение.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.33\textwidth]{1_RodSchematic}
@@ -455,28 +458,14 @@ U(x,r,t) = U(x,t), \qquad V(x,r,t) = -\nu r \pdiff U x.
 \end{figure}
 
 Следуя предыдущим исследованиям, которые обсуждались в главе 1, будем рассматривать стержень, сделанный из материала Мурнагана, энергия упругой деформации которого представляется в виде:
-%Similarly to the previous studies discussed in the Introduction we assume that the rod is made of a Murnaghan's hyperelastic material (\cite{Murnaghan}, see also \cite{S_book} and references therein). The strain energy density of that material can be written as
 \begin{equation}\label{2_murnaghan_pot}
-\Pi = \frac{\lambda + 2\mu}{2}I_1(\tens{E})^2 - 2\mu I_2(\tens{E}) + \frac{l+2m}{3}I_1(\tens{E})^3 - 2m I_1(\tens{E}) I_2(\tens{E}) + n I_3(\tens{E}),
+W = \frac{\lambda + 2\mu}{2}I_1(\tens{E})^2 - 2\mu I_2(\tens{E}) + \frac{l+2m}{3}I_1(\tens{E})^3 - 2m I_1(\tens{E}) I_2(\tens{E}) + n I_3(\tens{E}),
 \end{equation}
 где $I_1(\tens{E}) = \trace \tens{E},\  I_2(\tens{E}) = \lsq(\trace \tens{E})^2 - \trace \tens{E}^2\rsq/\,2,\ I_3(\tens{E}) = \trace \tens{E}$ являются инвариантами тензора деформации Грина
-$\tens{E} = \lb (\nabla\vect{U})^T + \nabla\vect{U} + (\nabla\vect{U})^T\cdot\nabla\vect{U} \rb / \, 2$, 
-$\lambda$,~$\mu$ -- коэффициенты Ламе, $l$,~$m$,~$n$ -- модули Мурнагана. Здесь и далее в тексте работы все частные производные берутся по координатам в отсчётной конфигурации. Отметим, что модель Мурнагана является общей моделью слабо нелинейных упругих деформаций.
-%Here, and in the following, all spatial derivatives are taken with respect to the natural (underformed) coordinates {\color{red} in the reference configuration. It is worth noting that the Murnaghan model is used here in the sense of the general weakly-nonlinear theory of elasticity, assuming small values of strain (see the discussion in \cite{DSS}).}
-
-
-%The equations of motion are given by
-%\begin{equation}
-%\rho\  \ddot {\vect{U}} = {\rm div}\ \tens{P},
-%\label{P}
-%\end{equation}
-%where $\rho$ is the material density in the natural configuration, dots denote differentiation with respect to time, and $ \tens{P} $ is the first Piola-Kirchhoff stress tensor 
-%\begin{equation}\label{piola-k}
-%\tens{P} =  (I + \nabla\vect{U}) \cdot \frac{\partial\Pi}{\partial\tens{E}}.
-%\end{equation} 
+$\tens{E} = \lb (\nabla\vect{U})^T + \nabla\vect{U} + (\nabla\vect{U})^T\cdot\nabla\vect{U} \rb / \, 2$; 
+$\lambda$,~$\mu$ --- коэффициенты Ламе; $l$,~$m$,~$n$ --- модули Мурнагана. Здесь и далее в тексте работы все частные производные берутся по координатам в отсчётной конфигурации. Отметим, что модель Мурнагана является общей моделью слабо нелинейных упругих деформаций.
 
 Рассмотрим задачу, в которой отсутствует кручение стержня, а продольное и поперечное перемещения $U$ и $V$ не зависят от угла $\varphi$:
-%We now consider an exact reduction of the full equations of motion describing solutions with no torsion ($W=0$), and where the longitudinal and transverse displacements $U$ and $V$ are independent of $ \varphi $:
 \begin{equation}\label{2_assumptions}
 U = U(x,r,t), \quad V = V(x,r,t), \quad W = 0.
 \end{equation}
@@ -487,41 +476,38 @@ U = U(x,r,t), \quad V = V(x,r,t), \quad W = 0.
 \label{2_eq2_0}
 &\rho  \frac{\partial^2 V(x,r,t)}{\partial t^2} - \frac{\partial P_{rx}}{\partial x}-\frac{\partial P_{rr}}{\partial r}-\frac{P_{rr} - P_{\varphi\varphi}}{r} = 0,
 \end{align}
-а третье уравнение представляется в виде тождества $0\equiv 0$. Здесь $P_{\alpha \beta}$ обозначает компоненту первого тензора Пиолы-Кирхгофа, а $\rho$ -- плотность материала.
-%while the third equation is identically satisfied. Here, $P_{\alpha \beta}$ denote components of the first Piola-Kirchhoff stress tensor, {\color{red} and we do not use different fonts for the coordinates in the current and reference configurations in these notations.}
+а третье уравнение представляется в виде тождества $0\equiv 0$. Здесь $P_{\alpha \beta}$ обозначает компоненту первого тензора Пиолы-Кирхгофа, а $\rho$ --- плотность материала.
 
-Зададим на поверхности стержня осесимметричное напряжение $\vect{P_b} = (P(x,t), T(x,t), 0)$. Тогда граничные условия имеют вид:
-%The equations of motion are complemented by the surface boundary conditions
-%\begin{equation} \label{2_bc}
-%\tens{P}\cdot \vect{n} = \vect{P_b} = (P(x,t), T(x,t), 0),
-%\end{equation}
-%где $\vect{n}$ -- нормаль к поверхности. Следовательно, граничные условия представляются в виде
-%where $\vect{n}$ is the normal vector to the lateral surface, and $\vect{P_b} = (P(x,t), T(x,t), 0)$, i.e. we consider the rotationally symmetric case, and $P(x,t)$ and $T(x,t)$ are the known tractions.
-%Thus, the boundary conditions are given by
+Зададим на поверхности стержня осесимметричное напряжение $\vect{P_b} = (T(x,t), P(x,t), 0)$. Тогда граничные условия имеют вид:
 \begin{align}
 P_{rr} &= P(x, t) \quad \mbox{при} \quad r = R \label{2_bc_rr},\\
 P_{xr} &= T(x, t) \quad \mbox{при} \quad r = R \label{2_bc_rx}.
 \end{align}
 Поскольку компонента $ P_{\varphi r} \equiv 0 $, третье граничное условие $P_{\varphi r} = 0$ при $r = R$ выполняется автоматически.
 
+%Предметом исследования настоящей работы являются продольные волны, для которых в однородном стержне справедливы следующие соотношения:
+%\begin{equation}\label{2_longitud_cond}
+%\pdiff{U}{r} = 0, \quad V = 0 \quad \text{при} \quad r = 0,
+%\end{equation}
+
 
 \section{Вывод уравнения типа Буссинеска с внешним воздействием}
 \label{sec:derivation}
 \subsection{Вывод с помощью степенных разложений по радиусу}
-%\label{s:power_series_exp}
 Подход к выводу уравнения модели в этом разделе опирается на метод, описанный в~\cite{DF}. Упростим этот метод с помощью разложений, использованных для вывода линейной модели~\cite{bostrm2000}. Таким образом, будем искать решение в виде степенного ряда по радиальной координате:
-%Our approach  to the derivation of the model equation in this section is essentially similar to the derivation in \cite{DF}, but we simplify it by adopting expansions used in the derivation of the linear model in \cite{bostrm2000}. Thus, we look for a solution of the  problem in the form of power series expansions of the displacements in the radial coordinate:
 \begin{align}
 \label{u_series}
 U(x,r,t) &= U_0(x,t) + r^2 U_2(x,t) + r^4 U_4(x,t) + \dots \, ,\\
 \label{v_series}
 V(x,r,t) &= r V_1(x,t) + r^3 V_3(x,t) + r^5 V_5(x,t) + \dots \, .
 \end{align}
-Отметим, что продольное перемещение разложено в ряд по чётным степеням радиуса, в то время как поперечное перемещение по нечётным. В линейной задаче такие разложения приняты потому, что, если учесть все степени в разложении, то уравнения движения \eqref{2_eq1_0}, \eqref{2_eq2_0} разобьются на две независимые системы уравнений. В первую систему войдут слагаемые $U_{2k}$ и $V_{2k+1}$, а во вторую $U_{2k+1}$ и $V_{2k}$ ($k \geqslant 0$). Для продольных волн в осесимметричном стержне должны выполняться очевидные условия:
-\begin{equation}\label{2_longitud_cond}
-\pdiff{U}{r} = 0, \quad V = 0 \quad \text{при} \quad r = 0,
-\end{equation}
-из которых следует, что $U_1 = V_0 = 0$. В линейной задаче из равенства нулю этих двух слагаемых автоматически следует, что все слагаемые $U_{2k+1}$ и $V_{2k}$ тоже равны нулю. Для нелинейной задачи тоже можно показать справедливость этого утверждения, однако, чтобы не слишком усложнять вывод, примем эти разложения в качестве допущения. Кроме того, в отличие от~\cite{DF}, мы сведём задачу к одному уравнению типа Буссинеска, учтём ненулевое осесимметричное напряжение, приложенное к поверхности стержня, а также рассмотрим предварительно растянутый стержень.
+Здесь продольное перемещение разложено в ряд по чётным степеням радиуса, в то время как поперечное перемещение по нечётным, что обусловлено рассмотрением именно продольных колебаний. 
+%В линейной задаче такие разложения приняты потому, что, если учесть все степени в разложении, то уравнения движения \eqref{2_eq1_0}, \eqref{2_eq2_0} разобьются на две независимые системы уравнений. В первую систему войдут слагаемые $U_{2k}$ и $V_{2k+1}$, а во вторую $U_{2k+1}$ и $V_{2k}$ ($k \geqslant 0$). Для продольных волн в осесимметричном стержне должны выполняться очевидные условия:
+%\begin{equation}\label{2_longitud_cond}
+%\pdiff{U}{r} = 0, \quad V = 0 \quad \text{при} \quad r = 0,
+%\end{equation}
+%из которых следует, что $U_1 = V_0 = 0$. В линейной задаче из равенства нулю этих двух слагаемых автоматически следует, что все слагаемые $U_{2k+1}$ и $V_{2k}$ тоже равны нулю. Для нелинейной задачи тоже можно показать справедливость этого утверждения, однако, чтобы не слишком усложнять вывод, примем эти разложения в качестве допущения. 
+Отметим, что в отличие от~\cite{DF}, мы сведём задачу к одному уравнению типа Буссинеска, учтём напряжение, приложенное к поверхности стержня, а также рассмотрим предварительно растянутый стержень.
 
 Введём масштабные множители, выделяющие среди прочих задачу о распространении длинных по сравнению с радиусом стержня волн малой амплитуды. Тогда безразмерные переменные и функции определяются следующими выражениями:
 %Рассмотрим длинные по сравнению с радиусом стержня волны малой амплитуды. Для этого введём масштабные множители и безразмерные переменные и функции:
@@ -531,7 +517,7 @@ V(x,r,t) &= r V_1(x,t) + r^3 V_3(x,t) + r^5 V_5(x,t) + \dots \, .
 из которых следует, что
 %which yields
 $\displaystyle \tilde U_n =  \frac{L^n U_n}{\varepsilon L},  \ \tilde V_n =  \frac{L^n V_n}{\varepsilon L}$ для $n \geqslant 0$.
-Здесь $L$ является характерной длиной волны, $c$ -- скорость линейной волны, $E$ -- модуль Юнга, $\varepsilon \ll 1$ -- малый параметр амплитуды, $\displaystyle \delta = \frac{R}{L} \ll 1$ -- второй малый параметр, а тильда обозначает безразмерную величину. Вспомним, что модуль Юнга и коэффициент Пуассона выражаются через коэффициенты Ламе:
+Здесь $L$ является характерной длиной волны, $c$ --- скорость линейной волны, $E$ --- модуль Юнга, $\varepsilon \ll 1$ --- малый параметр амплитуды, $\displaystyle \delta = \frac{R}{L} \ll 1$ --- второй малый параметр, а тильда обозначает безразмерную величину. В дальнейшем мы будем использовать выражения для модуля Юнга и коэффициента Пуассона через коэффициенты Ламе:
 %assuming that $L$ is the characteristic wavelength, $c$ is the linear wave speed, $E$ is the Young modulus, $\varepsilon$ is the small amplitude parameter (characterising the longitudinal strain), and $\displaystyle \delta = \frac{R}{L} $ is the second small parameter (long wavelength parameter). Here, the tilde denotes dimensionless variables and tractions. {\color{red} We are also interested in the equation for the case of weak tractions, which can be obtained by rescaling $\tilde P$ and $\tilde T$ in the derived equation.}  In the following we will use the expressions for the Young modulus and the Poisson ratio in terms of the Lame coefficients:
 \begin{equation}\label{young_mod}
 E = \frac{\mu(3\lambda + 2\mu)}{\lambda + \mu}, \quad \nu = \frac{\lambda}{2 (\lambda + \mu)}.
@@ -606,7 +592,7 @@ U_4 &= \frac{1}{16\mu}\left[\rho c^2 U_{2tt} - (\lambda + 2\mu) U_{2xx} - 4(\lam
 
 Существует два естественных способа вывода модели типа Буссинеска. В первом способе исключение функции $V_1$ из уравнений \eqref{2_bc_rr_subst} и \eqref{2_bc_rx_subst} осуществляется с помощью асимптотического выражения, следующего из уравнения \eqref{2_bc_rr_subst}:
 \begin{equation} \label{v1_asympt}
-V_1(x, t) = \frac{ \mu(3\lambda + 2\mu) P - \lambda(\lambda + \mu) U_{0x}}{2(\lambda + \mu)^2} + \varepsilon f(x,t) + \delta^2 g(x,t) + O(\varepsilon^2, \varepsilon\delta^2, \delta^4),
+V_1(x, t) = \frac{\mu(3\lambda + 2\mu) P}{2(\lambda + \mu)^2} - \frac{\lambda U_{0x}}{2(\lambda + \mu)} + \varepsilon f(x,t) + \delta^2 g(x,t) + O(\varepsilon^2, \varepsilon\delta^2, \delta^4),
 \end{equation}
 где неизвестные функции $f$ и $g$ ищутся из условия равенства нулю коэффициентов при $\varepsilon$ и $\delta^2$ в \eqref{2_bc_rr_subst}. Их вид представлен в Приложении 1. Затем, подстановка $V_1$ в \eqref{2_bc_rx_subst} приводит к следующему уравнению типа Буссинеска относительно $U_0$:
 \begin{equation} \label{eq_u0_asympt}
@@ -628,17 +614,14 @@ V_1(x, t) = \frac{ \mu(3\lambda + 2\mu) P - \lambda(\lambda + \mu) U_{0x}}{2(\la
 	F &= \frac{3\lambda + 2\mu}{8\mu(\lambda + \mu)^3}\left[ \mu (4\lambda^2 + 5\lambda\mu + 2\mu^2) P_{xxx} - \rho c^2(\lambda^2 + \lambda\mu + \mu^2) P_{xtt}\right].
 \end{align}
 
-Другой метод основан на исключении $V_1$ из \eqref{2_bc_rr_subst} и \eqref{2_bc_rx_subst} таким образом, каким это сделано в~\cite{bostrm2000} для линейной задачи. В линейном случае этот подход не использует асимптотическое выражение \eqref{v1_asympt} и приводит к уравнению того же типа, что и \eqref{eq_u0_asympt}, но с другими коэффициентами при дисперсионных слагаемых. Действительно, уравнения \eqref{2_bc_rr_subst} и \eqref{2_bc_rx_subst} могут быть записаны в виде:
+Другой метод основан на исключении $V_1$ из \eqref{2_bc_rr_subst} и \eqref{2_bc_rx_subst} таким образом, каким это сделано в~\cite{bostrm2000} для линейной задачи. В линейном случае этот подход не использует асимптотическое выражение \eqref{v1_asympt} и приводит к уравнению того же типа, что и \eqref{eq_u0_asympt}, но с другими коэффициентами при дисперсионных слагаемых. Запишем уравнения \eqref{2_bc_rr_subst} и \eqref{2_bc_rx_subst} в виде:
 \begin{align}%\label{key}
-L_{1} V_1 + \varepsilon N_1(U_0, V_1, \dots) &= M_1(U_0, P, \dots) + O(\varepsilon^2, \varepsilon\delta^2, \delta^4),\\
-L_{2} V_1 + \varepsilon N_2(U_0, V_1, \dots) &= M_2(U_0, T, \dots) + O(\varepsilon^2, \varepsilon\delta^2, \delta^4),
+L_{1} V_1 + \varepsilon\Psi_1(U_0, V_1) &= a_1 P + M_1 U_0 + O(\varepsilon^2, \varepsilon\delta^2, \delta^4),\\
+L_{2} V_1 + \varepsilon\Psi_2(U_0, V_1) &= a_2 T + M_2 U_0 + O(\varepsilon^2, \varepsilon\delta^2, \delta^4),
 \end{align}
-где $L_{1}$ и $L_{2}$ -- линейные дифференциальные операторы, действующие на $V_1$, а $N_1(U_0, V_1, \dots)$, $M_1 (U_0, P, \dots)$ и $N_2(U_0, V_1, \dots)$, $M_2 (U_0, T, \dots)$ -- нелинейные функции своих аргументов в уравнениях \eqref{2_bc_rr_subst} и \eqref{2_bc_rx_subst} соответственно. Теперь, применяя $L_{2}$ к первому уравнению, $L_{1}$ ко второму и вычитая одно уравнение из другого, получаем:
+где $a_1$ и $a_2$ --- константы; $L_{1}$, $L_{2}$ и $M_{1}$, $M_{2}$ --- линейные дифференциальные операторы, действующие на $V_1$ и $U_0$ соответственно в уравнениях \eqref{2_bc_rr_subst} и \eqref{2_bc_rx_subst}. Теперь, применяя $L_{2}$ к первому уравнению, $L_{1}$ ко второму и вычитая одно уравнение из другого, получаем:
 \begin{equation}
-\begin{split}
-\varepsilon [L_{2}N_1(U_0, V_1, \dots) - L_{1}N_2(U_0, V_1, \dots)] = L_{2}M_1(U_0, P, \dots) - L_{1}M_2(U_0, T, \dots) \\
-+\, O(\varepsilon^2, \varepsilon\delta^2, \delta^4).
-\end{split}
+\varepsilon [L_{2}\Psi_1(U_0, V_1) - L_{1}\Psi_2(U_0, V_1)] =  L_{2}\lb a_1 P + M_1 U_0\rb - L_{1}\lb a_2 T + M_2 U_0\rb + O(\varepsilon^2, \varepsilon\delta^2, \delta^4).
 \end{equation}
 Здесь $V_1$ исключена из линейной части уравнений точно, а не асимптотически. Чтобы исключить её из нелинейной части, воспользуемся выражением \eqref{v1_asympt} и получим следующее уравнение:
 \begin{gather} \label{eq_u0_bostr}
@@ -666,7 +649,7 @@ U_{0tt} &- U_{0xx} - 2\left(\nu P_{x} + T\right) - \frac{\varepsilon}{2 E} \left
 &+ \delta^2 \left(\alpha_1^{(i)} U_{0tttt} + \alpha_2^{(i)} U_{0xxtt} + \alpha_3^{(i)} U_{0xxxx} + F^{(i)}\right) + O(\varepsilon^2, \varepsilon\delta^2, \delta^4) = 0, \quad i = 1,2,
 \end{split}
 \end{equation}
-%где
+где $i=1$ соответствует уравнению \eqref{eq_u0_asympt}, а $i=2$ уравнению \eqref{eq_u0_bostr}, а коэффициенты принимают следующий вид:
 \begin{align}
 \label{alpha_1}
 &\alpha_1^{(1)} = \alpha_3^{(1)} = \frac{1 + \nu}{4}, \quad \alpha_2^{(1)} = -\frac{1 + \nu + \nu^2}{2}, \\
@@ -773,7 +756,7 @@ u_{tt} - c^2 u_{xx} - \frac{2}{\rho}\left(\nu P_{xx} + \frac1R T_x\right)  &- \l
 + R^2& \bigg(\frac{\alpha_1^{(i)}}{c^2} u_{tttt} + \alpha_2^{(i)} u_{xxtt} + c^2\alpha_3^{(i)} u_{xxxx}  \bigg) = 0, \quad i = 1,2.
 \end{split}
 \end{equation}
-Отметим, что в случае условия свободной поверхности, т.е. $P = T = 0$, уравнения \eqref{eq_dim} и~\eqref{eq_dim_weak_trac} сводятся к
+Отметим, что в случае условия свободной поверхности, т.е. $P = T = 0$, уравнения \eqref{eq_dim} и~\eqref{eq_dim_weak_trac} сводятся к следующему:
 \begin{equation}\label{eq_dim_free_surf}
 u_{tt} - c^2 u_{xx} = \frac{\beta_1}{2\rho}\left(u^2\right)_{xx} -  R^2 \bigg(\frac{\alpha_1^{(i)}}{c^2} u_{tttt} + \alpha_2^{(i)} u_{xxtt} + c^2\alpha_3^{(i)} u_{xxxx}\bigg), \quad i = 1,2.
 \end{equation}
@@ -794,26 +777,21 @@ u_{tt} - c^2 u_{xx} =  \frac{\beta_1}{2 \rho} (u^2)_{xx} + \frac{\nu^2 R^2}{2} u
 %\end{split}
 %\end{flalign}
 \begin{align} \nonumber
-&\alpha_1^{(3)} = 0,& &\alpha_2^{(3)} = \frac{(1-\nu)\nu}{2},&  &\alpha_3^{(3)} = -\frac \nu 2,&\\
+&\alpha_1^{(3)} = 0,& &\alpha_2^{(3)} = \frac{(1-\nu)\nu}{2},&  &\alpha_3^{(3)} = -\frac \nu 2,\\
 \nonumber
-&\alpha_1^{(4)} = 0,& &\alpha_2^{(4)} = -\frac{\nu^2}{2},&  &\alpha_3^{(4)} = 0.&
+&\alpha_1^{(4)} = 0,& &\alpha_2^{(4)} = -\frac{\nu^2}{2},&  &\alpha_3^{(4)} = 0.
 \end{align}
 
 %Moreover, we note that all four Boussinesq-type models shown above are not asymptotically exact equations, i.e. in non-dimensional form they include both $O(1)$ and $O(\varepsilon)$ terms, and if we regularise both equations (\ref{eq_dim_free_surf}) and (\ref{eq_dim_SP}) using the leading order relation $ u_{tt} = c^2 u_{xx} + \dots$, all three equations will reduce to the asymptotically equivalent equation (\ref{eq_dim_OS}). However, the models have different dispersive properties, and, similarly to the linear studies (see \cite{bostrm2000} and references to the classical linear results therein), it would be interesting to compare the performance of these four nonlinear models with the exact (numerical) solution of the problem.  We also note that the three dispersive terms present in the equation (\ref{eq_dim_free_surf}) are similar to the dispersive terms in the Boussinesq-type equation derived from a nonlinear lattice model for a waveguide in \cite{KSZ}. 
 Отметим, что все четыре приведённые выше модели не являются асимптотически точными уравнениями, т.е. в безразмерной форме они содержат как члены $ O(1) $, так и $ O(\varepsilon) $. Следовательно, все эти уравнения могут быть <<регуляризованы>> (сведены) к одному уравнению, в котором есть только одно дисперсионное слагаемое, используя соотношение в главном порядке $ u_{tt} = c^2 u_{xx} + \mbox{<\,малые члены\,>} $. Коэффициент при этом дисперсионном слагаемом определяется суммой дисперсионных коэффициентов $\alpha_j$ и одинаков для всех четырех уравнений:
-%We note that all four Boussinesq-type models shown above are not asymptotically exact equations, i.e. in non-dimensional form they include both $O(1)$ and $O(\varepsilon)$ terms. Hence all these equations can be ``regularised'' to the form where there is just one dispersive term, using the leading order relation $ u_{tt} = c^2 u_{xx} + \dots \;$. Coefficient of that dispersive term is a sum of all dispersive coefficients and it is the same for all four equations:
 \begin{equation} \label{alpha_sum}
 \alpha_1^{(i)} + \alpha_2^{(i)} + \alpha_3^{(i)} = -\frac{\nu^2}{2}, \quad i = \overline{1,4},
 \end{equation}
 что означает, что эти уравнения асимптотически эквивалентны.
-%Однако до регуляризации модели обладают различными дисперсионными свойствами, и, подобно линейным исследованиям~\cite{bostrm2000}, было бы интересно сравнить характеристики этих четырех нелинейных моделей с численным решением полной нелинейной задачи. {\color{red} Скорректировать после описания численных экспериментов} 
-%Также отметим, что три дисперсионных члена, присутствующих в уравнениях (\ref{eq_dim_free_surf}) алогичны дисперсионным членам в уравнении типа Буссинеска, полученных из нелинейной решеточной модели для волновода в~\cite{KSZ}. 
-
-%{\color{red} We note that regularisation of the type discussed above has been developed independently by T.B. Benjamin, J.L. Bona and J.J. Mahony in the context of fluids \cite{BBM}, and by P. Rosenau, and M.B. Rubin, P. Rosenau and O. Gottlieb, in the context of solids \cite{R, RRG}.}
 
 Поскольку модель с одним дисперсионным членом проще, чем модель с тремя дисперсионными членами, представляется целесообразным получить регуляризованную модель с внешним воздействием. Из безразмерного уравнения \eqref{eq_u0_def_1} следует асимптотическое соотношение 
 \begin{equation}\label{key}
-u_{tt} = u_{xx} + 2(\nu P_{xx} + T_{x}) + \mathcal{O}(\varepsilon),
+u_{tt} = u_{xx} + 2(\nu P_{xx} + T_{x}) + O(\varepsilon),
 \end{equation}
 с помощью которого можно выразить $u_{tttt}$ и $u_{xxxx}$ через $u_{xxtt}$. Получаемая таким образом из (\ref{eq_u0_def_1}, $i=1$) модель в размерной форме имеет вид:
 \begin{equation}\label{2_eq_fin_reg}
@@ -958,7 +936,7 @@ U_4(x, r, t) &= r^4 a_{10} U_{0tttt} + r^2 \left(b_5(r) U_{0xxxx} + b_6(r) U_{0x
 \begin{equation}\label{pre_stretch_u}
 U^*(x) = \kappa x,
 \end{equation}
-где $\kappa$ -- постоянная.
+где $\kappa$ --- постоянная.
 Обезразмерим предварительное растяжение с помощью того же масштаба, что $U$ в \eqref{scales1}:
 %We non-dimensionalise the pre-stretch using the same scaling factor as $U$ in \eqref{scales1} which yields 
 %that $\kappa$ is of order $\varepsilon$:
@@ -1029,7 +1007,7 @@ u_{tt} - \left(c^2 + \kappa\frac{\beta_1}{\rho}\right) u_{xx} - \frac{2}{\rho}\l
 & \left(1 - \frac{(1-\nu)\nu}{2} \overline{k}^2\right) \overline{\omega}^2 - \overline{k}^2 \left(1 - \frac{\nu  \overline{k}^2}{2}\right) = 0,\\
 & \left(1 + \frac{\nu^2}{2} \overline{k}^2\right) \overline{\omega}^2 - \overline{k}^2 = 0,
 \end{align}
-для решения Похгаммера-Кри и уравнений (\ref{eq_dim_free_surf}, $i=1,2$), \eqref{eq_dim_SP} и \eqref{eq_dim_OS} соответственно. Здесь $\overline{k} = k R$, $\overline{\omega} = \omega R / c$, где $k$ и $\omega$ -- волновое число и волновая частота соответственно, $J_i$ -- функция Бесселя первого рода, а параметры $p$ и $q$ выражаются следующим образом:
+для решения Похгаммера-Кри и уравнений (\ref{eq_dim_free_surf}, $i=1,2$), \eqref{eq_dim_SP} и \eqref{eq_dim_OS} соответственно. Здесь $\overline{k} = k R$, $\overline{\omega} = \omega R / c$, где $k$ и $\omega$ --- волновое число и волновая частота соответственно, $J_i$ --- функция Бесселя первого рода, а параметры $p$ и $q$ выражаются следующим образом:
 \begin{equation*}
 p^2 = \frac{\rho \overline{\omega}^2}{\lambda + 2\mu} - \overline{k}^2, \quad q^2 = \frac{\rho \overline{\omega}^2}{\mu} - \overline{k}^2.
 \end{equation*}
@@ -1165,7 +1143,7 @@ u_i(x, t) &= \frac{3 \rho \left(v^2 - c^2\right)}{\beta_1} {\rm sech}^{2}\left[\
 
 \section{Численная схема}
 \subsection{Одномерное уравнение типа Буссинеска}
-Сформулируем задачу Коши для одномерного регуляризованного уравнения Буссинеска с внешним воздействием:
+Сформулируем начально-краевую задачу для одномерного регуляризованного уравнения Буссинеска с внешним воздействием:
 \begin{align}
 \label{3_bq_reg}
 \begin{split}
@@ -1195,8 +1173,8 @@ u_N(x, t) = \sum_{k=-N/2}^{N/2-1} \widehat u(k, t) e^{ikx}, \quad x\in(0, 2\pi).
 \begin{equation}\label{3_pseudo_sp_approx}
 u_N(x_j, t) = u(x_j, t), \quad x_j = \frac{2\pi j}{N}, \quad j=0,\dots, N-1.
 \end{equation}
-Из условия \eqref{3_pseudo_sp_approx} естественным образом вытекает применение дискретного преобразования Фурье (ДПФ) для нахождения $\widehat u(k, t)$, а для обратной операции -- обратного ДПФ:
-%Для нахождения коэффициентов $\widehat u(k, t)$ при гармониках по значениям в узлах сетки используется дискретное преобразование Фурье (ДПФ), а для обратной операции -- обратное ДПФ:
+Из условия \eqref{3_pseudo_sp_approx} естественным образом вытекает применение дискретного преобразования Фурье (ДПФ) для нахождения $\widehat u(k, t)$, а для обратной операции --- обратного ДПФ:
+%Для нахождения коэффициентов $\widehat u(k, t)$ при гармониках по значениям в узлах сетки используется дискретное преобразование Фурье (ДПФ), а для обратной операции --- обратное ДПФ:
 \begin{align}\label{3_dft}
 \widehat u(k, t) &= \mathcal{F} u = \frac1N\sum_{j=0}^{N-1} u(x_j, t) e^{-ikx_j}, \quad k=-\frac N 2, \dots, \frac N 2 - 1,\\
 \label{3_idft}
@@ -1223,7 +1201,7 @@ $$
 \widehat{u^2} = \mathcal{F}\lbrack\lb\mathcal{F}^{-1}\widehat u\rb^2\rbrack, \qquad \widehat{uP} = \mathcal{F}\lbrack P\cdot \mathcal{F}^{-1}\widehat u\rbrack.
 $$
 Такой метод при использовании быстрого преобразования Фурье позволяет эффективно вычислять $\widehat{u^2}$ и $\widehat{uP}$.
-Решать систему \eqref{3_bq_reg_dft}, \eqref{3_bq_dft_iv} будем с помощью метода Рунге-Кутты 4-го порядка. Применяя обратное ДПФ к решению этой системы, получаем приближение исходной задачи Коши \eqref{3_bq_reg}, \eqref{3_bq_iv}.
+Решать систему \eqref{3_bq_reg_dft}, \eqref{3_bq_dft_iv} будем с помощью метода Рунге-Кутты 4-го порядка. Применяя обратное ДПФ к решению этой системы, получаем приближение исходной задачи \eqref{3_bq_reg}, \eqref{3_bq_iv}.
 
 С помощью псевдоспектрального метода уравнения в частных производных часто сводятся к системе ОДУ относительно значений функции в точках коллокации $u_N(x_j, t)$, а не коэффициентов $\widehat u(k, t)$. В таком случае нелинейные слагаемые вычисляются простым поточечным произведением значений функций в точках коллокации, а вычисление пространственных производных осуществляется 
 %в пространстве коэффициентов $\widehat u(k, t)$, для перехода 
@@ -1253,25 +1231,28 @@ $$
 Аналогичным образом можно дискретизировать уравнения (\ref{eq_dim}) с тремя дисперсионными слагаемыми, однако возникающая система обыкновенных дифференциальных уравнений 4-го порядка оказывается жёсткой и не поддаётся решению явными методами. В настоящей работе много времени было уделено реализации псевдоспектрального метода для полных уравнений, описанию которого посвящён следующий пункт, поэтому задачу о численном моделировании уравнений \eqref{eq_dim} было решено оставить на будущее.
 
 \subsection{Полные трёхмерные уравнения}
-%Разрабатывая численный метод для решения полных уравнений, мы задались целью сделать его пригодным для как можно более широкого круга численных экспериментов. Во-первых, метод должен подходить для моделирования эволюции некоторого начального импульса в течение длительного времени, для чего необходимо иметь возможность задачу Коши на периодическом интервале. Во-вторых, метод должен позволять моделировать волны, возникающие в результате внешнего воздействия, как на боковую поверхность, так и на торец стержня (решение начально-краевой задачи на некотором конечном, но достаточно длинном интервале). %В третьих, мы хотели бы учитывать в будущем не только осесимметричную деформацию, т.е. случай, когда перемещение зависит от угловой координаты $\varphi$.
+%Разрабатывая численный метод для решения полных уравнений, мы задались целью сделать его пригодным для как можно более широкого круга численных экспериментов. Во-первых, метод должен подходить для моделирования эволюции некоторого начального импульса в течение длительного времени, для чего необходимо иметь возможность задачу на периодическом интервале. Во-вторых, метод должен позволять моделировать волны, возникающие в результате внешнего воздействия, как на боковую поверхность, так и на торец стержня (решение начально-краевой задачи на некотором конечном, но достаточно длинном интервале). %В третьих, мы хотели бы учитывать в будущем не только осесимметричную деформацию, т.е. случай, когда перемещение зависит от угловой координаты $\varphi$.
 
 %Для того, чтобы выполнить поставленные цели, мы реализовали метод с дискретизацией по всем трём координатам. Для возможности моделирования уравнений в длинных стержнях с высокой точностью без рассмотрения гармоник или полиномов большой степени, мы реализовали многодоменный метод, позволяющий разбить область по осевой координате на несколько подобластей (доменов). Например, если нужно иметь 1000 точек коллокации по оси $x$, то, чтобы избежать учёт полиномов 1000-й степени, можно разбить область на 50 подобластей и на каждой подобласти использовать полиномы до 20-й степени. {\color{red} Поправить вводную часть после описания экспериментов}
 
-Сформулируем задачу Коши для полных уравнений, описывающих динамику однородного стержня круглого сечения длиной $L$ и радиусом $R$:
+Сформулируем начально-краевую задачу для полных уравнений, описывающих динамику однородного стержня круглого сечения длиной $L$ и радиусом $R$:
 \begin{align}
 \label{3_eqns_full}
 &\ddot{\vect{U}}(x, r, \varphi, t) = %\frac1\rho
-\rho^{-1} \,\divg\tens{P},\quad 0<x<L, \quad 0<r<R,\quad 0<\varphi<2\pi,\\
+\rho^{-1} \,\divg\tens{P}, \qquad 0<x<L, \quad 0<r<R,\quad 0<\varphi<2\pi,\\
 \label{3_bc_full}
 &\tens{P} \cdot \vect{n} = \vect{P_b}, \quad r = R,\\
 \label{3_iv_full}
 &\vect{U}(x,r,\varphi,0) = \vect{U}_0(x,r,\varphi), \quad \vect{\dot U}(x,r,\varphi,0) = \vect{\dot U}_0(x,r,\varphi),\\
 \label{3_stress}
-&\tens{P} = \lambda \lb\trace{\tens{E}}\rb \tens{\mathcal{I}} + 2\mu \tens{E} + l \lb\trace{\tens{E}}\rb^2 \tens{\mathcal{I}} - m\lb \lb\trace{\tens{E}}\rb^2\tens{\mathcal{I}} - 2\lb\trace{\tens{E}}\rb\tens{E} - \lb\trace{\tens{E}^2}\rb\tens{\mathcal{I}}\rb + n\lb\tens{E}^*\rb^T,\\
+\begin{split}
+&\tens{P} = \lb \tens{I} + \nabla\vect{U} \rb \cdot \big[ \lambda \lb\trace{\tens{E}}\rb \tens{I} + 2\mu \tens{E} \\
+& \hspace{30mm}+ l \lb\trace{\tens{E}}\rb^2 \tens{I} - m\lb \lb\trace{\tens{E}}\rb^2\tens{I} - 2\lb\trace{\tens{E}}\rb\tens{E} - \lb\trace{\tens{E}^2}\rb\tens{I}\rb + n\lb\tens{E}^*\rb^T\big],
+\end{split}\\
 \label{3_strain}
 &\tens{E} = \frac12 \lb \nabla\vect{U}^T + \nabla\vect{U} + \nabla\vect{U}^T \cdot \nabla\vect{U} \rb,
 \end{align}
-где $\tens{E}^*$ -- союзная матрица, $\tens{\mathcal{I}}$ -- единичный тензор, а по $x$ ставятся периодические граничные условия. Напомним, что уравнения \eqref{3_eqns_full} совпадают с \eqref{2_eq1_0}, \eqref{2_eq2_0} при отсутствии кручения и независимости перемещений от $\varphi$.
+где $\tens{E}^*$ --- союзная к $\tens{E}$ матрица, $\tens{I}$ --- единичный тензор, а по $x$ ставятся периодические граничные условия. Напомним, что уравнения \eqref{3_eqns_full} совпадают с \eqref{2_eq1_0}, \eqref{2_eq2_0} при отсутствии кручения и независимости перемещений от $\varphi$.
 
 Будем искать решение в некотором конечномерном пространстве, задаваемым системой базисных функций $\Phi_{n_1}(x)$, $\Psi_{n_2}(r)$, $\Theta_{n_3}(\varphi)$. 
 Представим приближённое решение %на $i$-м домене
@@ -1289,7 +1270,7 @@ $\vect{U}_{N}$ в спектральном виде и потребуем, чт�
 \begin{equation}\label{3_ode_inner}
 \vect{\ddot{U}}_{N,k} = F_{k}(\vect{U}_{N,k_0}, \dots, \vect{U}_{N,k_N}), \quad k = k_0, \dots, k_N.
 \end{equation}
-Здесь $k$ -- мультииндекс: $k = (j_1,j_2,j_3)$, $k_0=(0,0,0)$, $k_N = (N_1-1,N_2-1,N_3-1)$, а также использовано обозначение: $\vect{\widehat U}_{N,j_1,j_2,j_3} = \vect{\widehat U}_{N}(x_{j_1}, r_{j_2}, \varphi_{j_3}, t)$. В граничных узлах необходимо сделать добавку, чтобы выполнялись граничные условия \eqref{3_bc_full}:
+Здесь $k$ --- мультииндекс: $k = (j_1,j_2,j_3)$, $k_0=(0,0,0)$, $k_N = (N_1-1,N_2-1,N_3-1)$, а также использовано обозначение: $\vect{\widehat U}_{N,j_1,j_2,j_3} = \vect{\widehat U}_{N}(x_{j_1}, r_{j_2}, \varphi_{j_3}, t)$. В граничных узлах необходимо сделать добавку, чтобы выполнялись граничные условия \eqref{3_bc_full}:
 \begin{equation}\label{3_ode_boundary}
 \vect{\ddot{U}}_{N,k} = F_{k}(\vect{U}_{N,k_0}, \dots, \vect{U}_{N,k_N}) + \vect{P}_{b,k} - \vect{P}(\vect{U}_{N,k_0}, \dots, \vect{U}_{N,k_N}), \quad r_k = R.
 \end{equation}
@@ -1316,9 +1297,7 @@ j_1 = 0,\dots, N_1-1, \quad &j_2 = 0,\dots, N_2-1,\\
 %Отметим, что для реализации периодических условий по $x$, 
 
 Пример сетки с двумя доменами вдоль оси $x$ представлен на рисунке \ref{fig:grid}, где для дискретизации по $x$ и по $r$ используется базис Лежандра, причём по $x$ в качестве точек коллокации выбираются точки Гаусса-Лобатто, включающие границы, а по $r$ --- точки Гаусса-Радо, чтобы исключить центральную точку стержня ($r=0$). По $\varphi$ используется базис Фурье с равномерно распределёнными по интервалу $(0, 2\pi)$ точками.
-Узлы такой сетки распределены по объёму сильно неравномерно со сгущением около оси стержня и разрежением у его поверхности. В работах [ссылки] предложен ряд способов как равномернее распределить узлы и, следовательно, повысить точность аппроксимации при том же количестве узлов, однако реализацию этих методов мы оставили на будущее.
-
-%Для дискретизации по $x$ и по $r$ мы будем использовать базис Лежандра, причём по $x$ в качестве точек коллокации выбираются точки Гаусса-Лобатто, включающие границы, а по $r$ --- точки Гаусса-Радо, чтобы исключить центральную точку стержня ($r=0$). Пример такой сетки представлен на рисунке \ref{fig:grid} слева.
+Узлы такой сетки распределены по объёму неравномерно со сгущением около оси стержня и разрежением у его поверхности (рисунок \ref{fig:grid} слева). В работе~\cite{Boyd2011} предложен ряд способов как равномернее распределить узлы и, следовательно, повысить точность аппроксимации при том же количестве узлов, однако эти методы значительно сложнее и среди них нет наилучшего.
 
 \begin{figure}[h]
 	\centering
@@ -1336,10 +1315,12 @@ j_1 = 0,\dots, N_1-1, \quad &j_2 = 0,\dots, N_2-1,\\
 	\label{fig:grid}
 \end{figure}
 
-Следующий параграф посвящён описанию результатов численного моделирования согласно приведённым здесь методам. В настоящей работе представляют интерес решения уравнений в осесимметричном случае, поэтому мы не провидим дискретизацию по $\varphi$, и, следовательно, проблемы неравномерного распределения узлов не возникает. Пример двумерной сетки по $x$ и $r$ приведён на рисунке \ref{fig:grid} справа.
+Для численного моделирования мы будем использовать многодоменный метод на сетке, являющейся прямым произведением одномерных сеток по каждой из осей, как это было описано выше. Несмотря на отмеченный недостаток, такая сетка является значительно более простой в реализации. Более того, в настоящей работе рассматриваются решения уравнений лишь в осесимметричном случае, поэтому мы не проводим дискретизацию по $\varphi$, и, следовательно, проблемы неравномерного распределения узлов не возникает. Пример двумерной сетки по $x$ и $r$ приведён на рисунке \ref{fig:grid} справа.
+
+%Следующий параграф посвящён описанию результатов численного моделирования согласно приведённым здесь методам. В настоящей работе представляют интерес решения уравнений в осесимметричном случае, поэтому мы не провидим дискретизацию по $\varphi$, и, следовательно, проблемы неравномерного распределения узлов не возникает. Пример двумерной сетки по $x$ и $r$ приведён на рисунке \ref{fig:grid} справа.
 
 
-%Следующая задача -- сшивка доменов -- проводится также, как в методе конечных элементов. 
+%Следующая задача --- сшивка доменов --- проводится также, как в методе конечных элементов. 
 %\begin{figure}[h]
 %	\centering
 %	\includegraphics[width=\linewidth]{figures/DomainConnect}
@@ -1351,57 +1332,65 @@ j_1 = 0,\dots, N_1-1, \quad &j_2 = 0,\dots, N_2-1,\\
 
 \section{Численное моделирование}
 
+%В этом параграфе проводится сравнение решений в рамках \emph{полных уравнений} (или \emph{полной модели}) 
+
 \subsection{Образование солитона из длинной волны}
-Будем решать задачу Коши для полных уравнений со свободными от напряжений границами ($\vect{P}_b=0$), где начальное условие задано распространяющимся вправо со скоростью $c$ гладким импульсом:
+Будем решать начально-краевую задачу для полных уравнений со свободными от напряжений границами ($\vect{P}_b=0$), где начальное условие задано в виде распространяющейся вправо со скоростью $c$ волны:
 \begin{align}
 \label{3_ic_u}
-& U_0 (x, r) = A_0 W \erf\lb \frac{x - L/2}{W}\rb,&  &\dot{U}_0 (x, r) = -c \pdiff{U_0}{x}&\\
+& U_0 (x, r) = A_0 W \erf\lb \frac{x - L/2}{W}\rb,&  &\dot{U}_0 (x, r) = -c \pdiff{U_0}{x}\\
 \label{3_ic_v}
-& V_0(x, r) = -\nu r \pdiff{U_0}{x},& &\dot{V}_0 (x, r) = -c \pdiff{V_0}{x}&
+& V_0(x, r) = -\nu r \pdiff{U_0}{x},& &\dot{V}_0 (x, r) = -c \pdiff{V_0}{x}
 \end{align}
-На рисунке~\ref{fig:evolution1} слева изображена эволюция этого импульса и зарождение солитона при $A_0=-0.01$, $W=20$ в стержне из полистирола, характеристики которого представлены в таблице~\ref{tab:ps}. Исходный импульс испускает небольшие осцилляции и отрывается от них, что согласуется с моделью Буссинеска, согласно которой солитон распространяется со скоростью недоступной линейным волнам. На рисунке~\ref{fig:evolution1} справа представлено сравнение оторвавшегося в численном моделировании импульса (<<численного>> солитона) с солитонном \eqref{soliton_v} из модели Буссинеска.
+На рисунке~\ref{fig:evolution1} слева изображена эволюция этой волны и зарождение солитона при $A_0=-0.01$, $W=20$ в стержне из полистирола, характеристики которого представлены в таблице~\ref{tab:ps}. Исходная волна испускает небольшие осцилляции и отрывается от них, что согласуется с моделью Буссинеска, согласно которой солитон распространяется со скоростью недоступной линейным волнам. На рисунке~\ref{fig:evolution1} справа представлено сравнение оторвавшейся в численном моделировании волны (<<численного>> солитона) с солитонном \eqref{soliton_v} из модели Буссинеска.
 Если скорость солитона Буссинеска, являющуюся свободным параметром в \eqref{soliton_v}, подобрать так, чтобы она совпадала со скоростью численного солитона, то последний имеет почти ту же длину, что и солитон Буссинеска, но на 6\% большую амплитуду.
-\begin{figure}[h]
+Отметим, что формула \eqref{soliton_v} задаёт четыре солитона различной длины, однако при амплитуде около $0.01$ они практически идентичны.
+\begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.49\linewidth]{figures/SolEvol}
-	\includegraphics[width=0.49\linewidth]{figures/SolCompare}
-	\caption{Слева: решение задачи Коши с начальными условиями \eqref{3_ic_u}, \eqref{3_ic_v} при $A_0=-0.01$, $W=20$ для полных уравнений. На графике изображены профили продольной деформации $-U_x(x - ct, 0, t)$ в центре стержня ($r=0$) в различные моменты времени в движущейся со скоростью $c=\sqrt{E/\rho}$ системе координат. Масштаб деформации показан чёрным прямоугольником. На границах расчётной области задан поглощающий слой, чтобы волны, выходящие за левую границу области не входили справа.\\Справа: сравнение профиля солитона, полученного в численном моделировании, и солитона Буссинеска \eqref{soliton_v}, скорость $v$ которого подобрана так, чтобы она совпадала со скоростью численного солитона.}
+	\includegraphics[width=0.48\linewidth]{figures/SolEvolSmall}
+	\includegraphics[width=0.48\linewidth]{figures/SolCompareSmall}
+	\caption{Слева: решение полных уравнений с начальными условиями \eqref{3_ic_u}, \eqref{3_ic_v} при $A_0=-0.01$, $W=20$. На графике изображены профили продольной деформации $-U_x(x - ct, 0, t)$ в центре стержня в различные моменты времени в движущейся со скоростью $c=\sqrt{E/\rho}$ системе координат. Масштаб деформации показан чёрным прямоугольником. 
+	%На границах расчётной области задан поглощающий слой, чтобы волны, выходящие за левую границу области не входили справа.
+	\\
+	Справа: сравнение профиля солитона, полученного в численном моделировании, и солитона Буссинеска \eqref{soliton_v}, имеющего ту же скорость.}
 	\label{fig:evolution1}
 \end{figure}
-Отметим, что формула \eqref{soliton_v} задаёт четыре солитона различной длины, однако при амплитуде около $0.01$ они практически идентичны.
 
-На рисунке \ref{fig:evolution2} представлены результаты моделирования, аналогичного тому, что показано на рисунке \ref{fig:evolution1}, только с параметром $A_0=-0.05$. Исходная волна рождает два солитона, причём больший солитон движется быстрее меньшего. Сравнение большего солитона с регуляризованным солитоном Буссинеска показано на рисунке \ref{fig:evolution2} справа. При одинаковых скоростях численный солитон значительно длиннее и имеет примерно на 45\% большую амплитуду, чем солитон Буссинеска.
-\begin{figure}[h]
+На рисунке \ref{fig:evolution2} представлены результаты моделирования, аналогичного тому, что показано на рисунке \ref{fig:evolution1}, только с параметром $A_0=-0.05$. Исходная волна рождает два солитона, причём больший солитон движется быстрее меньшего. Сравнение большего солитона с регуляризованным солитоном Буссинеска показано на рисунке \ref{fig:evolution2} справа. При одинаковых скоростях численный солитон значительно длиннее и имеет примерно на 45\% большую амплитуду, чем солитон Буссинеска с такой же скоростью.
+
+Как отмечалось в главе 2, деформации порядка $0.01$ сопоставимы с пределом упругости. Если решать задачу с параметром $A_0 = -0.001$, что соответствует порядку деформаций, возникающих в экспериментах, описанных в~\cite{Garbuzov}, то получающийся в результате солитон будет иметь всего на 0.5\% большую амплитуду, чем солитон Буссинеска с той же скоростью.
+\begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.49\linewidth]{figures/SolEvol2}
-	\includegraphics[width=0.49\linewidth]{figures/SolCompare2}
-	\caption{Слева: решение задачи Коши при $A_0=-0.05$, $W=20$. Справа: сравнение профиля численного солитона и регуляризованного солитона Буссинеска \eqref{soliton_v}, \eqref{B4mod}.}
+	\includegraphics[width=0.48\linewidth]{figures/SolEvolSmall2}
+	\includegraphics[width=0.48\linewidth]{figures/SolCompareSmall2}
+	\caption{Слева: решение полных уравнений при $A_0=-0.05$, $W=20$. Справа: сравнение профиля большего численного солитона и регуляризованного солитона Буссинеска \eqref{soliton_v}, \eqref{B4mod}.}
 	\label{fig:evolution2}
 \end{figure}
 
-Теперь решим аналогичную задачу Коши для регуляризованного уравнения типа Буссинеска, где начальное условие задано формулой:
+Теперь решим аналогичную задачу для регуляризованного уравнения типа Буссинеска, где начальное условие задано формулой:
 \begin{align}
 \label{3_bq_ic}
-& u_0 (x) = 2A_0 \exp\lb \frac{(x - L/2)^2}{W^2}\rb,&  &\dot{u}_0 (x) = -c \pdiff{u_0}{x}.&
+& u_0 (x) = 2A_0 \exp\lb \frac{(x - L/2)^2}{W^2}\rb,&  &\dot{u}_0 (x) = -c \pdiff{u_0}{x}.
 \end{align}
 Отметим, что уравнение Буссинеска записано относительно функции $u = U_{x}$, а выражение поперечного перемещения $V$ через продольное $U$ уже <<вшито>> в модель.
-На рисунке~\ref{fig:evol_compare} слева представлено сравнение эволюции импульса согласно полным уравнениям и согласно модели Буссинеска.
-В первом случае ($A_0=-0.01$) обе модели показывают качественно одинаковый результат, однако модель Буссинеска дала солитон примерно на 8\% большей амплитуды и, как следствие, бегущий быстрее солитона в полной модели. Во втором случае ($A_0=-0.05$) в модели Буссинеска родилось три солитона, а в полной модели два. Меньший солитон в обеих моделях идентичен, а больший солитон в модели Буссинеска на 26\% выше, чем солитон в полной модели.
+
+На рисунке~\ref{fig:evol_compare} слева представлено сравнение эволюции волны согласно полным уравнениям и согласно модели Буссинеска.
+В первом случае ($A_0=-0.01$) обе модели показывают качественно одинаковый результат, однако модель Буссинеска дала солитон примерно на 8\% большей амплитуды и, как следствие, бегущий быстрее солитона в полной модели. Во втором случае ($A_0=-0.05$) в модели Буссинеска родилось три солитона, а в полной модели два. Меньший солитон в обеих моделях идентичен, а больший солитон в модели Буссинеска на 26\% выше, чем солитон в полной модели. В случае малой амплитуды ($A_0=-0.001$) видимого различия между полной моделью и моделью Буссинеска не наблюдается, а разница амплитуды появляющихся солитонов составляет примерно 0.5\%.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.49\linewidth]{figures/SolEvolCompare}
-	\includegraphics[width=0.49\linewidth]{figures/SolEvolCompare2}
-	\caption{Сравнение решения задачи Коши~\eqref{3_bq_ic} для регуляризованной модели Буссинеска и задачи Коши~\eqref{3_ic_u}, \eqref{3_ic_v} для полной модели с параметрами $A_0=-0.01$ (слева) и $A_0=-0.05$ (справа).}
+	\includegraphics[width=0.49\linewidth]{figures/SolEvolCompareSmallBlack}
+	\includegraphics[width=0.49\linewidth]{figures/SolEvolCompareSmallBlack2}
+	\caption{Сравнение решения регуляризованного уравнения Буссинеска с начальным  условием~\eqref{3_bq_ic} и полных уравнений с начальными  условиями~\eqref{3_ic_u}, \eqref{3_ic_v} с параметрами $A_0=-0.01$ (слева) и $A_0=-0.05$ (справа).}
 	\label{fig:evol_compare}
 \end{figure}
 
 Отличительной особенностью нелинейных волн является зависимость скорости от амплитуды волны. 
 %На рисунке \ref{fig:vel_ampl} построены зависимости
-На основе численных решений задачи Коши для полных уравнений с начальными импульсами разной амплитуды мы построили зависимость скорости от амплитуды образовавшегося солитона и сравнили её с зависимостью в модели Буссинеска, задаваемой формулой \eqref{soliton_v} (см. рисунок \ref{fig:vel_ampl}). Зависимость скорости солитона Буссинеска для небольших амплитуд почти линейна, в то время как в полной модели рост скорости солитона существенно замедляется с увеличением амплитуды. На рисунке \ref{fig:vel_ampl} отчётливо виден асимптотический характер модели Буссинеска: чем меньше амплитуда волны, использовавшаяся как малый параметр $\varepsilon$ при выводе в параграфе \ref{sec:derivation}, тем больше соответствие полной модели.
+На основе численных решений полных уравнений с начальными волнами разной амплитуды мы построили зависимость скорости от амплитуды образовавшегося солитона и сравнили её с зависимостью в модели Буссинеска, задаваемой формулой \eqref{soliton_v} (см. рисунок \ref{fig:vel_ampl}). Зависимость скорости солитона Буссинеска для небольших амплитуд почти линейна, в то время как в полной модели рост скорости солитона существенно замедляется с увеличением амплитуды. На рисунке \ref{fig:vel_ampl} отчётливо виден асимптотический характер модели Буссинеска: чем меньше амплитуда волны, использовавшаяся как малый параметр $\varepsilon$ при выводе в параграфе \ref{sec:derivation}, тем больше соответствие полной модели.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\linewidth]{figures/VelAmpl}
-	\caption{Сравнение зависимостей скорости от амплитуды для полных уравнение и модели Буссинеска. Горизонтальная линия -- скорость линейных продольных волн $c$.}
+	\includegraphics[width=0.55\linewidth]{figures/VelAmplBlack}
+	\caption{Сравнение зависимостей скорости от амплитуды в рамках полных уравнений и уравнения Буссинеска. Горизонтальная линия --- скорость линейных продольных волн $c$.}
 	\label{fig:vel_ampl}
 \end{figure}
 
@@ -1420,29 +1409,38 @@ j_1 = 0,\dots, N_1-1, \quad &j_2 = 0,\dots, N_2-1,\\
 \subsection{Образование солитона из удара по торцу стержня}
 В предыдущем пункте моделирование волн проводилось в стержне со свободной от напряжений поверхностью, однако представляет интерес изучение волн, вызываемых внешним воздействием, например, ударом по торцу стержня. Эти результаты могут быть полезны для того, чтобы возбудить уединённые волны в эксперименте. 
 
-Модель типа Буссинеска строилась для бесконечного стержня, следовательно, она применима для описания волн вдали от торцов стержня. Моделирование волн вблизи торцов возможно с помощью полных уравнений \eqref{3_eqns_full} -- \eqref{3_strain} с нулевыми начальными условиями (отсутствие возмущения) следующими условиями на левой и правой границах стержня:
+Модель типа Буссинеска строилась для бесконечного стержня, следовательно, вообще говоря, она применима для описания волн лишь вдали от торцов стержня. Моделирование волн вблизи торцов возможно с помощью полных уравнений с нулевыми начальными условиями (отсутствие возмущения) и следующими условиями на левой и правой границах стержня:
 \begin{align}
 \label{3_impact_stress}
 &P_{xx} = 0.2 \cosh^{-2}\lb\frac t 2\rb\mbox{ГПа}, \qquad P_{rx} = 0&  &\mbox{при}\quad x = 0,\\
 \label{3_impact_stress2}
 &P_{xx} = P_{rx} = 0&  &\mbox{при}\quad x = L
 \end{align}
-Решение полных уравнений представлено рисунке \ref{fig:impact} слева. Быстрое воздействие \eqref{3_impact_stress}, зависимость которого от времени представлена на вертикальном графике, формирует короткий импульс, который впоследствии теряет амплитуду, удлинняется и отрывается от множества порождённых им осцилляций.
-%Очень похожую картину можно получить, если решать исходную задачу Коши \eqref{3_eqns_full} -- \eqref{3_strain}, задав начальное условие в виде короткого импульса, похожего на тот, что образовался в первый момент времени на рисунке \ref{fig:impact}.
+%\begin{figure}[h]
+%	\centering
+%	\vspace{-10mm}
+%	\includegraphics[width=.9\linewidth]{figures/Pxx}
+%	\caption{Схема удара. Зависимость нормального напряжения от времени на торце стержня.}
+%	\label{fig:p_xx}
+%\end{figure}
+
+Чтобы иметь возможность сравнить результаты полной модели с моделью Буссинеска, было выбрано начальное условие в виде узкой волны, похожей по амплитуде и длине на ту, что образовывается в первый момент времени в полной модели. Для этого мы использовали начальное условие в виде:
+\begin{align}
+\label{3_bq_ic_2}
+& u_0 (x) = -0.072 \exp\lb \frac{x^2}{5^2}\rb,&  &\dot{u}_0 (x) = -c \pdiff{u_0}{x}.
+\end{align}
+
+Сравнение решения полных уравнений с решением уравнения типа Буссинеска представлено рисунке \ref{fig:impact}. Быстрое воздействие \eqref{3_impact_stress} формирует короткую волну, половину которой мы видим в момент времени $t=0$. Затем эта волна, уменьшившись в амплитуде и породив множество мелких осцилляций, формирует солитон, отрывающийся от них.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.545\linewidth]{figures/Impact}
-	\includegraphics[width=0.445\linewidth]{figures/ImpactBq}
-	\caption{Моделирование удара по торцу. Слева: решение краевой задачи \eqref{3_impact_stress}, \eqref{3_impact_stress2} для полных уравнений. Справа: решение задачи Коши \eqref{3_bq_ic_2} для резуляризованного уравнения Буссинеска.}
+	%\includegraphics[width=0.545\linewidth]{figures/Impact}
+	%\includegraphics[width=0.445\linewidth]{figures/ImpactBq}
+	\includegraphics[width=\linewidth]{figures/Impact_mod}
+	\caption{Моделирование удара по торцу. Слева: решение полных уравнений с граничными условиями \eqref{3_impact_stress}, \eqref{3_impact_stress2}. Справа: решение резуляризованного уравнения Буссинеска с начальным условием \eqref{3_bq_ic_2}.}
 	\label{fig:impact}
 \end{figure}
 
-Сравним полученный результат с приближённой моделью Буссинеска. Мы не можем задать напряжение на торце стержня в этой модели, однако мы можем поставить начальное условие в виде узкого импульса, похожего по амплитуде и длине на тот, что образовался в первый момент времени на рисунке \ref{fig:impact} слева. Для этого мы использовали начальное условие в виде:
-\begin{align}
-\label{3_bq_ic_2}
-& u_0 (x) = -0.072 \exp\lb \frac{x^2}{5^2}\rb,&  &\dot{u}_0 (x) = -c \pdiff{u_0}{x}.&
-\end{align}
-Результаты моделирования представлены на рисунке \ref{fig:impact} справа. Обе модели дают похожий результат лишь с той разницей, что полная модель учитывает большее количество различных мелких вибраций, порождаемые вошедшим импульсом. Однако по скорости и форме родившиеся в обеих моделях солитоны близки, что свидетельствует о применимости модели Буссинеска для моделирования генерации солитонов из коротких волн, возникающих вследствие удара.
+Обе модели дают похожий результат лишь с той разницей, что полная модель учитывает большее количество различных мелких вибраций, порождаемые возникшей волной. Однако по скорости и форме родившиеся в обеих моделях солитоны достаточно близки: уравнение Буссинеска даёт солитон на 15\% большей амплитуды, при том что величина возмущений большая --- порядка $0.05$.
 %\begin{figure}[h]
 %	\centering
 %	\includegraphics[width=0.49\linewidth]{figures/ImpactBq}
@@ -1457,18 +1455,22 @@ j_1 = 0,\dots, N_1-1, \quad &j_2 = 0,\dots, N_2-1,\\
 \begin{equation}\label{3_surf_imp}
 P_{rr} = 0.3 \cosh^{-2}\lb\frac{t}{10}\rb \cosh^{-2}\lb\frac{x}{10}\rb\mbox{ГПа}, \quad P_{xr} = 0, \quad \mbox{при} \quad r=R.
 \end{equation}
-Напомним, что в уравнении Буссинеска \eqref{3_bq_reg} нормальное граничное напряжение $P_{rr}$ обозначено как функция $P(x,t)$, а тангенциальное напряжение $P_{xr}$ как $T(x,t)$.
+Напомним, что в уравнении Буссинеска \eqref{3_bq_reg} нормальное граничное напряжение $P_{rr}$ обозначено как функция $P(x,t)$, а касательное напряжение $P_{xr}$ как $T(x,t)$.
 
-Результаты моделирования согласно полной модели и согласно модели Буссинеска представлены на рисунке \ref{fig:surf_impact}. Моделирование проводилось на отрезке $-2000<x<2000$, однако в силу симметричности результата относительно нуля мы показываем только правую часть этого промежутка. Зависимости напряжения $P_{rr}$ от $x$ и $r$ представлены на горизонтальном и вертикальном подграфиках соответственно.
+Результаты моделирования согласно полной модели и согласно модели Буссинеска представлены на рисунке \ref{fig:surf_impact}. Моделирование проводилось на отрезке $-2000<x<2000$, однако в силу симметричности результата относительно нуля мы показываем только правую часть этого промежутка. 
+%Зависимости напряжения $P_{rr}$ от $x$ и $r$ представлены на горизонтальном и вертикальном подграфиках соответственно.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\linewidth]{figures/SurfImpact}
+	%\includegraphics[width=\linewidth]{figures/SurfImpact}
 	%\includegraphics[width=0.445\linewidth]{figures/SurfImpactBq}
-	\caption{Моделирование удара по поверхности \eqref{3_surf_imp} в полных уравнениях (слева) и в регуляризованной модели Буссинеска (справа).}
+	\includegraphics[width=\linewidth]{figures/SurfImpact}
+	\caption{Моделирование удара по поверхности \eqref{3_surf_imp} в полных уравнениях и в регуляризованной модели Буссинеска.}
 	\label{fig:surf_impact}
 \end{figure}
 
-В полной модели непродолжительное воздействие на стержень формирует импульс, который потом разделяется на мелкие осцилляции и солитон. В модели Буссинеска формируется солитон с большей амплитудой и скоростью, чем в полной модели, а мелких осцилляций практически нет. Отметим, что созданная внешним воздействием деформация около $x=0$ никуда не движется, что является существенным недостатком модели Буссинеска в этом численном моделировании. 
+Непродолжительное воздействие на небольшую область стержня около $x=0$ формирует две волны сжатия, бегущих в разные стороны. Эта волна затемпотом разделяется на мелкие осцилляции и солитон, отрывающийся от них. Полная модель предсказывает появление солитона амплитудой на 9\% больше, чем в модели Буссинеска.
+
+Ещё раз подчеркнём, что деформации порядка $10^{-2}$ достаточно велики. Для меньших деформаций разница между моделями ещё меньше, из чего можно сделать вывод о применимости уравнения типа Буссинеска для моделирования генерации солитонов из коротких волн, возникающих вследствие удара.
 
 
 %\subsection{О применении полученных результатов для возбуждения солитонов}
@@ -1502,6 +1504,16 @@ P_{rr} = 0.3 \cosh^{-2}\lb\frac{t}{10}\rb \cosh^{-2}\lb\frac{x}{10}\rb\mbox{ГП
 Настоящая работа предполагает продолжение исследования нелинейных волн деформации. Во-первых, представляет научный интерес получение асимптотических моделей в волноводах другой геометрии: в стержне прямоугольного сечения, в тонкостенной оболочке и др. Во-вторых, естественным продолжением этого исследования является попытка учёта в модели вязкоупругого эффекта, приводящего к диссипации энергии и затуханию волн. В-третьих, построенный многодоменный псевдоспектральный метод позволяет легко моделировать волны в многослойных структурах, в частности, в композитах с неидеальным контактом слоёв. Такое исследование может быть применено в дефектоскопии для обнаружения областей расслоения многослойных композитов.
 
 
+\chapter*{Список публикаций}
+\addcontentsline{toc}{chapter}{Список публикаций}
+\begin{enumerate}[{label=[\arabic{*}]}]
+	%\parindent0em 
+	\item Garbuzov F.\,E., Khusnutdinova K.\,R., Semenova I.\,V., On Boussinesq-type models for long longitudinal waves in elastic rods, Wave Motion, 2019, 88, 129--143.
+	\item Samsonov A.\,M., Semenova I.\,V., Garbuzov F.\,E.,  Nonlinear guided bulk waves in heteroge-neous elastic structural elements, Int. J. Nonlin. Mech., 2017, 94, 343--350.
+	\item Semenova I.\,V., Belashov A.\,V., Garbuzov F.\,E., Samsonov A.\,M., Semenov A.\,A., Bulk strain solitons as a tool for determination of the third order elastic moduli of composite materials, Proceedings of SPIE 10329, 2017, 103291W.
+	\item Samsonov A.\,M., Belashov A.\,V., Garbuzov F.\,E., Gula I.\,A., Semenov A.\,A., Semenova I.\,V., Solitary strain waves in a nanostructured rod, Proc. Intern. Conf. Days on Diffraction, 2017, 288--293.
+	\item Гарбузов Ф.\,Е., Самсонов А.\,М., Семёнов А.\,А., Шварц А.\,Г., Определение упругих модулей	3-го порядка по параметрам объёмных солитонов деформации, ПЖТФ, 2016, 42\,(2), 121--123.
+\end{enumerate}
 
 
 
@@ -1552,23 +1564,20 @@ P_{rr} = 0.3 \cosh^{-2}\lb\frac{t}{10}\rb \cosh^{-2}\lb\frac{x}{10}\rb\mbox{ГП
 	\bibitem{NS} Nariboli G.\,A., Sedov A., Burgers-Korteweg de Vries equation for viscoelastic rods and plates, J. Math. Anal. Appl., 1970, 32 (3), 661--677.
 	\bibitem{OS} Ostrovsky~L.\,A., Sutin~A.\,M., Nonlinear elastic waves in rods, PMM, 1977, 41, 531--537.
 	\bibitem{Love} Love A\,.E.\,H., A treatise on the mathematical theory of elasticity, London: Cambridge University Press, 1927.
-	\bibitem{S1}
-	Samsonov~A.\,M., Structural optimization in nonlinear wave propagation problems. In: \textit{Structural Optimization under Dynamical Loading. Seminar and Workshop for Junior Scientists}, U. Lepik ed., Tartu University Press, 75-76 (1982).
-	\bibitem{S2}
-	Samsonov~A.\,M., Soliton evolution in a rod with variable cross section, \textit{Sov. Physics - Doklady} 29 (1984) 586-587.
-	\bibitem{SP}
-	Samsonov~A.\,M., Porubov~A.\,V., Refinement of the model for the propagation of longitudinal strain waves in a rod with nonlinear elasticity, \textit{Tech. Phys. Lett.} 19(6) (1993) 365-366.
+	%\bibitem{S1} Samsonov~A.\,M., Structural optimization in nonlinear wave propagation problems. In: \textit{Structural Optimization under Dynamical Loading. Seminar and Workshop for Junior Scientists}, U. Lepik ed., Tartu University Press, 75-76 (1982).
+	%\bibitem{S2} Samsonov~A.\,M., Soliton evolution in a rod with variable cross section, \textit{Sov. Physics - Doklady} 29 (1984) 586-587.
+	\bibitem{SP} Порубов А\,.В., Самсонов А.\,М. Письма в ЖТФ, 1993, 19(12), 26--29.
 	\bibitem{PV}
-	Porubov~A.\,V., M.G. Velarde, Dispersive - dissipative solitons in nonllinear solids, \textit{Wave Motion} 31(3) (2000) 197-207.
-	\bibitem{E_book} V.I. Erofeev, V.V. Kazhaev, N.P. Semerikova, \textit{Waves in rods: dispersion, dissipation, nonlinearity}, Fizmatlit, Moscow, 2002 (in Russian).
-	\bibitem{DF} Dai~H.-H., Fan~X., Asymptotically approximate model equations for weakly nonlinear long waves in compressible elastic rods and their comparisons with other simplified model equations, \textit{Maths. Mechs. Solids} 9 (2004) 61-79.
-	\bibitem{DC} Dai~H.-H., and Z. Cai, Uniform asymptotic analysis for transient waves in a pre-stressed compressible hyperelastic rod, \textit{Acta Mechanica} 139 (2000) 201-230.
-	\bibitem{KSZ} Khusnutdinova~K.\,R., Samsonov~A.\,M., A.S. Zakharov, Nonlinear layered lattice model and generalized solitary waves in imperfectly bonded structures, \textit{Phys. Rev. E} 79(5) (2009) 056606.
-	\bibitem{KS} Khusnutdinova~K.\,R., Samsonov~A.\,M., Fission of a longitudinal strain solitary wave in a delaminated bar, \textit{Phys. Rev. E} 77 (2008) 066603.
-	\bibitem{KT1} Khusnutdinova~K.\,R., Tranter~M.\,R., Modelling of nonlinear wave scattering in a delaminated elastic bar, \textit{Proc. R. Soc. A} 471 (2015) 20150584.
-	\bibitem{KT2} Khusnutdinova~K.\,R., Tranter~M.\,R., On radiating solitary waves in bi-layers with delamination and coupled Ostrovsky equations, \textit{Chaos} 27 (2017) 013112.
-	\bibitem{JAP2010} Dreiden~G.\,V., Khusnutdinova~K.\,R., Samsonov~A.\,M., and Semenova~I.\,V., Splitting induced generation of soliton trains in layered waveguides, \textit{J. Appl. Phys.} 107 (2010) 034909.
-	\bibitem{JAP2012} Dreiden G.\,V., Khusnutdinova~K.\,R., Samsonov~A.\,M., and Semenova~I.\,V., Bulk strain solitary waves in bonded layered polymeric bars with delamination, \textit{J. Appl. Phys.} 112 (2012) 063516.
+	Porubov~A.\,V., M.G. Velarde, Dispersive - dissipative solitons in nonllinear solids, Wave Motion, 2000, 31(3), 197--207.
+	\bibitem{E_book} Ерофеев В.\,И., Кажаев В.\,В., Семерикова Н.\,П., Волны в	стержнях. Дисперсия. Диссипация. Нелинейность. М.: Физматлит, 2002. -- 208 с.
+	\bibitem{DF} Dai~H.-H., Fan~X., Asymptotically approximate model equations for weakly nonlinear long waves in compressible elastic rods and their comparisons with other simplified model equations, Maths. Mechs. Solids, 2004, 9, 61--79.
+	\bibitem{DC} Dai~H.-H., and Z. Cai, Uniform asymptotic analysis for transient waves in a pre-stressed compressible hyperelastic rod, Acta Mechanica, 2000, 139, 201--230.
+	\bibitem{KSZ} Khusnutdinova~K.\,R., Samsonov~A.\,M., A.S. Zakharov, Nonlinear layered lattice model and generalized solitary waves in imperfectly bonded structures, Phys. Rev. E, 2009, 79(5), 056606.
+	\bibitem{KS} Khusnutdinova~K.\,R., Samsonov~A.\,M., Fission of a longitudinal strain solitary wave in a delaminated bar, Phys. Rev. E, 2008, 77, 066603.
+	\bibitem{KT1} Khusnutdinova~K.\,R., Tranter~M.\,R., Modelling of nonlinear wave scattering in a delaminated elastic bar, Proc. R. Soc. A, 2015, 471, 20150584.
+	\bibitem{KT2} Khusnutdinova~K.\,R., Tranter~M.\,R., On radiating solitary waves in bi-layers with delamination and coupled Ostrovsky equations, Chaos, 2017, 27, 013112.
+	\bibitem{JAP2010} Dreiden~G.\,V., Khusnutdinova~K.\,R., Samsonov~A.\,M., and Semenova~I.\,V., Splitting induced generation of soliton trains in layered waveguides, J. Appl. Phys., 2010, 107, 034909.
+	\bibitem{JAP2012} Dreiden G.\,V., Khusnutdinova~K.\,R., Samsonov~A.\,M., and Semenova~I.\,V., Bulk strain solitary waves in bonded layered polymeric bars with delamination, J. Appl. Phys., 2012, 112, 063516.
 	%\bibitem{ML} J.-F. Mercier, B. Lombard, A two-way model for nonlinear acoustic waves in a non-unfirm lattice of Helmholtz resonators, \textit{Wave Motion} 72 (2017) 260-275.
 	%\bibitem{AM} R. Arredondo and J.P. McHugh, Mean displacement near an interface in a nonlinear string, \textit{SIAM J. Appl. Math.} 78 (2018) 1470-1488.
 	%\bibitem{DS} M. Destrade and G. Saccomandi, Nonlinear transverse waves in deformed dispersive solids, \textit{Wave Motion} 45 (2008) 325-336.
@@ -1577,8 +1586,9 @@ P_{rr} = 0.3 \cosh^{-2}\lb\frac{t}{10}\rb \cosh^{-2}\lb\frac{x}{10}\rb\mbox{ГП
 	%\bibitem{DSS} M. Destrade, G. Saccomandi, I. Sigura, Methodical fitting for mathematical models of rubber-like materials, \textit{Proc. R. Soc. A} 473 (2017) 20160811.
 	%\bibitem{Ogden} R.W. Ogden, \textit{Non-linear elastic deformations}, Dover, Mineola, New York, 1984.
 	\bibitem{bostrm2000} Bostr\"{o}m A., On wave equations for elastic rods, ZAMM, 2000, 80 (4), 245--251. 
-	\bibitem{HughesKelly} Hughes D.\,S., Kelly J.\,L., Second order elastic deformation of solids, Phys. Rev., 1953, 92,  1145-1149.
+	\bibitem{HughesKelly} Hughes D.\,S., Kelly J.\,L., Second order elastic deformation of solids, Phys. Rev., 1953, 92,  1145--1149.
 	\bibitem{ADO} Abiza Z., Destrade M., Ogden R.\,W., Large acoustoelastic effect, Wave Motion, 2012, 49, 364--374.
+	\bibitem{Boyd2011} Boyd J.\,P., Yu F., Comparing seven spectral methods for interpolation and for solving the Poisson equation in a disk: Zernike polynomials, Logan–Shepp ridge polynomials, Chebyshev–Fourier Series, cylindrical Robert functions, Bessel–Fourier expansions, square-to-disk conformal mapping and radial basis functions, Journal of Computational Physics, 2011, 230\,(4) 1408--1438.
 %	\bibitem{PAT} A.V. Pichugin, H. Askes, A. Tyas, Asymptotic equivalence of homogenisation procedures and fine-tuning of continuum theories, \textit{J. Sound and Vibration} 313 92008) 858-874.
 %	\bibitem{ADKM} I.V. Andrianov, V.D. Danishevsky, J.D. Kaplunov and B. Markert, Wide frequency higher-order dynamic model for transient waves in a lattice, In: I.V. Andrianov et al. ed., ``Problems of Nonlinear Mechanics and Physics of Materials", Springer, 2019.
 %	\bibitem{TP1988} G. V. Dreiden, Yu. I. Ostrovsky, A. M. Samsonov, I. V. Semenova, E. V. Sokurinskaya, Formation and propagation of strain solitons in nonlinearly elastic solid, \textit{Techn. Phys.} 58 (1988) 2040-2017. (in Russian)
@@ -1592,9 +1602,10 @@ P_{rr} = 0.3 \cosh^{-2}\lb\frac{t}{10}\rb \cosh^{-2}\lb\frac{x}{10}\rb\mbox{ГП
 \end{thebibliography}
 
 
-\chapter*{Приложение 1}
-\addcontentsline{toc}{chapter}{Приложение 1}
+\chapter*{Приложение 1. \\Длинные формулы}
+\addcontentsline{toc}{chapter}{Приложение 1. Длинные формулы}
 %\label{s:appendix_formulas}
+\vspace{-5mm}
 Нелинейные функции в уравнении \eqref{eq2_1}:
 \begin{equation} \nonumber
 \begin{split}
@@ -1632,24 +1643,24 @@ f_3(x, t) =& -\frac{1}{8 (\lambda +2 \mu )}\bigg(-\frac{2 V_1 (2 (\lambda +l+m)+
 \begin{align}
 \nonumber
 \begin{split}
-f(x,t) &= \frac{1}{16 (\lambda +\mu )^3 (\lambda +2 \mu )}\bigg(\mu  \rho  s^2 (3 \lambda +2 \mu ) (2 \lambda +3 \mu ) S_{tt}+\lambda  \mu  (\lambda +2 \mu ) (3 \lambda +2 \mu ) S_{xx}\\
+f(x,t) &= \frac{1}{16 (\lambda +\mu )^3 (\lambda +2 \mu )}\bigg(\mu  \rho  s^2 (3 \lambda +2 \mu ) (2 \lambda +3 \mu ) P_{tt}+\lambda  \mu  (\lambda +2 \mu ) (3 \lambda +2 \mu ) P_{xx}\\
 &\hspace{25mm}+(\lambda +\mu ) \left(\mu  (\lambda +2 \mu ) (4 \lambda +3 \mu ) U_{0xxx}-\rho c^2 \left(3 \lambda ^2+7 \lambda  \mu +3 \mu ^2\right) U_{0xtt}\right)
 \end{split}\\
 \nonumber
 \begin{split}
-g(x,t) &= -\frac{1}{8(\lambda + \mu)}\bigg(-\frac{2U_{0x}(\lambda + 4l - 2m + n) \left(\lambda(\lambda + \mu) U_{0x} - \mu S (3\lambda + 2\mu)\right)}{(\lambda + \mu)^2} + \\
-&\hspace{20mm}\frac{(3 (\lambda +\mu )+4 l+2 m) \left(\mu  S (3 \lambda +2 \mu )-\lambda  (\lambda +\mu ) U_{0,x}\right){}^2}{(\lambda +\mu )^4} + (4l + 2\lambda)  U_{0x}^2\bigg)
+g(x,t) &= -\frac{1}{8(\lambda + \mu)}\bigg(-\frac{2U_{0x}(\lambda + 4l - 2m + n) \left(\lambda(\lambda + \mu) U_{0x} - \mu P (3\lambda + 2\mu)\right)}{(\lambda + \mu)^2} + \\
+&\hspace{20mm}\frac{(3 (\lambda +\mu )+4 l+2 m) \left(\mu  P (3 \lambda +2 \mu )-\lambda  (\lambda +\mu ) U_{0,x}\right){}^2}{(\lambda +\mu )^4} + (4l + 2\lambda)  U_{0x}^2\bigg)
 \end{split}
 \end{align}
 
 \chapter*{Приложение 2.\\Солитонные решения уравнения типа Буссинеска}
-\addcontentsline{toc}{chapter}{Приложение 2}
+\addcontentsline{toc}{chapter}{Приложение 2. Солитонные решения уравнения типа Буссинеска}
 %All Boussinesq-type equations discussed in the paper can be cast in the form
 Все уравнения типа Буссинеска, обсуждавшиеся в настоящей работе, могут быть записаны в виде:
 \begin{equation}
 u_{tt} - c^2 u_{xx} = \tilde{\beta} (u^2)_{xx} + \tilde\alpha_1 u_{tttt} + \tilde\alpha_2 u_{ttxx} + \tilde\alpha_3 u_{xxxx},
 \end{equation}
-где $c$, $\tilde\beta$ и $\tilde\alpha_i$ -- некоторые постоянные. Будем искать решения в виде волн, бегущих влево или вправо:$ u = u(\xi), \; \mbox{где} \; \xi = x \pm vt, $
+где $c$, $\tilde\beta$ и $\tilde\alpha_i$ --- некоторые постоянные. Будем искать решения в виде волн, бегущих влево или вправо:$ u = u(\xi), \; \mbox{где} \; \xi = x \pm vt, $
 что сводит исходное уравнение к обыкновенному дифференциальному уравнению:
 \begin{equation}
 (v^2 - c^2) u'' = \tilde\beta (u^2)'' + (\tilde\alpha_1 v^4 + \tilde\alpha_2 v^2 + \tilde\alpha_3) u^{IV}.
