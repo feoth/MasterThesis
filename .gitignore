@@ -239,6 +239,5 @@ TSWLatexianTemp*
 *.sta
 
 # generated if using elsarticle.cls
-*.spl
 
 *.txt
