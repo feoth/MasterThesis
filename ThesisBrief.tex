@@ -7,18 +7,6 @@
 \usepackage[T1,T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english,russian]{babel}	% Localization
-%\usepackage{extsizes} % Big font
-%\usepackage{erewhon}  % Different font
-%\setmainfont{Georgia}
-
-% Basic packages XeLaTex
-%\usepackage{xecyr}
-%\usepackage[english,russian]{babel} 
-%\usepackage{fontspec} 
-%\defaultfontfeatures{Ligatures={TeX},Renderer=Basic}
-%\setmainfont[Ligatures={TeX,Historic}]{Times New Roman} 
-%\setsansfont{Comic Sans MS}
-%\setmonofont{Courier New}
 
 % Math
 \usepackage{amsmath,euscript,mathrsfs}
@@ -33,7 +21,6 @@
 % Formatting
 \usepackage[top=20mm,bottom=20mm,left=30mm,right=10mm]{geometry}
 \setlength{\parindent}{1.25cm}
-%\onehalfspacing
 \linespread{1.1}
 \usepackage{enumitem}
 
@@ -46,39 +33,6 @@
 	urlcolor={blue!50!black},
 }
 
-%\mathtoolsset{showonlyrefs=true}
-
-% Dots in section titles
-%\renewcommand{\thechapter}{\arabic{chapter}.}
-%\renewcommand{\thesection}{\thechapter.\arabic{section}.}
-%\renewcommand{\thesubsection}{\thesection.\arabic{subsection}.}
-
-% Rename some sections
-%\addto\captionsrussian{\def\contentsname{Содержание}}
-%\addto\captionsrussian{\def\bibname{Список источников}}
-
-%\renewcommand\contentsname{Содержание}
-%\renewcommand\refname{Список источников}
-%\renewcommand{\printtoctitle}[1]{\Huge\sffamily #1}
-
-% Smaller chapter title
-%\usepackage{titlesec}
-%\titleformat{\chapter}[display]
-%{\bfseries\Large}%
-%{\chaptertitlename\hspace{1ex}\thechapter.}%
-%{2 pt}%
-%{\bfseries\Large}%
-%%\titleformat*{\section}{\thesection \Large}
-%%\titleformat{\section}{}{}{\normalfont\bfseries}{\thesection}
-%\titleformat{\section}{\bfseries\large}{\thesection.}{.5em}{}
-%\titleformat{\subsection}{\bfseries}{\thesubsection.}{.5em}{}
-%
-%\titlespacing*{\chapter}{0pt}{0pt}{40pt}
-
-% Dots in table of contents
-%\usepackage{tocloft}
-%\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % for chapters
-
 % Graphics path for figures
 \graphicspath{{Figures/}}
 
@@ -87,8 +41,6 @@
 \DeclarePairedDelimiter{\norm}{\|}{\|}
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\trace}{tr}
-%\DeclareMathOperator{\tg}{tg}
-%\DeclareMathOperator{\ctg}{ctg}
 \DeclareMathOperator{\sech}{sech}
 
 % Page breaking in multi-line formulae
@@ -403,7 +355,6 @@ u_{tt} - \left(c^2 + \kappa\frac{\beta_1}{\rho}\right) u_{xx} - \frac{2}{\rho}\l
 Все модели достаточно хорошо описывают нижнюю ветвь дисперсионной кривой в длинноволновой области, однако наиболее точной является модель (\ref{eq_dim_free_surf}, $i=2$), что объясняется более аккуратной процедурой исключения функции $V_1$ из уравнений \eqref{2_bc_rr_subst} и \eqref{2_bc_rx_subst}. Уравнение Самсонова -- Порубова обладает коротковолновой неустойчивостью, в то время как остальные три модели не имеют такого эффекта. 
 %Отметим, что коротковолновая неустойчивость затрудняет численный счёт, поскольку высокочастотные гармоники в таком случае могут неограниченно возрастать. 
 Полученные в настоящей работе уравнения \eqref{eq_dim_free_surf} в отличие от других уравнений улавливают вторую ветвь дисперсионной кривой, правда описывают её очень неточно: помимо большого отличия по значению, эти кривые имеют всюду положительный наклон, тогда как точная кривая имеет отрицательный наклон в области длинных волн, что соответствует отрицательной групповой скорости.
-%Уравнение (\ref{eq_dim_free_surf}, $i=2$) лучше описывает нижнюю ветвь для коротких волн, в то время как (\ref{eq_dim_free_surf}, $i=1$) обладает лучшими дисперсионными свойствами как длинноволновая модель.
 
 Все четыре уравнения (\ref{eq_dim_free_surf}) имеют семейство солитонных решений:
 \begin{align}
@@ -468,8 +419,6 @@ B = \sqrt{\frac{A\beta_1}{6\nu^2 E R^2}},
 	\label{fig:grid}
 \end{figure}
 
-%Псевдоспектральный метод или метод коллокации, основан на поиске решения задачи в некотором подпространстве, имеющем конечный базис, в качестве которого чаще всего выбирается базис Фурье (набор синусов и косинусов) или семейство ортогональных многочленов. Этот метод используется только для пространственной дискретизации, в то время как дискретизация по времени проводится стандартными методами, например, Рунге-Кутты 4-го порядка. Мы будем использовать псевдоспектральный метод для решения начально-краевых задач как в полной трёхмерной модели \eqref{murnaghan} -- \eqref{full_eqns}, так и в модели Буссинеска. При пространственной дискретизации уравнений Буссинеска (\ref{eq_dim}, $i=1,2$) возникшая система ОДУ оказалась жёсткой и не поддающейся решению явными методами, поэтому в настоящей работе мы проводили моделирование лишь регуляризованного уравнения \eqref{2_eq_fin_reg}.
-
 На рисунке \ref{fig:evol_compare} представлено сравнение эволюции заданной в начальный момент времени волны согласно полным уравнениям и регуляризованному уравнению Буссинеска при отсутствии граничных напряжений. В рамках обеих моделей возникают солитоны, двигающиеся быстрее линейной скорости $c=\sqrt{E/\rho}$. В первом случае (левый график) модель Буссинеска дала солитон на 8\% большей амплитуды и, как следствие, бегущий несколько быстрее солитона в полной модели. Во втором случае (правый график), отличающегося от первого большей амплитудой начальной волны, отличие полной модели от модели Буссинеска намного значительнее. 
 \begin{figure}[h!]
 	\centering
@@ -489,18 +438,6 @@ B = \sqrt{\frac{A\beta_1}{6\nu^2 E R^2}},
 	\label{fig:sol_compare}
 	\vspace{-3mm}
 \end{figure}
-
-
-%\subsection{Образование солитона из бегущего по поверхности напряжения}
-%Выведенная модель типа Буссинеска отличается от полученных ранее учётом напряжения на поверхности. 
-%\begin{figure}[h]
-%	\centering
-%	\includegraphics[width=0.49\linewidth]{Figures/SolGenForceCompare}
-%	\includegraphics[width=0.49\linewidth]{Figures/SolGenForce}
-%	\caption{}
-%	\label{fig:gen_compar1}
-%\end{figure}
-
 
 Представляет большой интерес возможность возбуждения солитонов в результате внешнего воздействия. На рисунке \ref{fig:impact} представлены результаты моделирования при наличии коротких воздействий (ударов) на торец и на боковую поверхность стержня. Отметим, что в модели Буссинеска стержень предполагается бесконечным и, следовательно, не имеет торцов, однако, мы можем сымитировать удар, задав короткую начальную волну, похожую на ту, что возникает при ударе в полной модели.
 \begin{figure}[h!]
@@ -564,86 +501,4 @@ B = \sqrt{\frac{A\beta_1}{6\nu^2 E R^2}},
 \end{thebibliography}
 
 
-%\chapter*{Приложение 1}
-%\addcontentsline{toc}{chapter}{Приложение 1}
-%%\label{s:appendix_formulas}
-%Нелинейные функции в уравнении \eqref{eq2_1}:
-%\begin{equation} \nonumber
-%\begin{split}
-%&\begin{split}
-%\Phi_1 =& \, 2\left[(-4\lambda - 4\mu + n - 4m) V_1 - 2(\lambda + 2\mu + m) U_{0x}\right] U_2 \\
-%&- \left[ 2(2l + \lambda) V_1 + (3\lambda + 6\mu + 2l + 4m) U_{0x} \right] U_{0xx} \\
-%& - \left[ (2\lambda + 2\mu + 8l + n) V_1 + 2(\lambda + \mu + 2l + m) U_{0x} \right] V_{1x},
-%\end{split} \\
-%&\begin{split}
-%\Phi_2 =& \, \frac12 \left[2 (2\lambda + 2\mu + 8l + n) U_{2x} + (4\lambda + 4\mu + 4m - n) V_{1xx} + 32(2\lambda + 3\mu + 2l + 2m) V_3 \right] V_1 \\
-%& + 2(\lambda + \mu + 2l + m) U_{0x} U_{2x} + 2(\mu + m)\left[ U_{0xx} + 4 V_{1x} \right] U_2 + (\lambda + 2\mu + m)(U_{0x} V_{1x})_x\\
-%& + \frac14(12\lambda + 20\mu + 12m - n) V_{1x}^2 + 8(\lambda + 2l) V_3 U_{0x} + (4\lambda + 12\mu + 4m + n) U_2^2.
-%\end{split}
-%\end{split}
-%\end{equation}
-%Функции из формул \eqref{U2}, \eqref{V3}:
-%\begin{align}
-%\nonumber
-%\begin{split}
-%f_2(x, t) =& \, \frac{1}{8 \mu ^2} \bigg(U_{0xx} V_1 \left(8\mu^2 - 2\mu(-4\lambda + 4l - 4m + n) + \lambda(4\lambda + 4m - n)\right) \\
-%&+ 2V_1 V_{1x} (2 (\lambda + \mu) (2\lambda + \mu) - 8l\mu + 4m(\lambda + \mu) - n(\lambda + 2\mu)) \\
-%&+ \rho c^2 U_{0tt}V_1 (-4(\lambda + \mu) - 4m + n) + 2U_{0x}U_{0xx} \left(-2\mu^2 + \mu(\lambda - 2(l + m)) + \lambda (\lambda + m)\right) \\
-%&+ 4 U_{0x} V_{1x} \left((\lambda + \mu)^2 - 2l\mu + \lambda m\right) - 2\rho c^2 U_{0x}U_{0tt} (\lambda + 2\mu + m)\bigg)
-%\end{split}\\
-%\nonumber
-%\begin{split}
-%f_3(x, t) =& -\frac{1}{8 (\lambda +2 \mu )}\bigg(-\frac{2 V_1 (2 (\lambda +l+m)+3 \mu ) \left(-\rho  s^2 V_{1tt}+2 (\lambda +\mu ) U_{2,x}+\mu  V_{1xx}\right)}{\lambda +2 \mu }\\
-%&-\frac{(\lambda +2 l) U_{0x} \left(-\rho  s^2 V_{1tt}+2 (\lambda +\mu ) U_{2x}+\mu  V_{1xx}\right)}{\lambda +2 \mu }+8 l V_1 U_{2x} + (4l + 2m)U_{0x} U_{2x}\\
-%&+2 U_2 (\mu +m) \left(U_{0xx}+4 V_{1,x}\right)+m (U_{0x}V_{1x})_x + \lb 3\lambda + 5\mu + 3m -\frac{n}{4}\rb V_{1x}^2\\
-%&+\lb 2\lambda + 2\mu + 2m-\frac{n}{2}\rb V_1 V_{1xx}+(2\lambda + 2\mu + n) V_1 U_{2x} + \lambda(U_{0x}V_{1x})_x\\
-%&+ 2\mu(U_{0x} V_{1x})_x + (2\lambda + 2\mu)U_{0x}U_{2x} + (4 (\lambda +3 \mu )+4 m+n) U_2^2 \bigg)
-%\end{split}
-%\end{align}
-%Функции из асимптотического представления $V_1$~\eqref{v1_asympt}:
-%\begin{align}
-%\nonumber
-%\begin{split}
-%f(x,t) &= \frac{1}{16 (\lambda +\mu )^3 (\lambda +2 \mu )}\bigg(\mu  \rho  s^2 (3 \lambda +2 \mu ) (2 \lambda +3 \mu ) S_{tt}+\lambda  \mu  (\lambda +2 \mu ) (3 \lambda +2 \mu ) S_{xx}\\
-%&\hspace{25mm}+(\lambda +\mu ) \left(\mu  (\lambda +2 \mu ) (4 \lambda +3 \mu ) U_{0xxx}-\rho c^2 \left(3 \lambda ^2+7 \lambda  \mu +3 \mu ^2\right) U_{0xtt}\right)
-%\end{split}\\
-%\nonumber
-%\begin{split}
-%g(x,t) &= -\frac{1}{8(\lambda + \mu)}\bigg(-\frac{2U_{0x}(\lambda + 4l - 2m + n) \left(\lambda(\lambda + \mu) U_{0x} - \mu S (3\lambda + 2\mu)\right)}{(\lambda + \mu)^2} + \\
-%&\hspace{20mm}\frac{(3 (\lambda +\mu )+4 l+2 m) \left(\mu  S (3 \lambda +2 \mu )-\lambda  (\lambda +\mu ) U_{0,x}\right){}^2}{(\lambda +\mu )^4} + (4l + 2\lambda)  U_{0x}^2\bigg)
-%\end{split}
-%\end{align}
-%
-%\chapter*{Приложение 2.\\Солитонные решения уравнения типа Буссинеска}
-%\addcontentsline{toc}{chapter}{Приложение 2}
-%%All Boussinesq-type equations discussed in the paper can be cast in the form
-%Все уравнения типа Буссинеска, обсуждавшиеся в настоящей работе, могут быть записаны в виде:
-%\begin{equation}
-%u_{tt} - c^2 u_{xx} = \tilde{\beta} (u^2)_{xx} + \tilde\alpha_1 u_{tttt} + \tilde\alpha_2 u_{ttxx} + \tilde\alpha_3 u_{xxxx},
-%\end{equation}
-%где $c$, $\tilde\beta$ и $\tilde\alpha_i$ -- некоторые постоянные. Будем искать решения в виде волн, бегущих влево или вправо:$ u = u(\xi), \; \mbox{где} \; \xi = x \pm vt, $
-%что сводит исходное уравнение к обыкновенному дифференциальному уравнению:
-%\begin{equation}
-%(v^2 - c^2) u'' = \tilde\beta (u^2)'' + (\tilde\alpha_1 v^4 + \tilde\alpha_2 v^2 + \tilde\alpha_3) u^{IV}.
-%\label{ODE}
-%\end{equation}
-%Интегрируя это уравнения по $\xi$ дважды и требуя, чтобы на бесконечности не было возмущений $u, u', u'', u''' \to 0$ при $\xi \to \pm \infty$, получаем уравнение:
-%\begin{equation}
-%u'' = \frac{(v^2-c^2) u - \tilde\beta u^2}{\tilde\alpha_1 v^4 + \tilde\alpha_2 v^2 + \tilde\alpha_3},
-%\end{equation}
-%которое может рассматриваться как уравнение движения частицы единичной массы в поле потенциальной силы. Интеграл энергии имеет вид:
-%%which can be viewed as Newton's equation of motion for a particle of unit mass in a potential field. The energy integral has the form
-%\begin{equation}
-%E = \frac 12 \left (u' \right )^2 - \frac{3 (v^2-c^2) u^2 - 2 \tilde\beta u^3}{6 (\tilde\alpha_1 v^4 + \tilde\alpha_2 v^2 + \tilde\alpha_3)},
-%\end{equation}
-%а солитонное решение соответствует нулевому уровню энергии $E=0$. Разделение переменных позволяет получить солитонное решение в виде:
-%\begin{equation} \label{4_soliton}
-%u = \frac{3 (v^2 - c^2)}{2 \tilde\beta} \sech^2 \left [\sqrt{\frac{v^2 - c^2}{4 (\tilde\alpha_1 v^4 + \tilde\alpha_2 v^2 + \tilde\alpha_3)}} (x \pm v t)\right ]
-%\end{equation}
-%для таких значений параметра $v$, что это решение вещественнозначное.
-%Решение \eqref{4_soliton} можно репараметризовать через амплитуду $A$:
-%\begin{equation}
-%u = A \sech^2 \left [\sqrt{\frac{3A\tilde{\beta}}{2 (\tilde\alpha_1 (3c^2+2A\beta)^2 + 3\tilde\alpha_2 (3c^2+2A\beta) + 9\tilde\alpha_3)}} \lb x \pm t\sqrt{c^2+\frac23A\beta} \rb\right ].
-%\end{equation}
-	
 \end{document}
