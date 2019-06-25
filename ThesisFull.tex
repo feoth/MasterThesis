@@ -81,7 +81,7 @@
 \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % for chapters
 
 % Graphics path for figures
-\graphicspath{{figures/}}
+\graphicspath{{Figures/}}
 
 % Absolute value declaration
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
@@ -1300,12 +1300,12 @@ j_1 = 0,\dots, N_1-1, \quad &j_2 = 0,\dots, N_2-1,\\
 	\centering
 	\begin{subfigure}{0.5\textwidth}
 		\centering
-		\includegraphics[width=.8\textwidth]{figures/Grid3D}
+		\includegraphics[width=.8\textwidth]{Figures/Grid3D}
 		%\caption{Lorem ipsum}
 	\end{subfigure}
 	\begin{subfigure}{0.48\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/Grid2D}
+		\includegraphics[width=\textwidth]{Figures/Grid2D}
 		%\caption{Lorem ipsum}
 	\end{subfigure}
 	\caption{Пример трёхмерной (слева) и двумерной (справа) сеток из двух доменов, обозначенных разными цветами.}
@@ -1317,7 +1317,7 @@ j_1 = 0,\dots, N_1-1, \quad &j_2 = 0,\dots, N_2-1,\\
 Продемонстрируем ускорение, которое позволяет добиться многодоменный метод. Для этого будем решать полные уравнения в стержне радиусом $R=5$ и длиной $L=100$ с начальным условием в виде некоторой гладкой волны на сетках из 10 точек по $r$ и разным количеством точек по $x$ (от 10 до 70). Затем полученные решения сравним с решением, построенным на сетке $40\times 800$ точек по $r$ и $x$ соответственно. Результат представлен на рисунке \ref{fig:error}. При одном и том же значении относительной погрешности (примерно $1.5\cdot 10^{-4}$) метод с пятью доменами работает более, чем в три раза быстрее, чем однодоменный.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.48\linewidth]{figures/ErrorBlack}
+	\includegraphics[width=0.48\linewidth]{Figures/ErrorBlack}
 	\caption{Относительное отклонение решений по $L_2$-норме на грубых сетках от решения на мелкой сетке $40\times 800$ точек.}
 	\label{fig:error}
 \end{figure}
@@ -1329,7 +1329,7 @@ j_1 = 0,\dots, N_1-1, \quad &j_2 = 0,\dots, N_2-1,\\
 %Следующая задача --- сшивка доменов --- проводится также, как в методе конечных элементов. 
 %\begin{figure}[h]
 %	\centering
-%	\includegraphics[width=\linewidth]{figures/DomainConnect}
+%	\includegraphics[width=\linewidth]{Figures/DomainConnect}
 %	\caption{Сшивка доменов.}
 %	\label{fig:domain_connect}
 %\end{figure}
@@ -1353,8 +1353,8 @@ j_1 = 0,\dots, N_1-1, \quad &j_2 = 0,\dots, N_2-1,\\
 Отметим, что формула \eqref{soliton_v} задаёт четыре солитона различной длины, однако при амплитуде около $0.01$ они практически идентичны.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.48\linewidth]{figures/SolEvolSmall}
-	\includegraphics[width=0.48\linewidth]{figures/SolCompareSmall}
+	\includegraphics[width=0.48\linewidth]{Figures/SolEvolSmall}
+	\includegraphics[width=0.48\linewidth]{Figures/SolCompareSmall}
 	\caption{Слева: решение полных уравнений с начальными условиями \eqref{3_ic_u}, \eqref{3_ic_v} при $A_0=-0.01$, $W=20$. На графике изображены профили продольной деформации $-U_x(x - ct, 0, t)$ в центре стержня в различные моменты времени в движущейся со скоростью $c=\sqrt{E/\rho}$ системе координат. Масштаб деформации показан чёрным прямоугольником. 
 	%На границах расчётной области задан поглощающий слой, чтобы волны, выходящие за левую границу области не входили справа.
 	\\
@@ -1367,8 +1367,8 @@ j_1 = 0,\dots, N_1-1, \quad &j_2 = 0,\dots, N_2-1,\\
 Как отмечалось в главе 2, деформации порядка $0.01$ сопоставимы с пределом упругости. Если решать задачу с параметром $A_0 = -0.001$, что соответствует порядку деформаций, возникающих в экспериментах, описанных в~\cite{Garbuzov}, то получающийся в результате солитон будет иметь всего на 0.3\% большую амплитуду, чем солитон Буссинеска с той же скоростью.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.48\linewidth]{figures/SolEvolSmall2}
-	\includegraphics[width=0.48\linewidth]{figures/SolCompareSmall2}
+	\includegraphics[width=0.48\linewidth]{Figures/SolEvolSmall2}
+	\includegraphics[width=0.48\linewidth]{Figures/SolCompareSmall2}
 	\caption{Слева: решение полных уравнений при $A_0=-0.05$, $W=20$. Справа: сравнение профиля большего численного солитона и регуляризованного солитона Буссинеска \eqref{soliton_v}, \eqref{B4mod}.}
 	\label{fig:evolution2}
 \end{figure}
@@ -1384,8 +1384,8 @@ j_1 = 0,\dots, N_1-1, \quad &j_2 = 0,\dots, N_2-1,\\
 В первом случае ($A_0=-0.01$) обе модели показывают качественно одинаковый результат, однако модель Буссинеска дала солитон примерно на 8\% большей амплитуды и, как следствие, бегущий быстрее солитона в полной модели. Во втором случае ($A_0=-0.05$) в модели Буссинеска родилось три солитона, а в полной модели два. Меньший солитон в обеих моделях идентичен, а больший солитон в модели Буссинеска на 26\% выше, чем солитон в полной модели. В случае малой амплитуды ($A_0=-0.001$) видимого различия между полной моделью и моделью Буссинеска не наблюдается, а разница амплитуды появляющихся солитонов составляет примерно 0.5\%.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.49\linewidth]{figures/SolEvolCompareSmallBlack}
-	\includegraphics[width=0.49\linewidth]{figures/SolEvolCompareSmallBlack2}
+	\includegraphics[width=0.49\linewidth]{Figures/SolEvolCompareSmallBlack}
+	\includegraphics[width=0.49\linewidth]{Figures/SolEvolCompareSmallBlack2}
 	\caption{Сравнение решения регуляризованного уравнения Буссинеска с начальным  условием~\eqref{3_bq_ic} и полных уравнений с начальными  условиями~\eqref{3_ic_u}, \eqref{3_ic_v} с параметрами $A_0=-0.01$ (слева) и $A_0=-0.05$ (справа).}
 	\label{fig:evol_compare}
 \end{figure}
@@ -1395,7 +1395,7 @@ j_1 = 0,\dots, N_1-1, \quad &j_2 = 0,\dots, N_2-1,\\
 На основе численных решений полных уравнений с начальными волнами разной амплитуды мы построили зависимость скорости от амплитуды образовавшегося солитона и сравнили её с зависимостью в модели Буссинеска, задаваемой формулой \eqref{soliton_v} (см. рисунок \ref{fig:vel_ampl}). Зависимость скорости солитона Буссинеска для небольших амплитуд почти линейна, в то время как в полной модели рост скорости солитона существенно замедляется с увеличением амплитуды. На рисунке \ref{fig:vel_ampl} отчётливо виден асимптотический характер модели Буссинеска: чем меньше амплитуда волны, использовавшаяся как малый параметр $\varepsilon$ при выводе в параграфе \ref{sec:derivation}, тем больше соответствие полной модели.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.55\linewidth]{figures/VelAmplBlack}
+	\includegraphics[width=0.55\linewidth]{Figures/VelAmplBlack}
 	\caption{Сравнение зависимостей скорости от амплитуды в рамках полных уравнений и уравнения Буссинеска. Горизонтальная линия --- скорость линейных продольных волн $c$.}
 	\label{fig:vel_ampl}
 \end{figure}
@@ -1405,8 +1405,8 @@ j_1 = 0,\dots, N_1-1, \quad &j_2 = 0,\dots, N_2-1,\\
 %Выведенная модель типа Буссинеска отличается от полученных ранее учётом напряжения на поверхности. 
 %\begin{figure}[h]
 %	\centering
-%	\includegraphics[width=0.49\linewidth]{figures/SolGenForceCompare}
-%	\includegraphics[width=0.49\linewidth]{figures/SolGenForce}
+%	\includegraphics[width=0.49\linewidth]{Figures/SolGenForceCompare}
+%	\includegraphics[width=0.49\linewidth]{Figures/SolGenForce}
 %	\caption{}
 %	\label{fig:gen_compar1}
 %\end{figure}
@@ -1425,7 +1425,7 @@ j_1 = 0,\dots, N_1-1, \quad &j_2 = 0,\dots, N_2-1,\\
 %\begin{figure}[h]
 %	\centering
 %	\vspace{-10mm}
-%	\includegraphics[width=.9\linewidth]{figures/Pxx}
+%	\includegraphics[width=.9\linewidth]{Figures/Pxx}
 %	\caption{Схема удара. Зависимость нормального напряжения от времени на торце стержня.}
 %	\label{fig:p_xx}
 %\end{figure}
@@ -1439,9 +1439,9 @@ j_1 = 0,\dots, N_1-1, \quad &j_2 = 0,\dots, N_2-1,\\
 Сравнение решения полных уравнений с решением уравнения типа Буссинеска представлено рисунке \ref{fig:impact}. Быстрое воздействие \eqref{3_impact_stress} формирует короткую волну, половину которой мы видим в момент времени $t=0$. Затем эта волна, уменьшившись в амплитуде и породив множество мелких осцилляций, формирует солитон, отрывающийся от них.
 \begin{figure}[h]
 	\centering
-	%\includegraphics[width=0.545\linewidth]{figures/Impact}
-	%\includegraphics[width=0.445\linewidth]{figures/ImpactBq}
-	\includegraphics[width=\linewidth]{figures/Impact_mod}
+	%\includegraphics[width=0.545\linewidth]{Figures/Impact}
+	%\includegraphics[width=0.445\linewidth]{Figures/ImpactBq}
+	\includegraphics[width=\linewidth]{Figures/Impact_mod}
 	\caption{Моделирование удара по торцу. Слева: решение полных уравнений с граничными условиями \eqref{3_impact_stress}, \eqref{3_impact_stress2}. Справа: решение резуляризованного уравнения Буссинеска с начальным условием \eqref{3_bq_ic_2}.}
 	\label{fig:impact}
 \end{figure}
@@ -1449,8 +1449,8 @@ j_1 = 0,\dots, N_1-1, \quad &j_2 = 0,\dots, N_2-1,\\
 Обе модели дают похожий результат лишь с той разницей, что полная модель учитывает большее количество различных мелких вибраций, порождаемые возникшей волной. Однако по скорости и форме родившиеся в обеих моделях солитоны достаточно близки: уравнение Буссинеска даёт солитон на 15\% большей амплитуды, при том что величина возмущений большая --- порядка $0.05$.
 %\begin{figure}[h]
 %	\centering
-%	\includegraphics[width=0.49\linewidth]{figures/ImpactBq}
-%	%\includegraphics[width=0.49\linewidth]{figures/ImpactKdV}
+%	\includegraphics[width=0.49\linewidth]{Figures/ImpactBq}
+%	%\includegraphics[width=0.49\linewidth]{Figures/ImpactKdV}
 %	\caption{Слева: решение задачи Коши для регуляризованного уравнения Буссинеска с начальным условием \eqref{3_bq_ic_2}. Справа: решение аналогичной задачи для уравнения КдФ.}
 %	\label{fig:impact_bq_kdv}
 %\end{figure}
@@ -1467,9 +1467,9 @@ P_{rr} = 0.3 \cosh^{-2}\lb\frac{t}{10}\rb \cosh^{-2}\lb\frac{x}{10}\rb\mbox{ГП
 %Зависимости напряжения $P_{rr}$ от $x$ и $r$ представлены на горизонтальном и вертикальном подграфиках соответственно.
 \begin{figure}[h]
 	\centering
-	%\includegraphics[width=\linewidth]{figures/SurfImpact}
-	%\includegraphics[width=0.445\linewidth]{figures/SurfImpactBq}
-	\includegraphics[width=\linewidth]{figures/SurfImpact}
+	%\includegraphics[width=\linewidth]{Figures/SurfImpact}
+	%\includegraphics[width=0.445\linewidth]{Figures/SurfImpactBq}
+	\includegraphics[width=\linewidth]{Figures/SurfImpact}
 	\caption{Моделирование удара по поверхности \eqref{3_surf_imp} в полных уравнениях и в регуляризованной модели Буссинеска.}
 	\label{fig:surf_impact}
 \end{figure}

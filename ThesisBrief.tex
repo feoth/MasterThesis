@@ -80,7 +80,7 @@
 %\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % for chapters
 
 % Graphics path for figures
-\graphicspath{{figures/}}
+\graphicspath{{Figures/}}
 
 % Absolute value declaration
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
@@ -456,12 +456,12 @@ B = \sqrt{\frac{A\beta_1}{6\nu^2 E R^2}},
 	\centering
 	%\begin{subfigure}{0.5\textwidth}
 	\centering
-	\includegraphics[width=.35\textwidth]{figures/Grid3D}
+	\includegraphics[width=.35\textwidth]{Figures/Grid3D}
 	%\caption{Lorem ipsum}
 	%\end{subfigure}
 	%\begin{subfigure}{0.48\textwidth}
 	%		\centering
-	%		\includegraphics[width=\textwidth]{figures/Grid2D}
+	%		\includegraphics[width=\textwidth]{Figures/Grid2D}
 	%\caption{Lorem ipsum}
 	%	\end{subfigure}
 	\caption{Пример трёхмерной сетки из двух доменов, обозначенных разными цветами.}
@@ -473,8 +473,8 @@ B = \sqrt{\frac{A\beta_1}{6\nu^2 E R^2}},
 На рисунке \ref{fig:evol_compare} представлено сравнение эволюции заданной в начальный момент времени волны согласно полным уравнениям и регуляризованному уравнению Буссинеска при отсутствии граничных напряжений. В рамках обеих моделей возникают солитоны, двигающиеся быстрее линейной скорости $c=\sqrt{E/\rho}$. В первом случае (левый график) модель Буссинеска дала солитон на 8\% большей амплитуды и, как следствие, бегущий несколько быстрее солитона в полной модели. Во втором случае (правый график), отличающегося от первого большей амплитудой начальной волны, отличие полной модели от модели Буссинеска намного значительнее. 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.44\linewidth]{figures/SolEvolCompareSmall}
-	\includegraphics[width=0.44\linewidth]{figures/SolEvolCompareSmall2}
+	\includegraphics[width=0.44\linewidth]{Figures/SolEvolCompareSmall}
+	\includegraphics[width=0.44\linewidth]{Figures/SolEvolCompareSmall2}
 	\caption{Профили решений $-u(x-ct, t)$ регуляризованного уравнения Буссинеска и продольной деформации $-U_x(x - ct, 0, t)$ в центре стержня ($r=0$) в различные моменты времени. Масштаб амплитуды деформации показан чёрным прямоугольником.}
 	\label{fig:evol_compare}
 	\vspace{-2mm}
@@ -483,7 +483,7 @@ B = \sqrt{\frac{A\beta_1}{6\nu^2 E R^2}},
 На рисунке \ref{fig:sol_compare} представлено сравнение зависимости скорости солитона от амплитуды в модели Буссинеска \eqref{soliton} и в полной модели. На этом рисунке отчётливо виден асимптотический характер модели Буссинеска.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.53\linewidth]{figures/VelAmplSmall}
+	\includegraphics[width=0.53\linewidth]{Figures/VelAmplSmall}
 	\vspace{-2mm}
 	\caption{Зависимость скорости солитона от амплитуды. Горизонтальная линия --- скорость линейных волн $c$.}
 	\label{fig:sol_compare}
@@ -495,8 +495,8 @@ B = \sqrt{\frac{A\beta_1}{6\nu^2 E R^2}},
 %Выведенная модель типа Буссинеска отличается от полученных ранее учётом напряжения на поверхности. 
 %\begin{figure}[h]
 %	\centering
-%	\includegraphics[width=0.49\linewidth]{figures/SolGenForceCompare}
-%	\includegraphics[width=0.49\linewidth]{figures/SolGenForce}
+%	\includegraphics[width=0.49\linewidth]{Figures/SolGenForceCompare}
+%	\includegraphics[width=0.49\linewidth]{Figures/SolGenForce}
 %	\caption{}
 %	\label{fig:gen_compar1}
 %\end{figure}
@@ -506,7 +506,7 @@ B = \sqrt{\frac{A\beta_1}{6\nu^2 E R^2}},
 \begin{figure}[h!]
 	\centering
 	\vspace{-2mm}
-	\includegraphics[width=.88\linewidth]{figures/Impact2Black_mod}
+	\includegraphics[width=.88\linewidth]{Figures/Impact2Black_mod}
 	\caption{Удар по торцу (верхний график) и по боковой поверхности (нижний график) в стержне из полистирола. Вертикальный и горизонтальные подграфики показывают зависимость нормального напряжения на поверхности от времени и координаты $x$. При ударе по торцу напряжение задано одинаковым на всей площади торца.}
 	\label{fig:impact}
 	\vspace{-2.5mm}
